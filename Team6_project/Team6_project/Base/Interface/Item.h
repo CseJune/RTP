@@ -1,13 +1,12 @@
 #pragma once
-#include"Character.h"
-#include <iostream>
 #include <string>
 
+class Character;
 using namespace std;
 
 class Item
 {
     public:
-    virtual string getName() const = 0;
-    virtual void use(Character* character) = 0;
+    virtual string GetName() const = 0;
+    virtual void Use(Character* character) = 0;
 };
