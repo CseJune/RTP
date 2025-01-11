@@ -4,16 +4,20 @@
 #include <cstdlib>
 #include <time.h>
 #include "GameManager.h"
+#include "Character.h"
+#include "Monster.h"
 
 using namespace std;
 
 
 // StartGame 함수 정의
-void StartGame(int start) {
+void StartGame(int start) 
+{
     if (start == 1) {
         cout << "게임을 시작합니다.\n";
     }
-    else if (start == 2) {
+    else if (start == 2) 
+    {
         cout << "캠프를 탈주하셨습니다.\n";
         exit(0);
     }
@@ -22,34 +26,52 @@ void StartGame(int start) {
 // StartBoss 함수 정의
 void StartBoss() {
     int Boss = 0; // 초기화
-    while (true) {
+    while (true) 
+    {
         cout << "1. GPT 사용\n";
         cin >> Boss;
 
-        if (Boss == 1) {
+        if (Boss == 1) 
+        {
             cout << "데미지가 들어가지 않습니다.\n";
             break;
         }
-        else {
+        else 
+        {
             cout << "잘못된 선택입니다. 다시 선택해주세요.\n";
         }
     }
 }
 
 //전투 함수 정의
-void battle() {
+void battle(Character A, Tutor B)
+{
     cout << "전투를 시작합니다!\n";
-    while (player.hp > 0 && Monster.hp > 0) {
-        int damageToMonster = player.add;
-        Monster.health -= damageToMonster;
-        cout << "플레이어가 " << damageToMonster << "의 피해를 입혔습니다!\n";
-        if (Monster.health <= 0) {
-            cout << Monster.name << "를 물리쳤습니다!\n";
-            inventory.gold += 10; // 보상
-            return;
-        }
+    while (A.getHp() > 0 && B.getHp() > 0)
+    {
+        int damageToTutor = A.getAdd();
+        B.takeDamage(damageToTutor) ;
+        cout << "플레이어가 " << damageToTutor << "의 피해를 입혔습니다!\n";
 
-        int main() {
+        int damageToCharacter = B.getAdd();
+        A.getHp() -= damageToCharacter;
+        cout << "튜터가 " << damageToCharacter << "의 피해를 입혔습니다!\n";
+
+        if (B.getHp()<= 0) 
+        {
+            cout << B.name << "를 물리쳤습니다!\n";
+            A.inventory.gold += 10; // 보상
+            A.exp += 100;
+        }
+        else if (A.getHp() <= 0)
+        {
+            cout << A.name << "은 제적 당하셨습니다.\n";         
+        }
+    }
+}
+
+      /*  int main()
+        {
             int start = 0;
 
             cout << "코딩을 시작하시겠습니까?\n";
@@ -64,4 +86,4 @@ void battle() {
             StartBoss();
 
             return 0;
-        }
+        }*/

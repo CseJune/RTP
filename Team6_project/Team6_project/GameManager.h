@@ -4,18 +4,20 @@
 #include <cstdlib>
 #include <time.h>
 #include <string>
+#include "Character.h"
+#include "Monster.h"
 
 using namespace std;
 
 class GameManager
 {
 public:
-	Monster* generateMonster(int level = 1);
+	Tutor* generateMonster(int level = 1);
 	void battle(Character* player);
 	void displayInventory();
 	void generateTutor();
 	void StartGame(int start);
 	void StartBoss();
-	void monster();
+	void Tutor();
 
 };
