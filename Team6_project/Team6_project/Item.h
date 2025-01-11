@@ -1,12 +1,14 @@
 #pragma once
 #include"Character.h"
-#include"GameManager.h"
 #include <iostream>
-#include <vector>
 #include <string>
 
-class Item 
+using namespace std;
+
+class Item
 {
-	virtual string getname();
-	virtual void use(Character* character);
+    public:
+    virtual string getName() const = 0;
+    virtual void use(Character* character) = 0;
+    
 };
