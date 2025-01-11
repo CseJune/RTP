@@ -130,13 +130,16 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameManager.h" />
-    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Item\CodingBooster.cpp" />
+    <ClCompile Include="Item\HealthPotion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Base\Interface\Item.h" />
     <ClInclude Include="Character.h" />
-    <ClInclude Include="Item.h" />
+    <ClInclude Include="Item\CodingBooster.h" />
+    <ClInclude Include="Item\HealthPotion.h" />
     <ClInclude Include="Monster.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
