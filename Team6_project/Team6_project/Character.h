@@ -10,11 +10,9 @@ class Character
 {
 public:
 	Character();
-
 	void displayStatus();
 	void levelUp();
-	void useItem();
-	void visitShop();
+	//void visitShop();
 	static Character* getinstance(string name = "");
 
 private:
@@ -22,8 +20,20 @@ private:
 	int maxhp;
 	int add;
 	string name;
-	vector<string> inventory;
 	int exp;
 	int level;
 	int gold;
+	int need_levelUp_exp = 100;
+	static Character* instance; // 정적 멤버 변수 선언
+};
+
+class Inventory 
+{
+public:
+	void addItem(string& item); // 아이템 추가
+	void displayInventory();
+	bool useItem(string& item);
+
+private:
+	vector<string> items;
 };
