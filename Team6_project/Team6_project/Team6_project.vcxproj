@@ -279,14 +279,18 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MaxHealthPotion.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="TutorAttackReduction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="CodingBooster.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="MaxHealthPotion.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="TutorAttackReduction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

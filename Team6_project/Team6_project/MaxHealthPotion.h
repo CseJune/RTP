@@ -3,18 +3,16 @@
 #include <string>
 #include "Item.h"
 
-class Character;
-
 using namespace std;
 
-class HealthPotion : public Item
+class MaxHealthPotion
 {
 private:
     string name;    // 아이템 이름   
-    int healthIncrease; // 체력 증가량
+    int maxHealthIncrease;    // 최대 체력 증가량
 
 public:    
-    HealthPotion();    // 생성자
+    MaxHealthPotion();    // 생성자
     string GetName();   // 아이템 이름 반환
     void Use(Character* character); // 캐릭터 체력 증가 효과 적용
 };
