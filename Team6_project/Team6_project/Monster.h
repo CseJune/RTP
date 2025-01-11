@@ -26,7 +26,8 @@ protected:
 class ManagerTutor : Tutor 
 {
 public:
-	ManagerTutor(string name, int hp, int add) : Tutor(name, hp, add) {}
+	ManagerTutor();
+	ManagerTutor(string name, int hp, int add);
 	string getName() override;
 	int getHp() override;
 	int getAdd() override;
