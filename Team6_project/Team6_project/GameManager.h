@@ -1,8 +1,8 @@
 #pragma once
-#include"Character.h"
-#include"Monster.h"
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <time.h>
 #include <string>
 
 using namespace std;
@@ -13,5 +13,9 @@ public:
 	Monster* generateMonster(int level = 1);
 	void battle(Character* player);
 	void displayInventory();
+	void generateTutor();
+	void StartGame(int start);
+	void StartBoss();
+	void monster();
 
 };
