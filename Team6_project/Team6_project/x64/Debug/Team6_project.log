@@ -1,6 +1,40 @@
 ﻿  Character.cpp
+  GameManager.cpp
+  GameManager.h
+  Item.cpp
+  main.cpp
   Monster.cpp
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(18,14): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(18,10): error C2433: 'Monster::Item': 데이터 선언에 'virtual'을(를) 사용할 수 없습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(18,14): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(18,26): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(28,14): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(28,10): error C2433: 'BossMonster::Item': 데이터 선언에 'virtual'을(를) 사용할 수 없습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(28,14): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\Monster.h(28,35): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'Item.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\GameManager.h(13,9): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\GameManager.h(13,9): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
+  
+D:\Git\RTP\Team6_project\Team6_project\GameManager.h(13,41): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
+  
   코드를 생성하고 있습니다...
-x64\Debug\GameManager.obj : warning LNK4042: 개체가 두 번 이상 지정되었습니다. 나머지는 무시됩니다.
-MSVCRTD.lib(exe_main.obj) : error LNK2019: main"int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
-D:\Project 6\Team6_project\x64\Debug\Team6_project.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
