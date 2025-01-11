@@ -1,6 +1,61 @@
 ﻿  Character.cpp
+  CodingBooster.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'CodingBooster.cpp'을(를) 컴파일하는 중)
+  
+  GameManager.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(8,39): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(11,1): error C2146: 구문 오류: ')'이(가) 'string' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(13,5): error C2534: 'CodingBooster': 생성자는 값을 반환할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(7,7):
+      'CodingBooster' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(13,5): error C2562: 'CodingBooster::CodingBooster': 'void' 함수에서 값을 반환하고 있습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(8,16):
+      'CodingBooster::CodingBooster' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(17,21): error C2039: 'use': 'CodingBooster'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(7,7):
+      'CodingBooster' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(21,14): error C2059: 구문 오류: '->'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,30): error C2065: 'ъ슜': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,38): error C2065: '肄붾뵫μ씠': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,54): error C2143: 구문 오류: ';'이(가) 'user-defined string literal' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,54): error C3688: 잘못된 리터럴 접두사 'CodingIncrease'입니다. 리터럴 연산자 또는 리터럴 연산자 템플릿 '연산자 ""CodingIncrease'을(를) 찾을 수 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,74): error C2143: 구문 오류: ';'이(가) ':' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,74): error C2059: 구문 오류: ':'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,123): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,9): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,2): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,41): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(14,14): error C2061: 구문 오류: 식별자 'Character'
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(50,21): error C2059: 구문 오류: '.'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(51,5): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(52,29): error C2275: 'Character': 형식 대신 식이 필요합니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(53,14): error C2059: 구문 오류: '.'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(55,18): error C2059: 구문 오류: '.'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(55,28): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(56,21): error C2275: 'Tutor': 형식 대신 식이 필요합니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(57,13): error C2065: 'inventory': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(61,13): error C2601: 'main': 지역 함수 정의가 잘못되었습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(51,5):
+      이 줄에 짝이 되지 않는 '{'가 들어 있습니다.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(51,5): error C1075: '{': 일치하는 토큰을 찾을 수 없습니다.
   GameManager.h
-  Item.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,9): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,2): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,41): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(14,14): error C2061: 구문 오류: 식별자 'Character'
   Monster.cpp
   코드를 생성하고 있습니다...
-  Team6_project.vcxproj -> D:\git\RTP\Team6_project\x64\Debug\Team6_project.exe
