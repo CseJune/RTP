@@ -15,6 +15,14 @@ public:
 	//void visitShop();
 	static Character* getinstance(string name = "");
 
+	// 코딩력 증가 추가
+	void IncreaseCodingPower(int codingIncrease);
+
+	// 체력 관련 기능
+	void IncreaseHealth(int healthIncrease);
+	int GetHealth();
+	int GetMaxHealth();
+
 private:
 	int hp;
 	int maxhp;
