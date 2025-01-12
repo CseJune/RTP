@@ -8,7 +8,7 @@ using namespace std;
 
 class Character
 {
-public:
+/*public:
 	Character();
 	void displayStatus();
 	void levelUp();
@@ -25,6 +25,35 @@ public:
 
 	// 최대체력 증가 함수 추가
 	void IncreaseMaxHealth(int maxHealthIncrease);
+	*/
+
+public:
+	Character();
+	void displayStatus();
+	void levelUp();
+	void IncreaseCodingPower(int codingIncrease);
+	int GetHealth();
+	int GetMaxHealth();
+	void IncreaseHealth(int healthIncrease);
+	void IncreaseMaxHealth(int maxHealthIncrease);
+	static Character* getinstance(string name = "");
+
+	// Getter와 Setter
+	int getHp() const { return hp; }
+	void setHp(int value) { hp = value; }
+	int getMaxHp() const { return maxhp; }
+	void setMaxHp(int value) { maxhp = value; }
+	int getExp() const { return exp; }
+	void addExp(int value) { exp += value; }
+	int getGold() const { return gold; }
+	void addGold(int value) { gold += value; }
+	int getLevel() const { return level; }
+	void setLevel(int value) { level = value; }
+	int getAdd() const { return add; }
+	void setAdd(int value) { add = value; }
+		
+
+	
 
 private:
 	int hp;
@@ -38,7 +67,7 @@ private:
 	static Character* instance; // 정적 멤버 변수 선언
 };
 
-class Inventory 
+class Inventory		
 {
 public:
 	void addItem(string& item); // 아이템 추가
