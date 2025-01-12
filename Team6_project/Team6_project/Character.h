@@ -23,6 +23,9 @@ public:
 	int GetHealth();
 	int GetMaxHealth();
 
+	// 최대체력 증가 함수 추가
+	void IncreaseMaxHealth(int maxHealthIncrease);
+
 private:
 	int hp;
 	int maxhp;
