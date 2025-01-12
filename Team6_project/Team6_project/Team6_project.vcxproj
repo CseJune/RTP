@@ -278,6 +278,7 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MaxHealthPotion.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -288,6 +289,7 @@
     <ClInclude Include="CodingBooster.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="MaxHealthPotion.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="TutorAttackReduction.h" />

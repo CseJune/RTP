@@ -18,7 +18,6 @@ Character* Character::getinstance(string name)
 	return instance; // 항상 동일한 인스턴스 반환
 }
 
-
 // 캐릭터 초기 생성자
 Character::Character()
 	: hp(200), maxhp(200), add(30), exp(0), name(name), level(1), gold(0)
@@ -54,6 +53,39 @@ void Inventory::displayInventory()
 	for (size_t i = 0; i < items.size(); ++i)
 	{
 		cout << "[" << (i + 1) << "] " << items[i] << endl;
+	}
+}
+
+// 코딩력 증가 메서드 구현
+void Character::IncreaseCodingPower(int codingIncrease)
+{
+	add += codingIncrease;
+}
+
+// 체력 회복 관련 함수 구현
+
+// 1. 캐릭터의 현재 체력을 반환
+int Character::GetHealth()
+{
+	return hp;
+}
+
+//2. 캐릭터의 최대 체력을 반환
+int Character::GetMaxHealth()
+{
+	return maxhp;
+}
+
+//3. 캐릭터의 HP를 증가시키는 로직 구현
+void Character::IncreaseHealth(int healthIncrease)
+{
+	if (hp + healthIncrease > maxhp)
+	{
+		hp = maxhp;
+	}
+	else
+	{
+		hp += healthIncrease;
 	}
 }
 

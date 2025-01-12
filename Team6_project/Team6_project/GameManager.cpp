@@ -44,30 +44,45 @@ void StartBoss() {
 }
 
 //전투 함수 정의
-void battle(Character A, Tutor B)
+void battle(Character& A, Tutor& B)
 {
     cout << "전투를 시작합니다!\n";
     while (A.getHp() > 0 && B.getHp() > 0)
     {
+        // 플레이어가 공격
         int damageToTutor = A.getAdd();
-        B.takeDamage(damageToTutor) ;
-        cout << "플레이어가 " << damageToTutor << "의 피해를 입혔습니다!\n";
+        B.takeDamage(damageToTutor);
+        cout << A.name << "이(가) " << B.name << "에게 " << damageToTutor << "의 피해를 입혔습니다!\n";
 
-        int damageToCharacter = B.getAdd();
-        A.getHp() -= damageToCharacter;
-        cout << "튜터가 " << damageToCharacter << "의 피해를 입혔습니다!\n";
+        // 튜터가 공격
+        if (B.getHp() > 0)
+        {
+            int damageToCharacter = B.getAdd();
+            A.takeDamage(damageToCharacter);
+            cout << B.name << "이(가) " << A.name << "에게 " << damageToCharacter << "의 피해를 입혔습니다!\n";
+        }
 
-        if (B.getHp()<= 0) 
+        // 전투 결과 확인
+        if (B.getHp() <= 0)
         {
             cout << B.name << "를 물리쳤습니다!\n";
             A.inventory.gold += 10; // 보상
             A.exp += 100;
         }
-        else if (A.getHp() <= 0)
-        {
-            cout << A.name << "은 제적 당하셨습니다.\n";         
+        else if (A.getHp() <= 0) {
+            cout << A.name << "이(가) 제적 당했습니다...\n";
+
         }
     }
+}
+
+//전투 후 보유 골드, 레벨, 경험치 확인
+void AfterBattle()
+{
+    cout << A.name << "의 남은 체력: " << A.getHp() << "\n";
+    cout << "보유한 골드: " << A.inventory.gold << "\n";
+    cout << A.name << "의 Level: " << A.Level() << "\n";
+    cout << "획득한 경험치: " << A.exp << "\n";
 }
 
       /*  int main()
