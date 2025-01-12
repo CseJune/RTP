@@ -1,8 +1,9 @@
-#pragma once
+﻿#pragma once
 #include "Character.h"
 #include "Item.h"
 #include <iostream>
 #include <string>
+#include "ItemFactory.h"
 
 using namespace std;
 
@@ -18,6 +19,8 @@ public:
 	virtual void setAdd(int add);
 	virtual int getAdd();
 	virtual void takeDamage(int add);
+	//virtual void reduceAttackDamage(int addreduction);
+
 private:
 	string name;
 	int hp;
@@ -29,7 +32,6 @@ class ManagerTutor : Tutor
 public:
 	ManagerTutor(Character a, string name);
 };
-
 
 class BasicTutor : public Tutor
 {

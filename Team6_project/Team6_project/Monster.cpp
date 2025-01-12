@@ -1,4 +1,4 @@
-#include "Monster.h" // "Tutor.h"·Î º¯°æ
+ï»¿#include "Monster.h" // "Tutor.h"ë¡œ ë³€ê²½
 #include "Item.h"
 #include "Character.h"
 #include <iostream>
@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// Tutor ¸Å¼­µå
+// Tutor ë§¤ì„œë“œ
 
 string Tutor::getName()
 {
@@ -30,7 +30,7 @@ void Tutor::takeDamage(int add)
 	hp -= add;
 }
 
-// ManagerTutor »ı¼ºÀÚ
+// ManagerTutor ìƒì„±ì
 ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -42,8 +42,7 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
-
-//BasicTutor »ı¼ºÀÚ
+//BasicTutor ìƒì„±ì
 BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -55,7 +54,7 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
-//StandardTutor »ı¼ºÀÚ
+//StandardTutor ìƒì„±ì
 StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -67,7 +66,7 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
-//Challengetutor »ı¼ºÀÚ
+//Challengetutor ìƒì„±ì
 ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -79,7 +78,7 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
-//BossTutor »ı¼ºÀÚ
+//BossTutor ìƒì„±ì
 BossTutor::BossTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -90,3 +89,9 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name)
 	uniform_int_distribution<int> dis(a.getLevel() * 50, a.getLevel() * 60);
 	setAdd(dis(gen));
 }
+
+//íŠœí„° ê³µê²©ë ¥ ê°ì†Œ ì•„ì´í…œ
+//void Tutor::reduceAttackDamage(int addReduction)
+//{
+//
+//}
