@@ -1,1 +1,65 @@
-﻿  Character.cpp
+﻿  CodingBooster.cpp
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,13): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+  HealthPotion.cpp
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(21,17): warning C4566: 유니버설 문자 이름 '\u26A0'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(21,17): warning C4566: 유니버설 문자 이름 '\uFE0F'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(28,13): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+  ItemFactory.cpp
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,20): error C2259: 'HealthPotion': 추상 클래스를 인스턴스화할 수 없습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(10,7):
+      'HealthPotion' 선언을 참조하십시오.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,20):
+      다음 멤버가 원인입니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,20):
+      'void Item::Use(Tutor *)': abstract입니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(19,18):
+      'Item::Use' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,32): error C2259: 'HealthPotion': 추상 클래스를 인스턴스화할 수 없습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(10,7):
+      'HealthPotion' 선언을 참조하십시오.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,32):
+      다음 멤버가 원인입니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,32):
+      'void Item::Use(Tutor *)': abstract입니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(19,18):
+      'Item::Use' 선언을 참조하십시오.
+  
+  MaxHealthPotion.cpp
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,17): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+  Monster.cpp
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(42,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(39,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(53,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(50,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(64,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(61,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(75,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(72,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(86,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(83,32):
+      'dis' 선언을 참조하십시오.
+  
+  TutorAttackReduction.cpp
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(11,30): error C2511: 'std::string TutorAttackReduction::GetName(void)': 오버로드된 멤버 함수가 'TutorAttackReduction'에 없습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(12,7):
+      'TutorAttackReduction' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(13,12): error C2597: 비정적 멤버 'TutorAttackReduction::name'에 대한 참조가 잘못되었습니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(15,12):
+      'TutorAttackReduction::name' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(21,12): error C2039: 'reduceAttackDamage': 'Tutor'의 멤버가 아닙니다.
+      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
+  
+C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(24,13): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
+  코드를 생성하고 있습니다...

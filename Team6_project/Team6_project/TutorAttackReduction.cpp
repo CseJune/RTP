@@ -9,14 +9,14 @@ TutorAttackReduction::TutorAttackReduction() : name("노이즈 캔슬링 헤드�
 
 // 아이템 이름 반환
 string TutorAttackReduction::GetName() const
-{ 
+{
     return name;
 }
 
 // 튜터의 공격력을 감소시키는 효과 적용
 void TutorAttackReduction::Use(Tutor* tutor)
 {
-    // 튜터의 공격력을 감소시킴
+    // 튜터의 공격력 감소시킴
     // reduceAttack을 튜터에서 구현하고 내용은 인자값만큼 공격력 감소시키면 됨
     tutor->reduceAttackDamage(attackReduction);   // 공격력 감소
 
