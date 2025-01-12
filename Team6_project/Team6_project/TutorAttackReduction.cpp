@@ -8,7 +8,7 @@ using namespace std;
 TutorAttackReduction::TutorAttackReduction() : name("노이즈 캔슬링 헤드셋"),attackReduction(15){}
 
 // 아이템 이름 반환
-string TutorAttackReduction::GetName()
+string TutorAttackReduction::GetName() const
 {
     return name;
 }
