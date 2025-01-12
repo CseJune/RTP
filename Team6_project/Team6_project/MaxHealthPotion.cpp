@@ -1,4 +1,4 @@
-#include "MaxHealthPotion.h"
+﻿#include "MaxHealthPotion.h"
 #include "Character.h"
 #include <iostream>
 
@@ -8,7 +8,7 @@ using namespace std;
 MaxHealthPotion::MaxHealthPotion() : name("헬스 트레이닝 프로그램"), maxHealthIncrease(20){}
 
 // 아이템 이름 반환
-string MaxHealthPotion::GetName()
+string MaxHealthPotion::GetName() const
 {
     return name;
 }

@@ -1,4 +1,4 @@
-#include "CodingBooster.h"
+﻿#include "CodingBooster.h"
 #include "Character.h"
 #include <iostream>
 
@@ -8,7 +8,7 @@ using namespace std;
 CodingBooster::CodingBooster() : name("듀얼 모니터"), codingIncrease(10){}
 
 // 아이템 이름 반환
-string CodingBooster::GetName()
+string CodingBooster::GetName() const
 {
     return name;
 }

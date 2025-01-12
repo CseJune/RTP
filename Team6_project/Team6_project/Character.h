@@ -12,13 +12,29 @@ public:
 	Character();
 	void displayStatus();
 	void levelUp();
-	//void visitShop();
+	void IncreaseCodingPower(int codingIncrease);
+	int GetHealth();
+	int GetMaxHealth();
+	void IncreaseHealth(int healthIncrease);
+	void IncreaseMaxHealth(int maxHealthIncrease);
 	static Character* getinstance(string name = "");
+
+	// Getter와 Setter
+	int getHp() const { return hp; }
+	void setHp(int value) { hp = value; }
+	int getMaxHp() const { return maxhp; }
+	void setMaxHp(int value) { maxhp = value; }
+	int getExp() const { return exp; }
+	void addExp(int value) { exp += value; }
+	int getGold() const { return gold; }
+	void addGold(int value) { gold += value; }
+	int getLevel() const { return level; }
+	void setLevel(int value) { level = value; }
 
 private:
 	int hp;
 	int maxhp;
-	int add;
+	int add; // 코딩력
 	string name;
 	int exp;
 	int level;

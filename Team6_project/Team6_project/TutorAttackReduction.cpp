@@ -1,4 +1,4 @@
-#include "TutorAttackReduction.h"
+﻿#include "TutorAttackReduction.h"
 #include "Monster.h"
 #include <iostream>
 
