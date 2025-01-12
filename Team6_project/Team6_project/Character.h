@@ -30,6 +30,8 @@ public:
 	void addGold(int value) { gold += value; }
 	int getLevel() const { return level; }
 	void setLevel(int value) { level = value; }
+	int getAdd() const { return add; }
+	void setAdd(int value) { add = value; }
 
 private:
 	int hp;

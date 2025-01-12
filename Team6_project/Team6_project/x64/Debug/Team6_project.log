@@ -1,54 +1,4 @@
-﻿  Character.cpp
-  CodingBooster.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'CodingBooster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'CodingBooster.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,13): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-  GameManager.h
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'GameManager.h'을(를) 컴파일하는 중)
-  
-  HealthPotion.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'HealthPotion.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'HealthPotion.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(8,37): error C2001: 상수에 줄 바꿈 문자가 있습니다.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(11,1): error C2146: 구문 오류: ')'이(가) 'string' 식별자 앞에 없습니다.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(13,5): error C2534: 'HealthPotion': 생성자는 값을 반환할 수 없습니다.
-      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(10,7):
-      'HealthPotion' 선언을 참조하십시오.
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(13,5): error C2562: 'HealthPotion::HealthPotion': 'void' 함수에서 값을 반환하고 있습니다.
-      C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(8,15):
-      'HealthPotion::HealthPotion' 선언을 참조하십시오.
-  
-  ItemFactory.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'ItemFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'ItemFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'ItemFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'ItemFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'ItemFactory.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'ItemFactory.cpp'을(를) 컴파일하는 중)
-  
+﻿  ItemFactory.cpp
 C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(12,20): error C2259: 'HealthPotion': 추상 클래스를 인스턴스화할 수 없습니다.
       C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(10,7):
       'HealthPotion' 선언을 참조하십시오.
@@ -70,17 +20,8 @@ C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\ItemFactory.cpp(
       'Item::Use' 선언을 참조하십시오.
   
   MaxHealthPotion.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'MaxHealthPotion.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'MaxHealthPotion.cpp'을(를) 컴파일하는 중)
-  
 C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,17): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
   Monster.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
-  
 C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(42,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
       C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(39,32):
       'dis' 선언을 참조하십시오.
@@ -102,12 +43,6 @@ C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(86,3
       'dis' 선언을 참조하십시오.
   
   TutorAttackReduction.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'TutorAttackReduction.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-  (소스 파일 'TutorAttackReduction.cpp'을(를) 컴파일하는 중)
-  
 C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(11,30): error C2511: 'std::string TutorAttackReduction::GetName(void)': 오버로드된 멤버 함수가 'TutorAttackReduction'에 없습니다.
       C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(12,7):
       'TutorAttackReduction' 선언을 참조하십시오.

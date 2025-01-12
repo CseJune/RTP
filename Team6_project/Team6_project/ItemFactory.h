@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <string>        // std::string 사용
 #include "Item.h"        // Item 인터페이스 포함
