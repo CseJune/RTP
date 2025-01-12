@@ -6,6 +6,7 @@
 
 using namespace std;
 
+class Inventory;
 class Character
 {
 /*public:
@@ -36,6 +37,8 @@ public:
 	int GetMaxHealth();
 	void IncreaseHealth(int healthIncrease);
 	void IncreaseMaxHealth(int maxHealthIncrease);
+	void takeDamage(int add);
+	void reduceAttackDamage(int addreduction);
 	static Character* getinstance(string name = "");
 
 	// Getter와 Setter
@@ -44,13 +47,17 @@ public:
 	int getMaxHp() const { return maxhp; }
 	void setMaxHp(int value) { maxhp = value; }
 	int getExp() const { return exp; }
-	void addExp(int value) { exp += value; }
+	void setExp(int value) { exp += value; }
 	int getGold() const { return gold; }
-	void addGold(int value) { gold += value; }
+	void setGold(int value) { gold += value; }
 	int getLevel() const { return level; }
 	void setLevel(int value) { level = value; }
 	int getAdd() const { return add; }
 	void setAdd(int value) { add = value; }
+	string getName() const { return name; }
+	void setName(string value) { name = value; }
+	Inventory* getInventory() const { return inventory; }
+
 		
 
 	
@@ -65,6 +72,7 @@ private:
 	int gold;
 	int need_levelUp_exp = 100;
 	static Character* instance; // 정적 멤버 변수 선언
+	Inventory* inventory;
 };
 
 class Inventory		
