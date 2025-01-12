@@ -89,6 +89,16 @@ void Character::IncreaseHealth(int healthIncrease)
 	}
 }
 
+// 최대체력 증가하는 함수 메서드 구현
+void Character::IncreaseMaxHealth(int maxHealthIncrease)
+{
+	maxhp += maxHealthIncrease; // 주어진 만큼 최대 HP 증가
+	if (hp > maxhp)
+	{
+		hp = maxhp;
+	}
+}
+
 // 인벤토리에 아이템 사용 로직
 bool Inventory::useItem(string& item)
 {
