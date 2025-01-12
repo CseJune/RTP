@@ -30,8 +30,7 @@ void Tutor::takeDamage(int add)
 	hp -= add;
 }
 
-// ManagerTutor 古辞球
-
+// ManagerTutor 持失切
 ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -43,6 +42,8 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+
+//BasicTutor 持失切
 BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -54,6 +55,7 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//StandardTutor 持失切
 StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -65,6 +67,7 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//Challengetutor 持失切
 ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -76,6 +79,7 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//BossTutor 持失切
 BossTutor::BossTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;

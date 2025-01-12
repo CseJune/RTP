@@ -18,7 +18,6 @@ public:
 	virtual void setAdd(int add);
 	virtual int getAdd();
 	virtual void takeDamage(int add);
-	virtual Item* dropItem();
 private:
 	string name;
 	int hp;
