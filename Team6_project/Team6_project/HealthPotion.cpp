@@ -8,7 +8,7 @@ using namespace std;
 HealthPotion::HealthPotion() : name("카페인의 힘"), healthIncrease(50){}
 
 // 아이템 이름 반환
-string HealthPotion::GetName()
+string HealthPotion::GetName() const
 {
     return name;
 }

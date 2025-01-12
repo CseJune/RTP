@@ -1,9 +1,9 @@
 #pragma once
 
-#include <string>        // std::string 사용
-#include "Item.h"        // Item 인터페이스 포함
+#include <string>        
+#include "Item.h"     
 
-using namespace std; // std 네임스페이스 사용
+using namespace std; 
 
 // ItemFactory 클래스 정의
 class ItemFactory
