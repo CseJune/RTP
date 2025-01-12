@@ -12,12 +12,12 @@ using namespace std;
 class GameManager
 {
 public:
-	Tutor* generateMonster(int level = 1);
+	Tutor* GenerateTutor(int level = 1);
 	void battle(Character* player);
 	void displayInventory();
 	void generateTutor();
 	void StartGame(int start);
 	void StartBoss();
 	void Tutor();
-
-};
+	void takeDamage(int damage) {hp -= damage; }
+	};

@@ -24,11 +24,12 @@ void StartGame(int start)
 }
 
 // StartBoss 함수 정의
-void StartBoss() {
+void StartBoss() 
+{
     int Boss = 0; // 초기화
     while (true) 
     {
-        cout << "1. GPT 사용\n";
+        cout << "1. 코딩 공격\n";
         cin >> Boss;
 
         if (Boss == 1) 
@@ -43,10 +44,43 @@ void StartBoss() {
     }
 }
 
+Tutor* currentTutor = nullptr;
+
+// 튜터 생성
+enum NewTutor 
+{
+    ManagerTutor,
+    BasicTutor,
+    StandardTutor,
+    ChallengeTutor
+};
+
+void GenerateTutor(Tutor& B) 
+{
+    while (A.level <= 2)
+    {
+        srand((unsigned int)time(NULL)); // 랜덤 시드 설정
+        NewTutor tutorType = static_cast<NewTutor>(rand() % 2);
+        switch (tutorType)
+        {
+        case 0:
+            currentTutor = new Tutor("배재희", B.gethp, B.getadd);
+            break;
+        case 1:
+            currentTutor = new Tutor("박지민", 100, 15, 10);
+            break;
+        }
+    }
+}
+  
+
 //전투 함수 정의
-void battle(Character& A, Tutor& B)
+void Battle(Character& A, Tutor& B)
 {
     cout << "전투를 시작합니다!\n";
+    Tutor* currentTutor = nullptr;
+
+    GenerateTutor();
     while (A.getHp() > 0 && B.getHp() > 0)
     {
         // 플레이어가 공격
