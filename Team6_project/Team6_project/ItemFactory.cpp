@@ -1,3 +1,4 @@
+#include "ChatGPT.h"
 #include "ItemFactory.h" 
 #include "HealthPotion.h" 
 #include "CodingBooster.h"
@@ -23,6 +24,9 @@ Item* ItemFactory::CreateItem(const string& itemType)
     {
         return new TutorAttackReduction();
     }
-    
+    else if (itemType == "ChatGPT")
+    {
+        return new ChatGPT();
+    }
     return nullptr; // 일치하는 타입이 없으면 nullptr 반환
 }
