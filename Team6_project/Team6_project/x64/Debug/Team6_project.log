@@ -1,61 +1,336 @@
-﻿  Character.cpp
-  CodingBooster.cpp
+﻿  CodingBooster.cpp
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'CodingBooster.cpp'을(를) 컴파일하는 중)
   
-  GameManager.cpp
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(8,39): error C2001: 상수에 줄 바꿈 문자가 있습니다.
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(11,1): error C2146: 구문 오류: ')'이(가) 'string' 식별자 앞에 없습니다.
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(13,5): error C2534: 'CodingBooster': 생성자는 값을 반환할 수 없습니다.
-      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(7,7):
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(9,7):
       'CodingBooster' 선언을 참조하십시오.
   
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(13,5): error C2562: 'CodingBooster::CodingBooster': 'void' 함수에서 값을 반환하고 있습니다.
       C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(8,16):
       'CodingBooster::CodingBooster' 선언을 참조하십시오.
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(17,21): error C2039: 'use': 'CodingBooster'의 멤버가 아닙니다.
-      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.h(7,7):
-      'CodingBooster' 선언을 참조하십시오.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(21,16): error C2039: 'IncreaseCodingPower': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(21,14): error C2059: 구문 오류: '->'
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,30): error C2065: 'ъ슜': 선언되지 않은 식별자입니다.
 C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,38): error C2065: '肄붾뵫μ씠': 선언되지 않은 식별자입니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,54): error C2143: 구문 오류: ';'이(가) 'user-defined string literal' 앞에 없습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,54): error C3688: 잘못된 리터럴 접두사 'CodingIncrease'입니다. 리터럴 연산자 또는 리터럴 연산자 템플릿 '연산자 ""CodingIncrease'을(를) 찾을 수 없습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,74): error C2143: 구문 오류: ';'이(가) ':' 앞에 없습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,74): error C2059: 구문 오류: ':'
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,123): error C2001: 상수에 줄 바꿈 문자가 있습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,9): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,54): error C2143: 구문 오류: ';'이(가) '문자열' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,79): error C2146: 구문 오류: ';'이(가) '留뚰겮' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,79): error C2065: '留뚰겮': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,89): error C2146: 구문 오류: ';'이(가) '利앷덉뒿덈떎' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,89): error C2065: '利앷덉뒿덈떎': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,110): error C2143: 구문 오류: ';'이(가) '!' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,111): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(25,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,110): warning C4552: '!': 식의 결과가 사용되지 않습니다.
+  GameManager.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,2): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(22,32): error C2065: 'hp': 선언되지 않은 식별자입니다.
   (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,41): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(25,1): error C2059: 구문 오류: '}'
   (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(14,14): error C2061: 구문 오류: 식별자 'Character'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(25,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
   (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(50,21): error C2059: 구문 오류: '.'
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(51,5): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(52,29): error C2275: 'Character': 형식 대신 식이 필요합니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(53,14): error C2059: 구문 오류: '.'
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(55,18): error C2059: 구문 오류: '.'
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(55,28): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(56,21): error C2275: 'Tutor': 형식 대신 식이 필요합니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(57,13): error C2065: 'inventory': 선언되지 않은 식별자입니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(61,13): error C2601: 'main': 지역 함수 정의가 잘못되었습니다.
-      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(51,5):
-      이 줄에 짝이 되지 않는 '{'가 들어 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(57,12): error C2065: 'A': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,53): error C2039: 'gethp': 'Tutor'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
   
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(51,5): error C1075: '{': 일치하는 토큰을 찾을 수 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,62): error C2039: 'getadd': 'Tutor'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,37): error C2665: 'Tutor::Tutor': 모든 인수 형식을 변환할 수 있는 오버로드된 함수가 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(26,1):
+      'Tutor::Tutor(Tutor &&)'일 수 있습니다.
+          C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,37):
+          'Tutor::Tutor(Tutor &&)': 인수 1을(를) 'const char [7]'에서 'Tutor &&'(으)로 변환할 수 없습니다.
+              C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,38):
+              원인: 'const char [7]'에서 'Tutor'(으)로 변환할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(26,1):
+      또는       'Tutor::Tutor(const Tutor &)'
+          C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,37):
+          'Tutor::Tutor(const Tutor &)': 인수 1을(를) 'const char [7]'에서 'const Tutor &'(으)로 변환할 수 없습니다.
+              C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,38):
+              원인: 'const char [7]'에서 'const Tutor'(으)로 변환할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(64,37):
+      인수 목록 '(const char [7])'을(를) 일치시키는 동안
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(67,37): error C2661: 'Tutor::Tutor': 오버로드된 함수에서 4개의 인수를 사용하지 않습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(67,37):
+      인수 목록 '(const char [7], int, int, int)'을(를) 일치시키는 동안
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(80,5): error C2660: 'GenerateTutor': 함수는 0개의 인수를 사용하지 않습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(56,6):
+      'GenerateTutor' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(80,5):
+      인수 목록 '()'을(를) 일치시키는 동안
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(81,14): error C2039: 'getHp': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(84,31): error C2039: 'getAdd': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(86,18): error C2248: 'Character::name': private 멤버('Character' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(22,9):
+      'Character::name' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(86,43): error C2248: 'Tutor::name': private 멤버('Tutor' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(23,9):
+      'Tutor::name' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(92,15): error C2039: 'takeDamage': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(93,22): error C2248: 'Tutor::name': private 멤버('Tutor' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(23,9):
+      'Tutor::name' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(93,47): error C2248: 'Character::name': private 멤버('Character' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(22,9):
+      'Character::name' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(99,22): error C2248: 'Tutor::name': private 멤버('Tutor' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(23,9):
+      'Tutor::name' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(100,15): error C2039: 'inventory': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(101,14): error C2248: 'Character::exp': private 멤버('Character' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(23,6):
+      'Character::exp' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(103,20): error C2039: 'getHp': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(104,22): error C2248: 'Character::name': private 멤버('Character' 클래스에서 선언)에 액세스할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(22,9):
+      'Character::name' 선언을 참조하십시오.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(113,13): error C2065: 'A': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(113,48): error C2065: 'A': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(114,37): error C2065: 'A': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(115,13): error C2065: 'A': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(115,40): error C2065: 'A': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.cpp(116,40): error C2065: 'A': 선언되지 않은 식별자입니다.
   GameManager.h
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,9): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,2): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(13,41): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(14,14): error C2061: 구문 오류: 식별자 'Character'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'GameManager.h'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(22,32): error C2065: 'hp': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(25,1): error C2059: 구문 오류: '}'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\GameManager.h(25,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'HealthPotion.cpp'을(를) 컴파일하는 중)
+  
+  HealthPotion.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'HealthPotion.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(8,37): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(11,1): error C2146: 구문 오류: ')'이(가) 'string' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(13,5): error C2534: 'HealthPotion': 생성자는 값을 반환할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.h(10,7):
+      'HealthPotion' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(13,5): error C2562: 'HealthPotion::HealthPotion': 'void' 함수에서 값을 반환하고 있습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(8,15):
+      'HealthPotion::HealthPotion' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(19,20): error C2039: 'GetHealth': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(19,46): error C2039: 'GetMaxHealth': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(25,16): error C2039: 'IncreaseHealth': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+  MaxHealthPotion.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'MaxHealthPotion.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'MaxHealthPotion.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(22,20): error C2039: 'IncreaseMaxHealth': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,34): error C2065: 'ъ슜': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,42): error C2065: '理쒕泥대젰': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,60): error C2143: 구문 오류: ';'이(가) '문자열' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,88): error C2146: 구문 오류: ';'이(가) '留뚰겮' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,88): error C2065: '留뚰겮': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,98): error C2146: 구문 오류: ';'이(가) '利앷덉뒿덈떎' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,98): error C2065: '利앷덉뒿덈떎': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,119): error C2143: 구문 오류: ';'이(가) '!' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,120): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(25,5): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,119): warning C4552: '!': 식의 결과가 사용되지 않습니다.
   Monster.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'Monster.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(39,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(39,57): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(42,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(39,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(42,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(42,56): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(50,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(50,57): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(53,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(50,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(53,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(53,57): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(61,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(61,58): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(64,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(61,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(64,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(64,57): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(72,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(72,58): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(75,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(72,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(75,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(75,57): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(83,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(83,58): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(86,32): error C2374: 'dis': 재정의. 여러 번 초기화했습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(83,32):
+      'dis' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(86,38): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.cpp(86,57): error C2039: 'getLevel': 'Character'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Character.h(9,7):
+      'Character' 선언을 참조하십시오.
+  
+  TutorAttackReduction.cpp
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'TutorAttackReduction.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Item.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  (소스 파일 'TutorAttackReduction.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(8,53): error C2001: 상수에 줄 바꿈 문자가 있습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(11,1): error C2146: 구문 오류: ')'이(가) 'string' 식별자 앞에 없습니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(13,5): error C2534: 'TutorAttackReduction': 생성자는 값을 반환할 수 없습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.h(10,7):
+      'TutorAttackReduction' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(13,5): error C2562: 'TutorAttackReduction::TutorAttackReduction': 'void' 함수에서 값을 반환하고 있습니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(8,23):
+      'TutorAttackReduction::TutorAttackReduction' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(21,12): error C2039: 'reduceAttackDamage': 'Tutor'의 멤버가 아닙니다.
+      C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\Monster.h(9,7):
+      'Tutor' 선언을 참조하십시오.
+  
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(24,30): error C2065: 'ъ슜': 선언되지 않은 식별자입니다.
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(24,38): error C2059: 구문 오류: '?'
+C:\Users\82105\Documents\GitHub\RTP\Team6_project\Team6_project\TutorAttackReduction.cpp(24,123): error C2001: 상수에 줄 바꿈 문자가 있습니다.
   코드를 생성하고 있습니다...
