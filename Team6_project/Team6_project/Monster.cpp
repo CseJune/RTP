@@ -1,4 +1,4 @@
-#include "Monster.h" // "Tutor.h"�� ����
+﻿#include "Monster.h" // "Tutor.h"로 변경
 #include "Item.h"
 #include "Character.h"
 #include <iostream>
@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// Tutor �ż���
+// Tutor 매서드
 
 string Tutor::getName()
 {
@@ -30,8 +30,7 @@ void Tutor::takeDamage(int add)
 	hp -= add;
 }
 
-// ManagerTutor �ż���
-
+// ManagerTutor 생성자
 ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -43,6 +42,7 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//BasicTutor 생성자
 BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -54,6 +54,7 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//StandardTutor 생성자
 StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -65,6 +66,7 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//Challengetutor 생성자
 ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -76,6 +78,7 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
 	setAdd(dis(gen));
 }
 
+//BossTutor 생성자
 BossTutor::BossTutor(Character a, string name) : Tutor(a, name)
 {
 	random_device rd;
@@ -86,3 +89,9 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name)
 	uniform_int_distribution<int> dis(a.getLevel() * 50, a.getLevel() * 60);
 	setAdd(dis(gen));
 }
+
+//튜터 공격력 감소 아이템
+//void Tutor::reduceAttackDamage(int addReduction)
+//{
+//
+//}
