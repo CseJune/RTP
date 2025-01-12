@@ -25,3 +25,9 @@ void MaxHealthPotion::Use(Character* character)
     }
 }
 
+// Tutor에 대한 Use 구현 - 아무 효과 없음
+void MaxHealthPotion::Use(Tutor* tutor)
+{
+    cout << "❌ " << name << "은(는) 튜터에게 효과가 없습니다." << endl;
+}
+
