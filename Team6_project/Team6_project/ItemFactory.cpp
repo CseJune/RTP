@@ -24,15 +24,9 @@ unordered_map<string, function<Item*()>> ItemFactory::itemRegistry = {
     };
 
 // 아이템 생성 메서드
-Item* ItemFactory::createItem(const string& itemType)
+Item* ItemFactory::CreateItem(const string& itemType)
 {
     auto it = itemRegistry.find(itemType);
     // 해당 아이템이 있으면 생성 함수 호출, 없으면 nullptr 반환
     return (it != itemRegistry.end()) ? it->second() : nullptr;
-}
-
-// 아이템 등록 메서드
-void ItemFactory::registerItem(const string& itemType, function<Item*()> itemCreator)
-{
-    itemRegistry[itemType] =itemCreator;
 }
