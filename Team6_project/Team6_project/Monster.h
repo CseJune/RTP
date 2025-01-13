@@ -4,6 +4,11 @@
 #include <iostream>
 #include <string>
 #include "ItemFactory.h"
+//#include "CodingBooster.h"
+//#include "HealthPotion.h"
+//#include "MaxHealthPotion.h"
+//#include "TutorAttackReduction.h"
+//#include "TutorHealthReduction.h"
 
 using namespace std;
 
@@ -27,11 +32,14 @@ public:
 	string getName() const;
 	int getHp() const;
 	int getAdd() const;
+	int getGold() const;
 	TutorType getType() const;
 
 	// Setter
 	void setHp(int hp);
 	void setAdd(int add);
+	void setItem(Item* item);
+	void setGold(int gold);
 
 	// 기능 메서드
 	void takeDamage(int add); // 피해 처리
@@ -42,6 +50,13 @@ private:
 	int hp;
 	int add;
 	TutorType type; // 튜터의 등급
+	int gold;
+	/*CodingBooster item;
+	HealthPotion item;
+	MaxHealthPotion item;
+	TutorAttackReduction item;
+	TutorHealthReduction item;*/
+	Item* item;
 };
 
 class ManagerTutor : public Tutor
