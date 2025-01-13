@@ -18,7 +18,7 @@ void clearScreen() {
 #endif
 }
 
-void slowPrint(const string& text, int delayMs = 150) {
+void slowPrint(const string& text, int delayMs = 50) {
     for (char c : text) {
         cout << c << flush; // 한 글자 출력 후 출력 버퍼를 강제로 플러시
         this_thread::sleep_for(chrono::milliseconds(delayMs)); // 딜레이
