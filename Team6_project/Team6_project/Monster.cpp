@@ -1,6 +1,7 @@
 ﻿#include "Monster.h" // "Tutor.h"로 변경
 #include "Item.h"
 #include "Character.h"
+#include "Inventory.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -67,6 +68,22 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name, TutorType:
     setItem(newItem);
 }
 
+//ManagerTutor 소멸자
+ManagerTutor::~ManagerTutor() 
+{
+    //Item* item = this->getItem(); // this 포인터를 사용하여 현재 객체 참조 
+    //if (item != nullptr) 
+    //{ 
+    //    Character* player = Character::getinstance(); 
+    //    player->getInventory()->addItem(item); 
+    //    this->setItem(nullptr); // item을 null로 설정하여 소멸자가 끝난 후 메모리 누수 방지
+    //} 
+
+    Character* player = Character::getinstance();
+    Inventory* inventory = player->getInventory();
+    inventory->dropItem(this->getItem());    
+}
+
 // BasicTutor 생성자
 BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Basic)
 {
@@ -88,6 +105,14 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Bas
     string selectedItem = possibleItems[disItem(gen)];
     Item* newItem = ItemFactory::CreateItem(selectedItem);
     setItem(newItem);
+}
+
+//BasicTutor 소멸자
+BasicTutor::~BasicTutor()
+{
+    Character* player = Character::getinstance();
+    Inventory* inventory = player->getInventory();
+    inventory->dropItem(this->getItem());
 }
 
 // StandardTutor 생성자
@@ -113,6 +138,14 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorTyp
     setItem(newItem);
 }
 
+//StandardTutor 소멸자
+StandardTutor::~StandardTutor()
+{
+    Character* player = Character::getinstance();
+    Inventory* inventory = player->getInventory();
+    inventory->dropItem(this->getItem());
+}
+
 // ChallengeTutor 생성자
 ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorType::Challenge)
 {
@@ -136,6 +169,14 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
     setItem(newItem);
 }
 
+//ChallengeTutor 소멸자
+ChallengeTutor::~ChallengeTutor()
+{
+    Character* player = Character::getinstance();
+    Inventory* inventory = player->getInventory();
+    inventory->dropItem(this->getItem());
+}
+
 // BossTutor 생성자
 BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
 {
@@ -150,6 +191,14 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
     //Gold 랜덤 설정
     uniform_int_distribution<int> disGold(10000, 12000);  // Gold를 위한 dis
     setGold(disGold(gen));
+}
+
+//BossTutor 소멸자
+BossTutor::~BossTutor()
+{
+    Character* player = Character::getinstance();
+    Inventory* inventory = player->getInventory();
+    inventory->dropItem(this->getItem());
 }
 
 
