@@ -20,12 +20,21 @@ Tutor::~Tutor() {}
 string Tutor::getName() const { return name; }
 int Tutor::getHp() const { return hp; }
 int Tutor::getAdd() const { return add; }
+int Tutor::getGold() const { return gold; }
 TutorType Tutor::getType() const { return type; }
 
 // Setter
 void Tutor::setHp(int hp) { this->hp = hp; }
 void Tutor::setAdd(int add) { this->add = add; }
-
+void Tutor::setGold(int gold) {this->gold = gold;}
+void Tutor::setItem(Item* newItem)
+{
+    if (item != nullptr)
+    {
+        delete item;
+        item = newItem;
+    }
+}
 // 피해 처리
 void Tutor::takeDamage(int add) {
     hp -= add;
@@ -37,17 +46,25 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name, TutorType:
 {
     random_device rd;
     mt19937 gen(rd());
+
+    //HP 랜덤 설정
     uniform_int_distribution<int> disHp(a.getLevel() * 50, a.getLevel() * 55);  // HP를 위한 dis
     setHp(disHp(gen));
 
+    //Add 랜덤 설정
     uniform_int_distribution<int> disAdd(a.getLevel() * 5, a.getLevel() * 10);  // Add를 위한 dis
     setAdd(disAdd(gen));
+
+    //Gold 랜덤 설정
+    uniform_int_distribution<int> disGold(1000, 2000);  // Gold를 위한 dis
+    setGold(disGold(gen));
 
     //아이템 랜덤 생성
     vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction"};
     uniform_int_distribution<int> disItem(0, possibleItems.size() - 1); 
     string selectedItem = possibleItems[disItem(gen)]; 
     Item* newItem = ItemFactory::CreateItem(selectedItem);
+    setItem(newItem);
 }
 
 // BasicTutor 생성자
@@ -61,11 +78,16 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Bas
     uniform_int_distribution<int> disAdd(a.getLevel() * 10, a.getLevel() * 15);  // Add를 위한 dis
     setAdd(disAdd(gen));
 
+    //Gold 랜덤 설정
+    uniform_int_distribution<int> disGold(3000, 3500);  // Gold를 위한 dis
+    setGold(disGold(gen));
+
     //아이템 랜덤 생성
     vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
     uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
     string selectedItem = possibleItems[disItem(gen)];
     Item* newItem = ItemFactory::CreateItem(selectedItem);
+    setItem(newItem);
 }
 
 // StandardTutor 생성자
@@ -79,11 +101,16 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorTyp
     uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
 
+    //Gold 랜덤 설정
+    uniform_int_distribution<int> disGold(5000, 6000);  // Gold를 위한 dis
+    setGold(disGold(gen));
+
     //아이템 랜덤 생성
     vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
     uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
     string selectedItem = possibleItems[disItem(gen)];
     Item* newItem = ItemFactory::CreateItem(selectedItem);
+    setItem(newItem);
 }
 
 // ChallengeTutor 생성자
@@ -97,11 +124,16 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
     uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
 
+    //Gold 랜덤 설정
+    uniform_int_distribution<int> disGold(7000, 8000);  // Gold를 위한 dis
+    setGold(disGold(gen));
+
     //아이템 랜덤 생성
     vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
     uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
     string selectedItem = possibleItems[disItem(gen)];
     Item* newItem = ItemFactory::CreateItem(selectedItem);
+    setItem(newItem);
 }
 
 // BossTutor 생성자
@@ -115,11 +147,9 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
     uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
 
-    //아이템 랜덤 생성
-    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
-    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
-    string selectedItem = possibleItems[disItem(gen)];
-    Item* newItem = ItemFactory::CreateItem(selectedItem);
+    //Gold 랜덤 설정
+    uniform_int_distribution<int> disGold(10000, 12000);  // Gold를 위한 dis
+    setGold(disGold(gen));
 }
 
 

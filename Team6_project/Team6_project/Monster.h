@@ -32,12 +32,14 @@ public:
 	string getName() const;
 	int getHp() const;
 	int getAdd() const;
+	int getGold() const;
 	TutorType getType() const;
 
 	// Setter
 	void setHp(int hp);
 	void setAdd(int add);
 	void setItem(Item* item);
+	void setGold(int gold);
 
 	// 기능 메서드
 	void takeDamage(int add); // 피해 처리
