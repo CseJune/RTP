@@ -2,9 +2,11 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <thread>
 #include "GameManager.h"
 #include "Character.h"
 #include "Monster.h"
+#include <chrono>
 
 using namespace std;
 
@@ -16,13 +18,21 @@ void clearScreen() {
 #endif
 }
 
+void slowPrint(const string& text, int delayMs = 150) {
+    for (char c : text) {
+        cout << c << flush; // 한 글자 출력 후 출력 버퍼를 강제로 플러시
+        this_thread::sleep_for(chrono::milliseconds(delayMs)); // 딜레이
+    }
+    cout << endl; // 최종적으로 줄 바꿈
+}
+
 int main()
 {
     int start = 0;
     GameManager manager;  // GameManager 객체 생성
 
-    cout << "코딩을 시작하시겠습니까?\n";
-    cout << "1. 시작한다 \n2. 종료한다\n";
+    slowPrint ("코딩을 시작하시겠습니까?\n");
+    slowPrint  ("1. 시작한다 \n2. 종료한다\n");
     cin >> start;
     clearScreen();
 

@@ -1,12 +1,2 @@
-﻿  CodingBooster.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(24,12): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\CodingBooster.cpp(31,12): warning C4566: 유니버설 문자 이름 '\u274C'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-  HealthPotion.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(21,17): warning C4566: 유니버설 문자 이름 '\u26A0'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(21,17): warning C4566: 유니버설 문자 이름 '\uFE0F'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\HealthPotion.cpp(28,12): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-  MaxHealthPotion.cpp
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(24,16): warning C4566: 유니버설 문자 이름 '\u2705'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-C:\Users\82104\Documents\GitHub\RTP\Team6_project\Team6_project\MaxHealthPotion.cpp(31,12): warning C4566: 유니버설 문자 이름 '\u274C'(으)로 표현되는 문자는 현재 코드 페이지(949)에서 표현할 수 없습니다.
-  코드를 생성하고 있습니다...
-  Team6_project.vcxproj -> C:\Users\82104\Documents\GitHub\RTP\Team6_project\x64\Debug\Team6_project.exe
+﻿  main.cpp
+  Team6_project.vcxproj -> C:\Users\82105\Documents\GitHub\RTP\Team6_project\x64\Debug\Team6_project.exe
