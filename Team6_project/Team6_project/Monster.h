@@ -32,6 +32,7 @@ public:
 	string getName() const;
 	int getHp() const;
 	int getAdd() const;
+	Item* getItem() const;
 	int getGold() const;
 	TutorType getType() const;
 
@@ -62,31 +63,37 @@ private:
 class ManagerTutor : public Tutor
 {
 public:
+	ManagerTutor();
 	ManagerTutor(Character a, string name);  // public으로 선언
+	~ManagerTutor();
 };
 
 class BasicTutor : public Tutor
 {
 public:
 	BasicTutor(Character a, string name);  // public으로 선언
+	~BasicTutor();
 };
 
 class StandardTutor : public Tutor
 {
 public:
 	StandardTutor(Character a, string name);  // public으로 선언
+	~StandardTutor();
 };
 
 class ChallengeTutor : public Tutor
 {
 public:
 	ChallengeTutor(Character a, string name);  // public으로 선언
+	~ChallengeTutor();
 };
 
 class BossTutor : public Tutor
 {
 public:
 	BossTutor(Character a, string name);  // public으로 선언
+	~BossTutor();
 };
 
 
