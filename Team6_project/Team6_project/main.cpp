@@ -8,6 +8,14 @@
 
 using namespace std;
 
+void clearScreen() {
+#ifdef _WIN32
+    system("cls"); // Windows 시스템에서 화면 초기화
+#else
+    system("clear"); // Unix 기반 시스템에서 화면 초기화
+#endif
+}
+
 int main()
 {
     int start = 0;
@@ -16,6 +24,7 @@ int main()
     cout << "코딩을 시작하시겠습니까?\n";
     cout << "1. 시작한다 \n2. 종료한다\n";
     cin >> start;
+    clearScreen();
 
     if (start == 1) {
         manager.StartGame(start); 
