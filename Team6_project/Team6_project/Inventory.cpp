@@ -49,3 +49,18 @@ bool Inventory::useItem(const string& itemName, Character* character)
 	cout << "아이템을 찾을 수 없습니다." << itemName << endl;
 	return false; // false 반환
 }
+
+// 드롭 아이템 함수 추가
+void Inventory::dropItem(Item* item)
+{
+	if (item != nullptr)
+	{
+		cout << " 튜터가 " << item->GetName() << "를 드롭했습니다." << endl;
+
+		// 플레이어 인벤토리에 아이템 추가 로직
+		Character* player = Character::getinstance();
+		player->getInventory()->addItem(item);
+		// 메모리 반환
+		item = nullptr;
+	}
+}
