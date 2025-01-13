@@ -27,4 +27,10 @@ void TutorHealthReduction::Use(Tutor* tutor)
 void TutorHealthReduction::Use(Character* character)
 {
 	//cout << name << "은(는) 캐릭터에게 효과가 없습니다." << endl;
-}   
+}
+
+// 아이템 가격 반환
+int TutorHealthReduction::GetPrice() const
+{
+    return price;
+}

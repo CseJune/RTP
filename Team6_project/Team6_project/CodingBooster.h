@@ -12,9 +12,12 @@ class CodingBooster : public Item
 private:
     string name;    // 아이템 이름   
     int codingIncrease; // 코딩력 증가량
+    int price = 5000;   // 아이템 가격 (5000 Gold)
+    
 public:    
     CodingBooster();    // 생성자
     string GetName() const override;   // 아이템 이름 반환
     void Use(Character* character) override;    // 캐릭터 코딩력 증가 효과 적용
-    void Use(Tutor* tutor) override;
+    void Use(Tutor* tutor) override;    // 튜터에게 효과 없음
+    int GetPrice() const override;  // 아이템 가격 반환
 };

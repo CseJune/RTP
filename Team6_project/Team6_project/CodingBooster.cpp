@@ -24,9 +24,16 @@ void CodingBooster::Use(Character* character)
    cout << name << "사용 : 코딩력이 " << codingIncrease << " 만큼 증가했습니다!" << endl;
 }
 
-// Tutor에 대한 Use 구현 - 아무 효과 없음
+// 튜터에게 효과 없음
 void CodingBooster::Use(Tutor* tutor)
 {
     // 튜터에게는 효과가 없음을 알리는 메시지
    cout << name << "은(는) 튜터에게 효과가 없습니다." << endl;
 }
+
+// 아이템 가격 반환
+int CodingBooster::GetPrice() const
+{
+    return price;
+}
+

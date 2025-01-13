@@ -20,7 +20,7 @@ unordered_map<string, function<Item*()>> ItemFactory::itemRegistry = {
     {"MaxHealthPotion", []() { return new MaxHealthPotion(); }},
     {"CodingBooster", []() { return new CodingBooster(); }},
     {"TutorAttackReduction", []() {return new TutorAttackReduction(); }},
-    {"TutorHealthReduction",[]() {return new TutorHealthReduction(); }}
+    {"TutorHealthReduction",[]() {return new TutorHealthReduction(); }},
     };
 
 // 아이템 생성 메서드
