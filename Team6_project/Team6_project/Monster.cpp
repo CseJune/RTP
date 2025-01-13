@@ -42,6 +42,12 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name, TutorType:
 
     uniform_int_distribution<int> disAdd(a.getLevel() * 5, a.getLevel() * 10);  // Add를 위한 dis
     setAdd(disAdd(gen));
+
+    //아이템 랜덤 생성
+    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction"};
+    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1); 
+    string selectedItem = possibleItems[disItem(gen)]; 
+    Item* newItem = ItemFactory::CreateItem(selectedItem);
 }
 
 // BasicTutor 생성자
@@ -54,6 +60,12 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Bas
 
     uniform_int_distribution<int> disAdd(a.getLevel() * 10, a.getLevel() * 15);  // Add를 위한 dis
     setAdd(disAdd(gen));
+
+    //아이템 랜덤 생성
+    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
+    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
+    string selectedItem = possibleItems[disItem(gen)];
+    Item* newItem = ItemFactory::CreateItem(selectedItem);
 }
 
 // StandardTutor 생성자
@@ -66,6 +78,12 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorTyp
 
     uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
+
+    //아이템 랜덤 생성
+    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
+    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
+    string selectedItem = possibleItems[disItem(gen)];
+    Item* newItem = ItemFactory::CreateItem(selectedItem);
 }
 
 // ChallengeTutor 생성자
@@ -78,6 +96,12 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
 
     uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
+
+    //아이템 랜덤 생성
+    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
+    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
+    string selectedItem = possibleItems[disItem(gen)];
+    Item* newItem = ItemFactory::CreateItem(selectedItem);
 }
 
 // BossTutor 생성자
@@ -90,6 +114,12 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
 
     uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
+
+    //아이템 랜덤 생성
+    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
+    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
+    string selectedItem = possibleItems[disItem(gen)];
+    Item* newItem = ItemFactory::CreateItem(selectedItem);
 }
 
 
