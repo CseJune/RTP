@@ -21,13 +21,13 @@ void TutorAttackReduction::Use(Tutor* tutor)
     // tutor->reduceAttackDamage(attackReduction);   // 공격력 감소
 
     // 튜터 공격력 감소 메시지 출력
-    cout << "✅" << name << "사용 : 튜터의 공격력이 " << attackReduction << " 만큼 감소했습니다!" << endl;
+    //cout << "✅" << name << "사용 : 튜터의 공격력이 " << attackReduction << " 만큼 감소했습니다!" << endl;
 }
 
 // Character에 대한 Use 구현 - 아무 효과 없음
 void TutorAttackReduction::Use(Character* character)
 {
-    cout << "❌ " << name << "은(는) 캐릭터에게 효과가 없습니다." << endl;
+   // cout << "❌ " << name << "은(는) 캐릭터에게 효과가 없습니다." << endl;
 }
 
 

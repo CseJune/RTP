@@ -7,50 +7,71 @@
 
 using namespace std;
 
+enum class TutorType {
+	Manager,
+	Basic,
+	Standard,
+	Challenge,
+	Boss
+};
+
 class Tutor
 {
+
 public:
 	Tutor();
-	Tutor(Character a, string name);
+	Tutor(Character a, const string& name, TutorType type);
+	virtual ~Tutor(); // 소멸자 (가상 소멸자)
 
-	virtual string getName();
-	virtual int getHp();
-	virtual void setHp(int hp);
-	virtual void setAdd(int add);
-	virtual int getAdd();
-	virtual void takeDamage(int add);
+	// Getter
+	string getName() const;
+	int getHp() const;
+	int getAdd() const;
+	TutorType getType() const;
+
+	// Setter
+	void setHp(int hp);
+	void setAdd(int add);
+
+	// 기능 메서드
+	void takeDamage(int add); // 피해 처리
 	//virtual void reduceAttackDamage(int addreduction);
 
 private:
 	string name;
 	int hp;
 	int add;
+	TutorType type; // 튜터의 등급
 };
 
-class ManagerTutor : Tutor 
+class ManagerTutor : public Tutor
 {
 public:
-	ManagerTutor(Character a, string name);
+	ManagerTutor(Character a, string name);  // public으로 선언
 };
 
 class BasicTutor : public Tutor
 {
-	BasicTutor(Character a, string name);
+public:
+	BasicTutor(Character a, string name);  // public으로 선언
 };
 
 class StandardTutor : public Tutor
 {
-	StandardTutor(Character a, string name);
+public:
+	StandardTutor(Character a, string name);  // public으로 선언
 };
 
 class ChallengeTutor : public Tutor
 {
-	ChallengeTutor(Character a, string name);
+public:
+	ChallengeTutor(Character a, string name);  // public으로 선언
 };
 
 class BossTutor : public Tutor
 {
-	BossTutor(Character a, string name);
+public:
+	BossTutor(Character a, string name);  // public으로 선언
 };
 
 

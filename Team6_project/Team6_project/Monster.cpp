@@ -7,31 +7,33 @@
 #include <random>
 
 using namespace std;
+// 기본 생성자
+Tutor::Tutor() : name(""), hp(0), add(0), type(TutorType::Manager) {} // 기본 타입은 Manager로 설정
 
-// Tutor 매서드
+// 초기화 생성자
+Tutor::Tutor(Character a, const string& name, TutorType type) : name(name), hp(100), add(10), type(type) {}
 
-string Tutor::getName()
-{
-	return name;
-}
+// 소멸자
+Tutor::~Tutor() {}
 
-int Tutor::getHp() 
-{
-	return hp;
-}
+// Getter
+string Tutor::getName() const { return name; }
+int Tutor::getHp() const { return hp; }
+int Tutor::getAdd() const { return add; }
+TutorType Tutor::getType() const { return type; }
 
-int Tutor::getAdd()
-{
-	return add;
-}
+// Setter
+void Tutor::setHp(int hp) { this->hp = hp; }
+void Tutor::setAdd(int add) { this->add = add; }
 
-void Tutor::takeDamage(int add)
-{
-	hp -= add;
+// 피해 처리
+void Tutor::takeDamage(int add) {
+    hp -= add;
+    if (hp < 0) hp = 0;
 }
 
 // ManagerTutor 생성자
-ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
+ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name, TutorType::Manager)
 {
     random_device rd;
     mt19937 gen(rd());
@@ -43,7 +45,7 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name)
 }
 
 // BasicTutor 생성자
-BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
+BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Basic)
 {
     random_device rd;
     mt19937 gen(rd());
@@ -55,7 +57,7 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name)
 }
 
 // StandardTutor 생성자
-StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
+StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorType::Standard)
 {
     random_device rd;
     mt19937 gen(rd());
@@ -67,26 +69,26 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name)
 }
 
 // ChallengeTutor 생성자
-ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name)
+ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorType::Challenge)
+{
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> disHp(a.getLevel() * 120, a.getLevel() * 130);  // HP를 위한 dis
+    setHp(disHp(gen));
+
+    uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
+    setAdd(disAdd(gen));
+}
+
+// BossTutor 생성자
+BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
 {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<int> disHp(a.getLevel() * 150, a.getLevel() * 160);  // HP를 위한 dis
     setHp(disHp(gen));
 
-    uniform_int_distribution<int> disAdd(a.getLevel() * 30, a.getLevel() * 35);  // Add를 위한 dis
-    setAdd(disAdd(gen));
-}
-
-// BossTutor 생성자
-BossTutor::BossTutor(Character a, string name) : Tutor(a, name)
-{
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<int> disHp(a.getLevel() * 200, a.getLevel() * 210);  // HP를 위한 dis
-    setHp(disHp(gen));
-
-    uniform_int_distribution<int> disAdd(a.getLevel() * 50, a.getLevel() * 60);  // Add를 위한 dis
+    uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
     setAdd(disAdd(gen));
 }
 

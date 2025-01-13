@@ -24,3 +24,7 @@ void TutorHealthReduction::Use(Tutor* tutor)
     // 튜터 체력 감소 메시지 출력
     //cout << "✅ " << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
 }
+void TutorHealthReduction::Use(Character* character)
+{
+	//cout << "❌ " << name << "은(는) 캐릭터에게 효과가 없습니다." << endl;
+}   

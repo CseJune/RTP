@@ -15,8 +15,7 @@ public:
 	//Tutor* GenerateTutor(int level = 1);
 	void battle(Character& A, Tutor& B);
 	void displayInventory();
-	void generateTutor(Character& A, Tutor& B);
+	void generateTutor(Character& A, Tutor*& currentTutor);
 	void StartGame(int start);
 	void StartBoss();
-	void Tutor();
 	};

@@ -56,48 +56,6 @@ void Inventory::displayInventory()
 	}
 }
 
-// 코딩력 증가 메서드 구현
-void Character::IncreaseCodingPower(int codingIncrease)
-{
-	add += codingIncrease;
-}
-
-// 체력 회복 관련 함수 구현
-
-// 1. 캐릭터의 현재 체력을 반환
-int Character::GetHealth()
-{
-	return hp;
-}
-
-//2. 캐릭터의 최대 체력을 반환
-int Character::GetMaxHealth()
-{
-	return maxhp;
-}
-
-//3. 캐릭터의 HP를 증가시키는 로직 구현
-void Character::IncreaseHealth(int healthIncrease)
-{
-	if (hp + healthIncrease > maxhp)
-	{
-		hp = maxhp;
-	}
-	else
-	{
-		hp += healthIncrease;
-	}
-}
-
-// 최대체력 증가하는 함수 메서드 구현
-void Character::IncreaseMaxHealth(int maxHealthIncrease)
-{
-	maxhp += maxHealthIncrease; // 주어진 만큼 최대 HP 증가
-	if (hp > maxhp)
-	{
-		hp = maxhp;
-	}
-}
 
 // 인벤토리에 아이템 사용 로직
 bool Inventory::useItem(string& item)
@@ -114,24 +72,29 @@ bool Inventory::useItem(string& item)
 // level 함수 구현
 void Character::levelUp()
 {
-	if (exp >= 100 && level < 10) 
+if (level >= 10) {
+	exp = 0;  // 레벨 10이 되면 경험치는 0으로 고정
+	return;  // 더 이상 레벨업이 되지 않음
+}
+	while (exp >= 100 && level < 10)
 	{
-		exp = exp - need_levelUp_exp;
-		++level;
+		exp -= 100;
+		level++;
 
 		hp += (level * 20);
 		maxhp += (level * 20);
 		add += (level * 5);
+		hp = maxhp;  // 레벨업 시 체력 회복
 
-		if (hp > maxhp)
-		{
-			hp = maxhp;
-		}
-		if (level == 10)
-		{
-			exp = 0;
+		if (hp > maxhp) {
+			hp = maxhp;  // HP가 최대 HP를 초과하지 않도록 설정
 		}
 	}
+}
+
+void Character::takeDamage(int add) {
+	hp -= add;
+	if (hp < 0) hp = 0;
 }
 //int main()
 //{

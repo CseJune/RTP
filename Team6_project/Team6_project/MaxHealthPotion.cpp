@@ -18,16 +18,16 @@ void MaxHealthPotion::Use(Character* character)
 {
     if (character != nullptr)
     {
-        // IncreaseMaxHealth를 캐릭터에서 구현하고 내용은 인자값만큼 최대 체력을 증가시키면 됨
+        //IncreaseMaxHealth를 캐릭터에서 구현하고 내용은 인자값만큼 최대 체력을 증가시키면 됨
         character->IncreaseMaxHealth(maxHealthIncrease);
 
-        cout << "✅" << name << "사용 : 최대체력이 " << maxHealthIncrease << " 만큼 증가했습니다!" << endl;
+       cout << "✅" << name << "사용 : 최대체력이 " << maxHealthIncrease << " 만큼 증가했습니다!" << endl;
     }
 }
 
 // Tutor에 대한 Use 구현 - 아무 효과 없음
 void MaxHealthPotion::Use(Tutor* tutor)
 {
-    cout << "❌ " << name << "은(는) 튜터에게 효과가 없습니다." << endl;
+   cout << "❌ " << name << "은(는) 튜터에게 효과가 없습니다." << endl;
 }
 
