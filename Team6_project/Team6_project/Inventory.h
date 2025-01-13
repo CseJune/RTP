@@ -13,6 +13,7 @@ public:
     void addItem(Item* item); // 아이템 추가
     void displayInventory() const;
     bool useItem(const string& itemName, Character* character);
+    void dropItem(Item* item);
 
 private:
     vector<Item*> items;
