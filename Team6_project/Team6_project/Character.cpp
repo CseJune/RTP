@@ -1,80 +1,67 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <vector>
 #include "Character.h"
+#include "Inventory.h"
 
 using namespace std;
 
-//Ä³¸¯ÅÍ¸¦ »ı¼ºÇÏ±â À§ÇÑ Á¤Àû ¸â¹öº¯¼ö ÃÊ±âÈ­
+//ìºë¦­í„°ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•œ ì •ì  ë©¤ë²„ë³€ìˆ˜ ì´ˆê¸°í™”
 Character* Character::instance = nullptr; 
 
-//getinstance ¸Ş¼­µå Á¤ÀÇ
+//getinstance ë©”ì„œë“œ ì •ì˜
 Character* Character::getinstance(string name)
 {
-	if (instance == nullptr) // instance°¡ ¾øÀ¸¸é »õ·Î »ı¼º
+	if (instance == nullptr) // instanceê°€ ì—†ìœ¼ë©´ ìƒˆë¡œ ìƒì„±
 	{
 		instance = new Character();
-		instance->name = name; // ÀÌ¸§ ¼³Á¤
+		instance->name = name; // ì´ë¦„ ì„¤ì •
 	}
-	return instance; // Ç×»ó µ¿ÀÏÇÑ ÀÎ½ºÅÏ½º ¹İÈ¯
+	return instance; // í•­ìƒ ë™ì¼í•œ ì¸ìŠ¤í„´ìŠ¤ ë°˜í™˜
 }
 
-// Ä³¸¯ÅÍ ÃÊ±â »ı¼ºÀÚ
+// ìºë¦­í„° ì´ˆê¸° ìƒì„±ì
 Character::Character()
-	: hp(200), maxhp(200), add(30), exp(0), name(name), level(1), gold(0)
+	: hp(200), maxhp(200), add(30), exp(0), name(name), level(0), gold(0), inventory(new Inventory())
 {}
 
-// display Ãâ·Â ÇÔ¼ö ±¸Çö (ÀÎº¥Åä¸®´Â Á»ÀÖ´Ù°¡)
+// display ì¶œë ¥ í•¨ìˆ˜ êµ¬í˜„ (ì¸ë²¤í† ë¦¬ëŠ” ì¢€ìˆë‹¤ê°€)
 void Character::displayStatus()
 {
-	cout << "ÀÌ¸§ : " << name << endl;
-	cout << "·¹º§ : " << level << endl;
-	cout << "ÄÚµù·Â : " << add << endl;
-	cout << "°ñµå : " << gold << endl;
-	cout << "°æÇèÄ¡ : " << exp << endl;
-	cout << "Ã¼·Â : " << hp << ", " << "ÃÖ´ë Ã¼·Â : " << maxhp << endl;
+	cout << "ì´ë¦„ : " << name << endl;
+	cout << "ë ˆë²¨ : " << level << endl;
+	cout << "ì½”ë”©ë ¥ : " << add << endl;
+	cout << "ê³¨ë“œ : " << gold << endl;
+	cout << "ê²½í—˜ì¹˜ : " << exp << endl;
+	cout << "ì²´ë ¥ : " << hp << ", " << "ìµœëŒ€ ì²´ë ¥ : " << maxhp << endl;
 }
 
-// ÀÎº¥Åä¸® ¾ÆÀÌÅÛ Ãß°¡ ·ÎÁ÷
-void Inventory::addItem(string& item)
+void Character::addItemToInventory(Item* item) 
 {
-	items.push_back(item);
+	if (!inventory) 
+	{
+		inventory = new Inventory();
+	}
+	inventory->addItem(item);
 }
 
-// ÀÎº¥Åä¸® ¾ÆÀÌÅÛ Ãâ·Â ·ÎÁ÷
-void Inventory::displayInventory()
+void Character::useItemFromInventory(string& itemName) 
 {
-	if (items.empty())
+	if (inventory) 
 	{
-		cout << " ÀÎº¥Åä¸®°¡ ºñ¾îÀÖ½À´Ï´Ù " << endl;
+		inventory->useItem(itemName, this);
 	}
-
-	else
-	cout << " ÀÎº¥Åä¸® " << endl;
-	for (size_t i = 0; i < items.size(); ++i)
+	else 
 	{
-		cout << "[" << (i + 1) << "] " << items[i] << endl;
+		std::cout << "ì¸ë²¤í† ë¦¬ê°€ ì—†ìŠµë‹ˆë‹¤.\n";
 	}
 }
 
-
-// ÀÎº¥Åä¸®¿¡ ¾ÆÀÌÅÛ »ç¿ë ·ÎÁ÷
-bool Inventory::useItem(string& item)
-{
-	auto it = find(items.begin(), items.end(), item); // ¹İº¹ÀÚ¿Í find¸¦ »ç¿ëÇØ ÀÎº¥Åä¸®¿¡ ÀÖ´Â ¾ÆÀÌÅÛ ¼øÈ¸
-	if (it != items.end()) // ¾ÆÀÌÅÛÀ» Ã£À¸¸é( ¹İº¹ÀÚ°¡ find¸¦ »ç¿ëÇß´Âµ¥, ³¡±îÁö °¬À»¶§°¡ ¾Æ´Ï¶ó¸é )
-	{
-		items.erase(it); // ¾ÆÀÌÅÛ »èÁ¦
-		return true; // true ¹İÈ¯
-	}
-	return false; // false ¹İÈ¯
-}
-
-// level ÇÔ¼ö ±¸Çö
+// level í•¨ìˆ˜ êµ¬í˜„
 void Character::levelUp()
 {
 if (level >= 10) {
-	exp = 0;  // ·¹º§ 10ÀÌ µÇ¸é °æÇèÄ¡´Â 0À¸·Î °íÁ¤
-	return;  // ´õ ÀÌ»ó ·¹º§¾÷ÀÌ µÇÁö ¾ÊÀ½
+	exp = 0;  // ë ˆë²¨ 10ì´ ë˜ë©´ ê²½í—˜ì¹˜ëŠ” 0ìœ¼ë¡œ ê³ ì •
+	return;  // ë” ì´ìƒ ë ˆë²¨ì—…ì´ ë˜ì§€ ì•ŠìŒ
 }
 	while (exp >= 100 && level < 10)
 	{
@@ -84,10 +71,10 @@ if (level >= 10) {
 		hp += (level * 20);
 		maxhp += (level * 20);
 		add += (level * 5);
-		hp = maxhp;  // ·¹º§¾÷ ½Ã Ã¼·Â È¸º¹
+		hp = maxhp;  // ë ˆë²¨ì—… ì‹œ ì²´ë ¥ íšŒë³µ
 
 		if (hp > maxhp) {
-			hp = maxhp;  // HP°¡ ÃÖ´ë HP¸¦ ÃÊ°úÇÏÁö ¾Êµµ·Ï ¼³Á¤
+			hp = maxhp;  // HPê°€ ìµœëŒ€ HPë¥¼ ì´ˆê³¼í•˜ì§€ ì•Šë„ë¡ ì„¤ì •
 		}
 	}
 }
@@ -100,7 +87,7 @@ void Character::takeDamage(int add) {
 //{
 //	string characterName;
 //
-//	cout << "Ä³¸¯ÅÍ ÀÌ¸§ ÀÔ·Â : ";
+//	cout << "ìºë¦­í„° ì´ë¦„ ì…ë ¥ : ";
 //	cin >> characterName;
 //
 //	Character* player = Character::getinstance(characterName);
@@ -108,7 +95,7 @@ void Character::takeDamage(int add) {
 //
 //	Inventory a;
 //	
-//	string b = "Àü¼³ÀÇ °Ë";
+//	string b = "ì „ì„¤ì˜ ê²€";
 //	a.addItem(b);
 //	a.displayInventory();
 //}
