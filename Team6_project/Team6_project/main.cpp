@@ -18,7 +18,7 @@ void clearScreen() {
 #endif
 }
 
-void slowPrint(const string& text, int delayMs = 150) {
+void slowPrint(const string& text, int delayMs = 50) {
     for (char c : text) {
         cout << c << flush; // 한 글자 출력 후 출력 버퍼를 강제로 플러시
         this_thread::sleep_for(chrono::milliseconds(delayMs)); // 딜레이
@@ -44,7 +44,7 @@ int main()
         cout << "게임을 종료합니다." << endl;
     }
 
-    cout << "으하하하 나는 김이진 매니저다 너같이 GPT만 쓰는 개발자는 용서할 수 없지!\n";
-    cout << "매니저와 조우하셨습니다. 무엇을 하시겠습니까?\n";
+    cout << "당신은 패배자입니다.\n긁?\n";
+    //cout << "매니저와 조우하셨습니다. 무엇을 하시겠습니까?\n";
     return 0;
 }
