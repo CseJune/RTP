@@ -279,10 +279,12 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MaxHealthPotion.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="TutorAttackReduction.cpp" />
     <ClCompile Include="TutorHealthReduction.cpp" />
   </ItemGroup>
@@ -291,10 +293,12 @@
     <ClInclude Include="ChatGPT.h" />
     <ClInclude Include="CodingBooster.h" />
     <ClInclude Include="HealthPotion.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="MaxHealthPotion.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="TutorAttackReduction.h" />
     <ClInclude Include="TutorHealthReduction.h" />
   </ItemGroup>

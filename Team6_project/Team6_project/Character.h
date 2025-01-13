@@ -1,13 +1,11 @@
-#pragma once
+ï»¿#pragma once
 
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Inventory.h"
 
 using namespace std;
-
-// Àü¹æ ¼±¾ğ
-class Inventory;
 
 class Character
 {
@@ -18,7 +16,7 @@ public:
     void takeDamage(int damageToTutor);
     static Character* getinstance(string name = "");
 
-    // Getter¿Í Setter
+    // Getterì™€ Setter
     int getHp() const { return hp; }
     void setHp(int value) { hp = value; }
     int getMaxHp() const { return maxhp; }
@@ -26,7 +24,7 @@ public:
     int getExp() const { return exp; }
     void setExp(int newExp) {
         exp = newExp;
-        levelUp();  // °æÇèÄ¡ º¯°æ ÈÄ ·¹º§¾÷ Ã¼Å©
+        levelUp();  // ê²½í—˜ì¹˜ ë³€ê²½ í›„ ë ˆë²¨ì—… ì²´í¬
     }
     int getGold() const { return gold; }
     void setGold(int value) { gold += value; }
@@ -38,13 +36,16 @@ public:
     void setName(string value) { name = value; }
     Inventory* getInventory() const { return inventory; }
 
-    // ÄÚµù·Â Áõ°¡ ¸Ş¼­µå ±¸Çö
+    void addItemToInventory(Item* item); // ì¸ë²¤í† ë¦¬ì— ì•„ì´í…œ ì¶”ê°€
+    void useItemFromInventory(string& itemName); // ì¸ë²¤í† ë¦¬ì—ì„œ ì•„ì´í…œ ì‚¬ìš©
+
+    // ì½”ë”©ë ¥ ì¦ê°€ ë©”ì„œë“œ êµ¬í˜„
     void IncreaseCodingPower(int codingIncrease)
     {
         add += codingIncrease;
     }
 
-    // Ã¼·Â È¸º¹ °ü·Ã ÇÔ¼ö ±¸Çö
+    // ì²´ë ¥ íšŒë³µ ê´€ë ¨ í•¨ìˆ˜ êµ¬í˜„
     void IncreaseHealth(int healthIncrease)
     {
         if (hp + healthIncrease > maxhp)
@@ -57,10 +58,10 @@ public:
         }
     }
 
-    // ÃÖ´ëÃ¼·Â Áõ°¡ÇÏ´Â ÇÔ¼ö ¸Ş¼­µå ±¸Çö
+    // ìµœëŒ€ì²´ë ¥ ì¦ê°€í•˜ëŠ” í•¨ìˆ˜ ë©”ì„œë“œ êµ¬í˜„
     void IncreaseMaxHealth(int maxHealthIncrease)
     {
-        maxhp += maxHealthIncrease; // ÁÖ¾îÁø ¸¸Å­ ÃÖ´ë HP Áõ°¡
+        maxhp += maxHealthIncrease; // ì£¼ì–´ì§„ ë§Œí¼ ìµœëŒ€ HP ì¦ê°€
         if (hp > maxhp)
         {
             hp = maxhp;
@@ -68,27 +69,15 @@ public:
     }
 
 private:
-    // ¸â¹ö º¯¼ö ¼±¾ğ
-    int hp = 100;  // ±âº»°ª ¼³Á¤
-    int maxhp = 100; // ±âº»°ª ¼³Á¤
-    int add = 0;    // ±âº»°ª ¼³Á¤
+    // ë©¤ë²„ ë³€ìˆ˜ ì„ ì–¸
+    int hp = 100;  // ê¸°ë³¸ê°’ ì„¤ì •
+    int maxhp = 100; // ê¸°ë³¸ê°’ ì„¤ì •
+    int add = 0;    // ê¸°ë³¸ê°’ ì„¤ì •
     string name;
-    int exp = 0;    // ±âº»°ª ¼³Á¤
-    int level = 1;  // ±âº»°ª ¼³Á¤
-    int gold = 0;   // ±âº»°ª ¼³Á¤
+    int exp = 0;    // ê¸°ë³¸ê°’ ì„¤ì •
+    int level = 1;  // ê¸°ë³¸ê°’ ì„¤ì •
+    int gold = 0;   // ê¸°ë³¸ê°’ ì„¤ì •
     int need_levelUp_exp = 100;
-    static Character* instance; // Á¤Àû ¸â¹ö º¯¼ö ¼±¾ğ
-	Inventory* inventory; // ÀÎº¥Åä¸® °´Ã¼ Æ÷ÀÎÅÍ ¼±¾ğ
-};
-
-// Inventory Å¬·¡½º ¼±¾ğ
-class Inventory
-{
-public:
-    void addItem(string& item); // ¾ÆÀÌÅÛ Ãß°¡
-    void displayInventory();
-    bool useItem(string& item);
-
-private:
-    vector<string> items;
+    static Character* instance; // ì •ì  ë©¤ë²„ ë³€ìˆ˜ ì„ ì–¸
+	Inventory* inventory; // ì¸ë²¤í† ë¦¬ ê°ì²´ í¬ì¸í„° ì„ ì–¸
 };
