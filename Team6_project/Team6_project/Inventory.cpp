@@ -46,7 +46,7 @@ bool Inventory::useItem(const string& itemName, Character* character)
 		cout << "레벨: " << character->getLevel() << endl;
 		cout << "체력: " << character->getMaxHp() << endl;
 		cout << "코딩력: " << character->getAdd() << endl;
-		delete* it;
+		/*delete* it;*/
 		items.erase(it);
 		return true;
 	}
