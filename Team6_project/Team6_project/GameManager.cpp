@@ -246,7 +246,7 @@ void GameManager::battle(Character& A, Tutor& B) {
             cout << B.getName() << "를 물리쳤습니다!\n";
             // 현재 상태 출력
             cout << "\n" << A.getName() << "의 체력: " << A.getHp() << endl;
-            A.setGold(A.getGold() + 10); // 보상
+            A.setGold(A.getGold() + B.getGold()); // 보상
             A.setExp(A.getExp() + 100); // 경험치 획득
             //현재 보유 골드 출력
             cout << "\n" << A.getName() << "의 보유 골드: " << A.getGold() << endl;
