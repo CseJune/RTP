@@ -16,7 +16,10 @@ string ChatGPT::GetName() const
 
 void ChatGPT::Use(Character* character) // 캐릭터에게 효과 적용
 {
-    //cout << name << " 사용: 코드 분석을 도와드리겠습니다!" << endl;
+    cout << name << " 사용: 레벨 업! 이제부터 보스와의 전투가 가능합니다." << endl;
+
+    int level = character->getLevel();
+    character->setLevel(level + 1);
 }
 
 void ChatGPT::Use(Tutor* tutor) // 튜터에게 효과 적용

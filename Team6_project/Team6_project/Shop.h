@@ -18,7 +18,7 @@ public:
     ~Shop(); // 소멸자 선언 추가
    
     void initializeShopItems(); // 상점 아이템 초기화
-    void displayItems() const; // 상점 아이템 목록 출력
+    void displayItems(Character* player) const;
     void buyItem(Character* player, const string& itemName); // 아이템 구매
     void sellItem(Character* player, const string& itemName); // 아이템 판매
     vector<Item*> getAvailableItems() const;  // availableItems 반환하는 메서드 추가

@@ -88,7 +88,7 @@ void GameManager::StartGame(int parameter) {
 
             while (true) {
                /* cout << "\n===== 상점 =====\n";*/
-                shop->displayItems();  // 상점 아이템 목록 표시
+                shop->displayItems(player);  // 상점 아이템 목록 표시
                 cout << "\n1. 아이템 구매\n2. 아이템 판매\n3. 상점 나가기\n선택: ";
                 cin >> shopChoice;
 

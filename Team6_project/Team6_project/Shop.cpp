@@ -41,7 +41,7 @@ void Shop::initializeShopItems()
 }
 
 // 상점 아이템 목록 출력
-void Shop::displayItems() const
+void Shop::displayItems(Character* player) const
 {
     cout << "===== 상점 =====" << endl;
     for (size_t i = 0; i < availableItems.size(); ++i)
@@ -49,6 +49,7 @@ void Shop::displayItems() const
         cout << i + 1 << ". " << availableItems[i]->GetName() 
              << " - " << availableItems[i]->GetPrice() << " Gold" << endl;
     }
+    cout << "보유 골드: " << player->getGold() << endl;
 }
 
 // 상점 객체 파괴 시, 할당된 메모리 해제
