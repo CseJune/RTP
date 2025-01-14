@@ -25,5 +25,5 @@ public:
 
 private:
     vector<Item*> availableItems; // 판매 가능한 아이템 목록
-
+    bool isInitializing; // 상점 초기화 중인지 여부
 };

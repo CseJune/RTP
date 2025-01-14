@@ -6,19 +6,29 @@ Shop::Shop()
     initializeShopItems(); // 상점 초기 아이템 설정
 }
 
-vector<Item*> Shop::getAvailableItems() const {
-    return availableItems;  // availableItems 벡터 반환
+vector<Item*> Shop::getAvailableItems() const
+{
+    if (isInitializing)
+    {
+        cout << "아이템 초기화 중입니다. 잠시 후 다시 시도해주세요." << endl;
+        return {};
+    }
+    return availableItems;
 }
-
 
 // 상점 아이템 초기화
 void Shop::initializeShopItems()
 {
+    isInitializing = true;
+    
     // 이전 아이템들을 삭제하고, 새로 초기화
-    for (auto item : availableItems) {
-        delete item;  // 이전에 동적으로 할당된 Item 객체들을 삭제
+    if (!availableItems.empty())
+    {
+        for (auto item : availableItems) {
+            delete item;  // 이전에 동적으로 할당된 Item 객체들을 삭제
+        }
+        availableItems.clear();  // 벡터 초기화
     }
-    availableItems.clear();  // 벡터 초기화
 
     // 새로운 아이템들 추가
     availableItems.push_back(ItemFactory::CreateItem("HealthPotion"));
@@ -26,6 +36,8 @@ void Shop::initializeShopItems()
     availableItems.push_back(ItemFactory::CreateItem("MaxHealthPotion"));
     availableItems.push_back(ItemFactory::CreateItem("TutorAttackReduction"));
     availableItems.push_back(ItemFactory::CreateItem("TutorHealthReduction"));
+
+    isInitializing = false;
 }
 
 // 상점 아이템 목록 출력

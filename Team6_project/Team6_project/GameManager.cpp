@@ -11,7 +11,7 @@
 using namespace std;
 
 set<string> generatedTutors;// 생성된 튜터 이름을 저장하는 set (사용하기 위해서는 #include <set> 사용 필요)
-
+Shop* shop;  // 상점 객체 포인터
 
 // StartGame 함수 정의
 void GameManager::StartGame(int parameter) {
@@ -79,14 +79,13 @@ void GameManager::StartGame(int parameter) {
                 }
         }
         else if (choice == 4) {
-            // 상점 입장
             int shopChoice;
-            // 상점 객체를 동적으로 생성
-            Shop* shop = new Shop();
-            if (shop == nullptr) {
-                cout << "Shop 객체 생성에 실패했습니다!" << endl;
-                return;
+            
+            if (shop == nullptr)
+            {
+                shop = new Shop();
             }
+
             while (true) {
                 cout << "\n===== 상점 =====\n";
                 shop->displayItems();  // 상점 아이템 목록 표시
@@ -133,8 +132,6 @@ void GameManager::StartGame(int parameter) {
                     cout << "잘못된 선택입니다.\n";
                 }
 			}
-            // 상점 사용 후 메모리 해제
-            delete shop;
 		}
 
         else if (choice == 1) {
