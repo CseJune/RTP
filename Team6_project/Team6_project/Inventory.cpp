@@ -60,7 +60,7 @@ void Inventory::dropItem(Item* item)
 {
 	if (item != nullptr)
 	{
-		cout << " 튜터가 " << item->GetName() << "를 드롭했습니다." << endl;
+		cout << " 튜터가 " << item->GetName() << "을(를) 드롭했습니다." << endl;
 
 		// 플레이어 인벤토리에 아이템 추가 로직
 		Character* player = Character::getinstance();

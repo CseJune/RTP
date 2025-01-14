@@ -43,7 +43,7 @@ void Shop::initializeShopItems()
 // 상점 아이템 목록 출력
 void Shop::displayItems() const
 {
-    cout << "===== 상점 아이템 목록 =====" << endl;
+    cout << "===== 상점 =====" << endl;
     for (size_t i = 0; i < availableItems.size(); ++i)
     {
         cout << i + 1 << ". " << availableItems[i]->GetName() 

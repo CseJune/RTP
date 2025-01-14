@@ -27,7 +27,7 @@ public:
         levelUp();  // 경험치 변경 후 레벨업 체크
     }
     int getGold() const { return gold; }
-    void setGold(int value) { gold += value; }
+    void setGold(int value) { gold = value; }
     int getLevel() const { return level; }
     void setLevel(int value) { level = value; }
     int getAdd() const { return add; }
