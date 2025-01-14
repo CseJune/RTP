@@ -64,3 +64,24 @@ void Inventory::dropItem(Item* item)
 		item = nullptr;
 	}
 }
+
+Item* Inventory::findItem(const string& itemName) 
+{
+	auto it = find_if(items.begin(), items.end(), [&itemName](Item* item)
+		{
+			return item->GetName() == itemName;
+		});
+}
+
+void Inventory::removeItem(const string& itemName)
+{
+	auto it = find_if(items.begin(), items.end(), [&itemName](Item* item)
+		{
+			return item->GetName() = itemName;
+		});
+	if (it != items.end())
+	{
+		delete* it; // 아이템 제거
+		items.erase(it); // 벡터에서 제거
+	}
+}

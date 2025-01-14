@@ -14,6 +14,8 @@ public:
     void displayInventory() const;
     bool useItem(const string& itemName, Character* character);
     void dropItem(Item* item);
+    Item* findItem(const string& itemName);
+    void removeItem(const string& itemName);
 
 private:
     vector<Item*> items;
