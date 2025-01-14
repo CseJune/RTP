@@ -79,15 +79,22 @@ Item* Inventory::findItem(const string& itemName)
 	return nullptr;
 }
 
+
 void Inventory::removeItem(const string& itemName)
 {
 	auto it = find_if(items.begin(), items.end(), [&itemName](Item* item)
 		{
-			return item->GetName() == itemName;
+			return item->GetName() == itemName; // 아이템 이름 비교
 		});
-	if (it != items.end())
+
+	if (it != items.end()) // 아이템이 발견되었으면
 	{
-		delete* it; // 아이템 제거
-		items.erase(it); // 벡터에서 제거
+		delete* it;          // 메모리 해제
+		items.erase(it);     // 벡터에서 아이템 제거
+		cout << itemName << "을(를) 제거 했습니다!" << endl;
+	}
+	else
+	{
+		cout << itemName << "을(를) 찾을 수 없습니다!" << endl;
 	}
 }
