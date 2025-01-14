@@ -16,6 +16,8 @@ public:
     void dropItem(Item* item);
     Item* findItem(const string& itemName);
     void removeItem(const string& itemName);
+    int getItemCount() const;
+    string getItemNameByIndex(int index) const;
 
 private:
     vector<Item*> items;

@@ -13,7 +13,7 @@ set<string> generatedTutors;// 생성된 튜터 이름을 저장하는 set (사용하기 위해서�
 
 
 // StartGame 함수 정의
-void GameManager::StartGame(int start) {
+void GameManager::StartGame(int parameter) {
     string characterName;
     cout << "캐릭터 이름 입력: ";
     cin >> characterName;
@@ -136,34 +136,29 @@ void GameManager::StartGame(int start) {
         else if (choice == 2) {
             cout << "\n아이템 목록:\n";
             /*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
+            Character* player = Character::getinstance();
+            Inventory* inventory = player->getInventory();
+            inventory->displayInventory();
             cout << "아이템을 선택하세요 (1-5): ";
             int itemChoice;
             cin >> itemChoice;
 
-            Character* player = Character::getinstance();
-            Inventory* inventory = player->getInventory();
+            // 인덱스를 확인하고 아이템 선택 후 사용
+            if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
+                string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
+                if (inventory->useItem(itemName, player)) {  // 선택한 아이템 사용
+                    cout << "아이템 사용 성공!\n";
+                }
+                else {
+                    cout << "아이템 사용 실패.\n";
+                }
+            }
+            else {
+                cout << "잘못된 선택입니다.\n";
+            }
+            
 
-            inventory->displayInventory();
 
-
-
-            //Item* selectedItem = nullptr;
-            //switch (itemChoice) {
-            //case 1: selectedItem = ItemFactory::CreateItem("HealthPotion"); break;
-            //case 2: selectedItem = ItemFactory::CreateItem("CodingBooster"); break;
-            //case 3: selectedItem = ItemFactory::CreateItem("MaxHealthPotion"); break;
-            //case 4: selectedItem = ItemFactory::CreateItem("TutorAttackReduction"); break;
-            //case 5: selectedItem = ItemFactory::CreateItem("ChatGPT"); break;
-
-         /*   default:
-                cout << "잘못된 선택입니다. 다시 선택해주세요.\n";
-                continue;*/
-            //}
-
-            //if (selectedItem) {
-            //    selectedItem->Use(player);
-            //    delete selectedItem;
-            //}
         }
         else if (choice == 3) {
             cout << "게임 종료!\n";
@@ -229,13 +224,13 @@ void GameManager::StartBoss()
 //
 //    };
 
-void AfterBattle(Character& A)
-{
-    cout << A.getName() << "의 남은 체력: " << A.getHp() << "\n";
-    cout << "보유한 골드: " << A.getGold() << "\n"; // 골드가 제대로 표시되도록 수정
-    cout << A.getName() << "의 Level: " << A.getLevel() << "\n";
-    cout << "획득한 경험치: " << A.getExp() << "\n";
-}
+//void AfterBattle(Character& A)
+//{
+//    cout << A.getName() << "의 남은 체력: " << A.getHp() << "\n";
+//    cout << "보유한 골드: " << A.getGold() << "\n"; // 골드가 제대로 표시되도록 수정
+//    cout << A.getName() << "의 Level: " << A.getLevel() << "\n";
+//    cout << "획득한 경험치: " << A.getExp() << "\n";
+//}
 
 // battle 함수 정의
 void GameManager::battle(Character& A, Tutor& B) {
@@ -255,12 +250,14 @@ void GameManager::battle(Character& A, Tutor& B) {
             Character* player = Character::getinstance();
             Inventory* inventory = player->getInventory();
             inventory->dropItem(B.getItem());
-            // 현재 상태 출력
-            cout << "\n" << A.getName() << "의 체력: " << A.getHp() << endl;
+       
             A.setGold(A.getGold() + B.getGold()); // 보상
             A.setExp(A.getExp() + 100); // 경험치 획득
-            //현재 보유 골드 출력
-            cout << "\n" << A.getName() << "의 보유 골드: " << A.getGold() << endl;
+            // 현재 상태 출력
+            cout << "\n" << A.getName() << "의 레벨: " << A.getLevel() << endl;
+            cout << A.getName() << "의 체력: " << A.getHp() << endl;
+            cout << A.getName() << "의 코딩력: " << A.getAdd() << endl;
+            cout << A.getName() << "의 보유 골드: " << A.getGold() << endl;
             break; // 전투 종료
         }
 

@@ -41,6 +41,11 @@ bool Inventory::useItem(const string& itemName, Character* character)
 	if (it != items.end()) // 아이템을 찾으면( 반복자가 find를 사용했는데, 끝까지 갔을때가 아니라면 )
 	{
 		(*it)->Use(character);
+		// 능력치 출력 (예시: HP, Attack, Defense)
+		cout << "아이템 사용 후 능력치:\n";
+		cout << "레벨: " << character->getLevel() << endl;
+		cout << "체력: " << character->getMaxHp() << endl;
+		cout << "코딩력: " << character->getAdd() << endl;
 		delete* it;
 		items.erase(it);
 		return true;
@@ -97,4 +102,16 @@ void Inventory::removeItem(const string& itemName)
 	{
 		cout << itemName << "을(를) 찾을 수 없습니다!" << endl;
 	}
+}
+// 아이템 목록의 개수를 반환하는 함수
+int Inventory::getItemCount() const {
+	return items.size();
+}
+
+// 인덱스를 통해 아이템 이름을 얻는 함수
+string Inventory::getItemNameByIndex(int index) const {
+	if (index >= 0 && index < items.size()) {
+		return items[index]->GetName();
+	}
+	return "";
 }

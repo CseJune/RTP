@@ -32,8 +32,8 @@ void Tutor::setGold(int gold) {this->gold = gold;}
 void Tutor::setItem(Item* newItem)
 {
     if (item != nullptr)
-    {
         delete item;
+    {
         item = newItem;
     }
 }
@@ -80,9 +80,7 @@ ManagerTutor::~ManagerTutor()
     //    this->setItem(nullptr); // item을 null로 설정하여 소멸자가 끝난 후 메모리 누수 방지
     //} 
 
-    Character* player = Character::getinstance();
-    Inventory* inventory = player->getInventory();
-    inventory->dropItem(this->getItem());    
+  
 }
 
 // BasicTutor 생성자
@@ -111,9 +109,6 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Bas
 //BasicTutor 소멸자
 BasicTutor::~BasicTutor()
 {
-    Character* player = Character::getinstance();
-    Inventory* inventory = player->getInventory();
-    inventory->dropItem(this->getItem());
 }
 
 // StandardTutor 생성자
@@ -142,9 +137,6 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorTyp
 //StandardTutor 소멸자
 StandardTutor::~StandardTutor()
 {
-    Character* player = Character::getinstance();
-    Inventory* inventory = player->getInventory();
-    inventory->dropItem(this->getItem());
 }
 
 // ChallengeTutor 생성자
@@ -173,9 +165,6 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
 //ChallengeTutor 소멸자
 ChallengeTutor::~ChallengeTutor()
 {
-    Character* player = Character::getinstance();
-    Inventory* inventory = player->getInventory();
-    inventory->dropItem(this->getItem());
 }
 
 // BossTutor 생성자
@@ -197,9 +186,6 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
 //BossTutor 소멸자
 BossTutor::~BossTutor()
 {
-    Character* player = Character::getinstance();
-    Inventory* inventory = player->getInventory();
-    inventory->dropItem(this->getItem());
 }
 
 
