@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -16,6 +16,6 @@ public:
 	void battle(Character& A, Tutor& B);
 	void displayInventory();
 	void generateTutor(Character& A, Tutor*& currentTutor);
-	void StartGame(int start);
+	void StartGame(int parameter);
 	void StartBoss();
 	};

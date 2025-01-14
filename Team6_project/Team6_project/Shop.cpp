@@ -1,4 +1,4 @@
-#include "Shop.h"
+﻿#include "Shop.h"
 
 // 생성자
 Shop::Shop()
@@ -6,9 +6,21 @@ Shop::Shop()
     initializeShopItems(); // 상점 초기 아이템 설정
 }
 
+vector<Item*> Shop::getAvailableItems() const {
+    return availableItems;  // availableItems 벡터 반환
+}
+
+
 // 상점 아이템 초기화
 void Shop::initializeShopItems()
 {
+    // 이전 아이템들을 삭제하고, 새로 초기화
+    for (auto item : availableItems) {
+        delete item;  // 이전에 동적으로 할당된 Item 객체들을 삭제
+    }
+    availableItems.clear();  // 벡터 초기화
+
+    // 새로운 아이템들 추가
     availableItems.push_back(ItemFactory::CreateItem("HealthPotion"));
     availableItems.push_back(ItemFactory::CreateItem("CodingBooster"));
     availableItems.push_back(ItemFactory::CreateItem("MaxHealthPotion"));
@@ -25,6 +37,21 @@ void Shop::displayItems() const
         cout << i + 1 << ". " << availableItems[i]->GetName() 
              << " - " << availableItems[i]->GetPrice() << " Gold" << endl;
     }
+}
+
+// 상점 객체 파괴 시, 할당된 메모리 해제
+Shop::~Shop() {
+    if (availableItems.empty()) return;  // 아이템이 비었으면 리턴
+    for (auto item : availableItems) {
+        if (item != nullptr) {  // nullptr 체크
+            cout << "Deleting item: " << item->GetName() << endl;
+            delete item;  // 아이템 객체들을 메모리에서 해제
+        } 
+        else {
+            cout << "Encountered nullptr, skipping delete." << endl;
+        }
+    }
+    availableItems.clear();  // 벡터 초기화
 }
 
 // 아이템 구매
@@ -57,6 +84,7 @@ void Shop::sellItem(Character* player, const string& itemName)
         player->setGold(player->getGold() + sellPrice);
         player->getInventory()->removeItem(itemName);
         cout << itemName << "을(를) 판매했습니다! " << sellPrice << " Gold를 획득했습니다." << endl;
+
     }
     else
     {

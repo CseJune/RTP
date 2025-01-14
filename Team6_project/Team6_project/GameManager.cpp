@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <vector>
 #include <string>
 #include <cstdlib>
@@ -6,22 +6,23 @@
 #include "Character.h"
 #include "Monster.h"
 #include <set>
+#include "Shop.h"
 
 using namespace std;
 
-set<string> generatedTutors;// »ı¼ºµÈ Æ©ÅÍ ÀÌ¸§À» ÀúÀåÇÏ´Â set (»ç¿ëÇÏ±â À§ÇØ¼­´Â #include <set> »ç¿ë ÇÊ¿ä)
+set<string> generatedTutors;// ìƒì„±ëœ íŠœí„° ì´ë¦„ì„ ì €ì¥í•˜ëŠ” set (ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” #include <set> ì‚¬ìš© í•„ìš”)
 
 
-// StartGame ÇÔ¼ö Á¤ÀÇ
+// StartGame í•¨ìˆ˜ ì •ì˜
 void GameManager::StartGame(int parameter) {
     string characterName;
-    cout << "Ä³¸¯ÅÍ ÀÌ¸§ ÀÔ·Â: ";
+    cout << "ìºë¦­í„° ì´ë¦„ ì…ë ¥: ";
     cin >> characterName;
 
     Character* player = Character::getinstance(characterName);
     player->displayStatus();
 
-    Tutor* currentTutor = nullptr;  // ÇöÀç Æ©ÅÍ Æ÷ÀÎÅÍ
+    Tutor* currentTutor = nullptr;  // í˜„ì¬ íŠœí„° í¬ì¸í„°
 
     while (true) {
         int choice;
@@ -29,31 +30,113 @@ void GameManager::StartGame(int parameter) {
         
         if (player->getLevel() == 0)
         {
-            cout << "\n1. Ä·ÇÁ ÀÔÀå\n2. »óÁ¡ ÀÔÀå\n3. Ä·ÇÁ Å»ÁÖ\n4. ÀÎº¥Åä¸® ¿­±â\n¼±ÅÃ: ";            
+            cout << "\n1. ìº í”„ ì…ì¥\n2. ì¸ë²¤í† ë¦¬ ì—´ê¸°\n3. ìº í”„ íƒˆì£¼\n4. ìƒì  ì…ì¥\nì„ íƒ: ";            
             cin >> choice;
         }
         else {
-            cout << "\n1. ÀüÅõ ½ÃÀÛ\n2. ÀÎº¥Åä¸® ¿­±â\n3. Ä·ÇÁ Å»ÁÖ\n¼±ÅÃ: ";   
+            cout << "\n1. ì „íˆ¬ ì‹œì‘\n2. ì¸ë²¤í† ë¦¬ ì—´ê¸°\n3. ìº í”„ íƒˆì£¼\n4. ìƒì  ì…ì¥\nì„ íƒ: ";   
             cin >> choice;
         }
         if (player->getLevel() == 0 && choice == 1) {
-            cout << "À¸ÇÏÇÏÇÏ ³ª´Â ±èÀÌÁø ¸Å´ÏÀú´Ù »çÀü Ä·ÇÁºÎÅÍ Âü¿©ÇÏ°í ¿Í¶ó!\n";
-            cout << "¼±»§À» ´çÇÏ¼Ì½À´Ï´Ù...\n´ç½ÅÀº »ç¸ÁÇÏ¿´½À´Ï´Ù...\n±ºÇÊ ¿©°í»ıÀ¸·Î È¯»ı ÇÕ´Ï´Ù.\n";
+            cout << "ìœ¼í•˜í•˜í•˜ ë‚˜ëŠ” ê¹€ì´ì§„ ë§¤ë‹ˆì €ë‹¤ ì‚¬ì „ ìº í”„ë¶€í„° ì°¸ì—¬í•˜ê³  ì™€ë¼!\n";
+            cout << "ì„ ë¹µì„ ë‹¹í•˜ì…¨ìŠµë‹ˆë‹¤...\në‹¹ì‹ ì€ ì‚¬ë§í•˜ì˜€ìŠµë‹ˆë‹¤...\nêµ°í•„ ì—¬ê³ ìƒìœ¼ë¡œ í™˜ìƒ í•©ë‹ˆë‹¤.\n";
             player->setLevel(1);
-            cout << "·¹º§ 1·Î È¯»ı ÇÕ´Ï´Ù.\n";
-        }
+            cout << "ë ˆë²¨ 1ë¡œ í™˜ìƒ í•©ë‹ˆë‹¤.\n";
+		}
+		else if (player->getLevel() == 0 && choice == 2) {
+			cout << "\nì•„ì´í…œ ëª©ë¡:\n";
+			/*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
+			Character* player = Character::getinstance();
+			Inventory* inventory = player->getInventory();
+			inventory->displayInventory();
+			cout << "ì•„ì´í…œì„ ì„ íƒí•˜ì„¸ìš” (1-5): ";
+			int itemChoice;
+			cin >> itemChoice;
+			// ì¸ë±ìŠ¤ë¥¼ í™•ì¸í•˜ê³  ì•„ì´í…œ ì„ íƒ í›„ ì‚¬ìš©
+			if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
+				string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // ì•„ì´í…œ ì´ë¦„ì„ ì¸ë±ìŠ¤ë¡œë¶€í„° ì–»ìŒ
+				if (inventory->useItem(itemName, player)) {  // ì„ íƒí•œ ì•„ì´í…œ ì‚¬ìš©
+					cout << "ì•„ì´í…œ ì‚¬ìš© ì„±ê³µ!\n";
+				}
+				else {
+					cout << "ì•„ì´í…œ ì‚¬ìš© ì‹¤íŒ¨.\n";
+				}
+			}
+			else {
+				cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
+			}
+		}
         else if (player->getLevel() == 0 && choice == 3) {
-            cout << "Á¤¸» Ä·ÇÁ¸¦ ¶°³ª½Ã°Ú½À´Ï±î?\n";
-            cout << "\n1. ³×\n2. ¾Æ´Ï¿ä\n¼±ÅÃ:";
+            cout << "ì •ë§ ìº í”„ë¥¼ ë– ë‚˜ì‹œê² ìŠµë‹ˆê¹Œ?\n";
+            cout << "\n1. ë„¤\n2. ì•„ë‹ˆìš”\nì„ íƒ:";
                 cin >> LeaveCamp;
                 if (LeaveCamp == 2) {
                     return;
                 }
                 else if(LeaveCamp == 1){
-                    cout << "Ä·ÇÁ¸¦ Å»ÁÖÇÕ´Ï´Ù.";
+                    cout << "ìº í”„ë¥¼ íƒˆì£¼í•©ë‹ˆë‹¤.";
                     return;
                 }
         }
+        else if (choice == 4) {
+            // ìƒì  ì…ì¥
+            int shopChoice;
+            // ìƒì  ê°ì²´ë¥¼ ë™ì ìœ¼ë¡œ ìƒì„±
+            Shop* shop = new Shop();
+            if (shop == nullptr) {
+                cout << "Shop ê°ì²´ ìƒì„±ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤!" << endl;
+                return;
+            }
+            while (true) {
+                cout << "\n===== ìƒì  =====\n";
+                shop->displayItems();  // ìƒì  ì•„ì´í…œ ëª©ë¡ í‘œì‹œ
+                cout << "\n1. ì•„ì´í…œ êµ¬ë§¤\n2. ì•„ì´í…œ íŒë§¤\n3. ìƒì  ë‚˜ê°€ê¸°\nì„ íƒ: ";
+                cin >> shopChoice;
+
+                if (shopChoice == 1) {  // ì•„ì´í…œ êµ¬ë§¤
+                    cout << "êµ¬ë§¤í•˜ê³  ì‹¶ì€ ì•„ì´í…œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
+                    int itemChoice;
+                    cin >> itemChoice;
+
+                    if (itemChoice >= 1 && itemChoice <= shop->getAvailableItems().size()) {
+                        string itemName = shop->getAvailableItems()[itemChoice - 1]->GetName();
+                        shop->buyItem(player, itemName);  // ì•„ì´í…œ êµ¬ë§¤ ì²˜ë¦¬
+                    }
+                    else {
+                        cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
+                    }
+                }
+                else if (shopChoice == 2) {  // ì•„ì´í…œ íŒë§¤
+                    // ì¸ë²¤í† ë¦¬ì—ì„œ íŒë§¤ ê°€ëŠ¥í•œ ì•„ì´í…œ ëª©ë¡ ì¶œë ¥
+                    Inventory* inventory = player->getInventory();
+                    cout << "íŒë§¤ ê°€ëŠ¥í•œ ì•„ì´í…œ ëª©ë¡:\n";
+                    inventory->displayInventory();  // ì¸ë²¤í† ë¦¬ì—ì„œ ì•„ì´í…œ ëª©ë¡ ì¶œë ¥
+
+                    cout << "íŒë§¤í•˜ê³  ì‹¶ì€ ì•„ì´í…œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
+                    int itemChoice;
+                    cin >> itemChoice;
+
+                    if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
+                        string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // ì•„ì´í…œ ì´ë¦„ì„ ì¸ë±ìŠ¤ë¡œë¶€í„° ì–»ìŒ
+                        shop->sellItem(player, itemName);  // ì•„ì´í…œ íŒë§¤ ì²˜ë¦¬
+                        cout << "ì•„ì´í…œì„ íŒë§¤í•œ í›„ ìƒì ì—ì„œ ë‚˜ê°‘ë‹ˆë‹¤.\n";
+                        break;  // ìƒì ì—ì„œ ë‚˜ê°€ê¸°
+                    }
+                    else {
+                        cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
+                    }
+                }
+                else if (shopChoice == 3) {  // ìƒì  ë‚˜ê°€ê¸°
+                    break;  // ìƒì ì—ì„œ ë‚˜ê°€ê¸°
+                }
+                else {
+                    cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
+                }
+			}
+            // ìƒì  ì‚¬ìš© í›„ ë©”ëª¨ë¦¬ í•´ì œ
+            delete shop;
+		}
+
         else if (choice == 1) {
             if (currentTutor == nullptr || currentTutor->getHp() <= 0) {
                 srand((unsigned int)time(NULL));
@@ -61,58 +144,58 @@ void GameManager::StartGame(int parameter) {
                 while (true) {
                     string tutorName;
 
-                    if (player->getLevel() >= 8 && generatedTutors.find("°­Ã¢¹Ö") == generatedTutors.end()) {
-                        tutorName = "°­Ã¢¹Ö";
+                    if (player->getLevel() >= 8 && generatedTutors.find("ê°•ì°½ë°") == generatedTutors.end()) {
+                        tutorName = "ê°•ì°½ë°";
                     }
                     else if (player->getLevel() >= 6) {
-                        if (generatedTutors.find("¹®½ÂÇå") == generatedTutors.end()) {
-                            tutorName = "¹®½ÂÇå";
+                        if (generatedTutors.find("ë¬¸ìŠ¹í—Œ") == generatedTutors.end()) {
+                            tutorName = "ë¬¸ìŠ¹í—Œ";
                         }
-                        else if (generatedTutors.find("ÃÖ¸¸¼º") == generatedTutors.end()) {
-                            tutorName = "ÃÖ¸¸¼º";
+                        else if (generatedTutors.find("ìµœë§Œì„±") == generatedTutors.end()) {
+                            tutorName = "ìµœë§Œì„±";
                         }
                     }
                     else if (player->getLevel() >= 3) {
-                        if (generatedTutors.find("ÇÑ¿ìÁ¤") == generatedTutors.end()) {
-                            tutorName = "ÇÑ¿ìÁ¤";
+                        if (generatedTutors.find("í•œìš°ì •") == generatedTutors.end()) {
+                            tutorName = "í•œìš°ì •";
                         }
-                        else if (generatedTutors.find("¹ÚÁ¤½Å") == generatedTutors.end()) {
-                            tutorName = "¹ÚÁ¤½Å";
+                        else if (generatedTutors.find("ë°•ì •ì‹ ") == generatedTutors.end()) {
+                            tutorName = "ë°•ì •ì‹ ";
                         }
-                        else if (generatedTutors.find("¹Ú°æÈÄ") == generatedTutors.end()) {
-                            tutorName = "¹Ú°æÈÄ";
+                        else if (generatedTutors.find("ë°•ê²½í›„") == generatedTutors.end()) {
+                            tutorName = "ë°•ê²½í›„";
                         }
                     }
                     else {
-                        if (generatedTutors.find("¹èÀçÈñ") == generatedTutors.end()) {
-                            tutorName = "¹èÀçÈñ";
+                        if (generatedTutors.find("ë°°ì¬í¬") == generatedTutors.end()) {
+                            tutorName = "ë°°ì¬í¬";
                         }
-                        else if (generatedTutors.find("¹ÚÁö¹Î") == generatedTutors.end()) {
-                            tutorName = "¹ÚÁö¹Î";
+                        else if (generatedTutors.find("ë°•ì§€ë¯¼") == generatedTutors.end()) {
+                            tutorName = "ë°•ì§€ë¯¼";
                         }
                     }
 
                     if (!tutorName.empty() && generatedTutors.find(tutorName) == generatedTutors.end()) {
                         generatedTutors.insert(tutorName);
 
-                        if (tutorName == "°­Ã¢¹Ö") {
+                        if (tutorName == "ê°•ì°½ë°") {
                             currentTutor = new ChallengeTutor(*player, tutorName);
                         }
-                        else if (tutorName == "¹®½ÂÇå" || tutorName == "ÃÖ¸¸¼º") {
+                        else if (tutorName == "ë¬¸ìŠ¹í—Œ" || tutorName == "ìµœë§Œì„±") {
                             currentTutor = new StandardTutor(*player, tutorName);
                         }
-                        else if (tutorName == "ÇÑ¿ìÁ¤" || tutorName == "¹ÚÁ¤½Å" || tutorName == "¹Ú°æÈÄ") {
+                        else if (tutorName == "í•œìš°ì •" || tutorName == "ë°•ì •ì‹ " || tutorName == "ë°•ê²½í›„") {
                             currentTutor = new BasicTutor(*player, tutorName);
                         }
-                        else if (tutorName == "¹èÀçÈñ" || tutorName == "¹ÚÁö¹Î") {
+                        else if (tutorName == "ë°°ì¬í¬" || tutorName == "ë°•ì§€ë¯¼") {
                             currentTutor = new ManagerTutor(*player, tutorName);
                         }
 
-                        break; // »õ·Î¿î Æ©ÅÍ¸¦ ¼º°øÀûÀ¸·Î »ı¼ºÇßÀ¸¹Ç·Î ·çÇÁ Á¾·á
+                        break; // ìƒˆë¡œìš´ íŠœí„°ë¥¼ ì„±ê³µì ìœ¼ë¡œ ìƒì„±í–ˆìœ¼ë¯€ë¡œ ë£¨í”„ ì¢…ë£Œ
                     }
                     else if (generatedTutors.size() == 1 + 2 + 3 + 2) {
-                        // ¸ğµç Æ©ÅÍ°¡ »ı¼ºµÇ¾úÀ¸¸é ´õ ÀÌ»ó »ı¼ºÇÏÁö ¾ÊÀ½
-                        cout << "¸ğµç Æ©ÅÍ¸¦ ¹°¸®ÃÆ½À´Ï´Ù. ÃàÇÏÇÕ´Ï´Ù!\n";
+                        // ëª¨ë“  íŠœí„°ê°€ ìƒì„±ë˜ì—ˆìœ¼ë©´ ë” ì´ìƒ ìƒì„±í•˜ì§€ ì•ŠìŒ
+                        cout << "ëª¨ë“  íŠœí„°ë¥¼ ë¬¼ë¦¬ì³¤ìŠµë‹ˆë‹¤. ì¶•í•˜í•©ë‹ˆë‹¤!\n";
                         break;
                     }
                 }
@@ -126,98 +209,98 @@ void GameManager::StartGame(int parameter) {
             }
 
             if (player->getLevel() >= 10) {
-                cout << "·¹º§ 10¿¡ µµ´ŞÇß½À´Ï´Ù! º¸½º Æ©ÅÍ°¡ µîÀåÇÕ´Ï´Ù!\n";
-                Tutor* boss = new BossTutor(*player, "±èÀÌÁø ¸Å´ÏÀú");
+                cout << "ë ˆë²¨ 10ì— ë„ë‹¬í–ˆìŠµë‹ˆë‹¤! ë³´ìŠ¤ íŠœí„°ê°€ ë“±ì¥í•©ë‹ˆë‹¤!\n";
+                Tutor* boss = new BossTutor(*player, "ê¹€ì´ì§„ ë§¤ë‹ˆì €");
                 battle(*player, *boss);
                 delete boss;
                 break;
             }
         }
         else if (choice == 2) {
-            cout << "\n¾ÆÀÌÅÛ ¸ñ·Ï:\n";
+            cout << "\nì•„ì´í…œ ëª©ë¡:\n";
             /*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
             Character* player = Character::getinstance();
             Inventory* inventory = player->getInventory();
             inventory->displayInventory();
-            cout << "¾ÆÀÌÅÛÀ» ¼±ÅÃÇÏ¼¼¿ä (1-5): ";
+            cout << "ì•„ì´í…œì„ ì„ íƒí•˜ì„¸ìš” (1-5): ";
             int itemChoice;
             cin >> itemChoice;
 
-            // ÀÎµ¦½º¸¦ È®ÀÎÇÏ°í ¾ÆÀÌÅÛ ¼±ÅÃ ÈÄ »ç¿ë
+            // ì¸ë±ìŠ¤ë¥¼ í™•ì¸í•˜ê³  ì•„ì´í…œ ì„ íƒ í›„ ì‚¬ìš©
             if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
-                string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // ¾ÆÀÌÅÛ ÀÌ¸§À» ÀÎµ¦½º·ÎºÎÅÍ ¾òÀ½
-                if (inventory->useItem(itemName, player)) {  // ¼±ÅÃÇÑ ¾ÆÀÌÅÛ »ç¿ë
-                    cout << "¾ÆÀÌÅÛ »ç¿ë ¼º°ø!\n";
+                string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // ì•„ì´í…œ ì´ë¦„ì„ ì¸ë±ìŠ¤ë¡œë¶€í„° ì–»ìŒ
+                if (inventory->useItem(itemName, player)) {  // ì„ íƒí•œ ì•„ì´í…œ ì‚¬ìš©
+                    cout << "ì•„ì´í…œ ì‚¬ìš© ì„±ê³µ!\n";
                 }
                 else {
-                    cout << "¾ÆÀÌÅÛ »ç¿ë ½ÇÆĞ.\n";
+                    cout << "ì•„ì´í…œ ì‚¬ìš© ì‹¤íŒ¨.\n";
                 }
             }
             else {
-                cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù.\n";
+                cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
             }
             
 
 
         }
         else if (choice == 3) {
-            cout << "°ÔÀÓ Á¾·á!\n";
+            cout << "ê²Œì„ ì¢…ë£Œ!\n";
             if (currentTutor != nullptr) {
                 delete currentTutor;
             }
             break;
         }
         else {
-            cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä.\n";
+            cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”.\n";
         }
     }
 }
 
 
-// StartBoss ÇÔ¼ö Á¤ÀÇ
+// StartBoss í•¨ìˆ˜ ì •ì˜
 void GameManager::StartBoss()
 {
-    int Boss = 0; // ÃÊ±âÈ­
+    int Boss = 0; // ì´ˆê¸°í™”
     while (true)
     {
-        cout << "1. ÄÚµù °ø°İ\n";
+        cout << "1. ì½”ë”© ê³µê²©\n";
         cin >> Boss;
 
         if (Boss == 1)
         {
-            cout << "µ¥¹ÌÁö°¡ µé¾î°¡Áö ¾Ê½À´Ï´Ù.\n";
+            cout << "ë°ë¯¸ì§€ê°€ ë“¤ì–´ê°€ì§€ ì•ŠìŠµë‹ˆë‹¤.\n";
             break;
         }
         else
         {
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä.\n";
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”.\n";
         }
     }
 }
 
-//// Tutor »ı¼º ÇÔ¼ö Á¤ÀÇ
+//// Tutor ìƒì„± í•¨ìˆ˜ ì •ì˜
 //void generateTutor(Character& A, Tutor*& currentTutor)
 //{
 //    while (A.getLevel() <= 2)
 //    {
-//        srand((unsigned int)time(NULL)); // ·£´ı ½Ãµå ¼³Á¤
-//        TutorType tutorType = static_cast<TutorType>(rand() % 4);  // 0¿¡¼­ 3±îÁö ·£´ı °ª »ı¼º
+//        srand((unsigned int)time(NULL)); // ëœë¤ ì‹œë“œ ì„¤ì •
+//        TutorType tutorType = static_cast<TutorType>(rand() % 4);  // 0ì—ì„œ 3ê¹Œì§€ ëœë¤ ê°’ ìƒì„±
 //        switch (tutorType)
 //        {
 //        case TutorType::Manager:
-//            currentTutor = new ManagerTutor(A, "¹èÀçÈñ");
+//            currentTutor = new ManagerTutor(A, "ë°°ì¬í¬");
 //            break;
 //        case TutorType::Basic:
-//            currentTutor = new BasicTutor(A, "¹ÚÁö¹Î");
+//            currentTutor = new BasicTutor(A, "ë°•ì§€ë¯¼");
 //            break;
 //        case TutorType::Standard:
-//            currentTutor = new StandardTutor(A, "ÀÌÂùÇü");
+//            currentTutor = new StandardTutor(A, "ì´ì°¬í˜•");
 //            break;
 //        case TutorType::Challenge:
-//            currentTutor = new ChallengeTutor(A, "±èµµ¿¬");
+//            currentTutor = new ChallengeTutor(A, "ê¹€ë„ì—°");
 //            break;
 //        case TutorType::Boss:
-//            currentTutor = new BossTutor(A, "±èÀÌÁø");
+//            currentTutor = new BossTutor(A, "ê¹€ì´ì§„");
 //            break;
 //        }
 //    }
@@ -226,91 +309,91 @@ void GameManager::StartBoss()
 
 //void AfterBattle(Character& A)
 //{
-//    cout << A.getName() << "ÀÇ ³²Àº Ã¼·Â: " << A.getHp() << "\n";
-//    cout << "º¸À¯ÇÑ °ñµå: " << A.getGold() << "\n"; // °ñµå°¡ Á¦´ë·Î Ç¥½ÃµÇµµ·Ï ¼öÁ¤
-//    cout << A.getName() << "ÀÇ Level: " << A.getLevel() << "\n";
-//    cout << "È¹µæÇÑ °æÇèÄ¡: " << A.getExp() << "\n";
+//    cout << A.getName() << "ì˜ ë‚¨ì€ ì²´ë ¥: " << A.getHp() << "\n";
+//    cout << "ë³´ìœ í•œ ê³¨ë“œ: " << A.getGold() << "\n"; // ê³¨ë“œê°€ ì œëŒ€ë¡œ í‘œì‹œë˜ë„ë¡ ìˆ˜ì •
+//    cout << A.getName() << "ì˜ Level: " << A.getLevel() << "\n";
+//    cout << "íšë“í•œ ê²½í—˜ì¹˜: " << A.getExp() << "\n";
 //}
 
-// battle ÇÔ¼ö Á¤ÀÇ
+// battle í•¨ìˆ˜ ì •ì˜
 void GameManager::battle(Character& A, Tutor& B) {
-    cout << "ÀüÅõ¸¦ ½ÃÀÛÇÕ´Ï´Ù!\n";
+    cout << "ì „íˆ¬ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤!\n";
 
     while (A.getHp() > 0 && B.getHp() > 0) {
 
-        // ÇÃ·¹ÀÌ¾î°¡ °ø°İ
+        // í”Œë ˆì´ì–´ê°€ ê³µê²©
         int playerDamage = A.getAdd();
         B.takeDamage(playerDamage);
-        cout << A.getName() << "ÀÌ(°¡) °úÁ¦¸¦ Á¦ÃâÇÏ¿´´Ù!\n";
-        cout << A.getName() << "ÀÌ(°¡) " << B.getName() << "¿¡°Ô " << playerDamage << "ÀÇ ÇÇÇØ¸¦ ÀÔÇû½À´Ï´Ù!\n";
+        cout << A.getName() << "ì´(ê°€) ê³¼ì œë¥¼ ì œì¶œí•˜ì˜€ë‹¤!\n";
+        cout << A.getName() << "ì´(ê°€) " << B.getName() << "ì—ê²Œ " << playerDamage << "ì˜ í”¼í•´ë¥¼ ì…í˜”ìŠµë‹ˆë‹¤!\n";
 
-        // ÀüÅõ Á¾·á Á¶°Ç È®ÀÎ
+        // ì „íˆ¬ ì¢…ë£Œ ì¡°ê±´ í™•ì¸
         if (B.getHp() <= 0) {
-            cout << B.getName() << "¸¦ ¹°¸®ÃÆ½À´Ï´Ù!\n";
+            cout << B.getName() << "ë¥¼ ë¬¼ë¦¬ì³¤ìŠµë‹ˆë‹¤!\n";
             Character* player = Character::getinstance();
             Inventory* inventory = player->getInventory();
             inventory->dropItem(B.getItem());
        
-            A.setGold(A.getGold() + B.getGold()); // º¸»ó
-            A.setExp(A.getExp() + 100); // °æÇèÄ¡ È¹µæ
-            // ÇöÀç »óÅÂ Ãâ·Â
-            cout << "\n" << A.getName() << "ÀÇ ·¹º§: " << A.getLevel() << endl;
-            cout << A.getName() << "ÀÇ Ã¼·Â: " << A.getHp() << endl;
-            cout << A.getName() << "ÀÇ ÄÚµù·Â: " << A.getAdd() << endl;
-            cout << A.getName() << "ÀÇ º¸À¯ °ñµå: " << A.getGold() << endl;
-            break; // ÀüÅõ Á¾·á
+            A.setGold(A.getGold() + B.getGold()); // ë³´ìƒ
+            A.setExp(A.getExp() + 100); // ê²½í—˜ì¹˜ íšë“
+            // í˜„ì¬ ìƒíƒœ ì¶œë ¥
+            cout << "\n" << A.getName() << "ì˜ ë ˆë²¨: " << A.getLevel() << endl;
+            cout << A.getName() << "ì˜ ì²´ë ¥: " << A.getHp() << endl;
+            cout << A.getName() << "ì˜ ì½”ë”©ë ¥: " << A.getAdd() << endl;
+            cout << A.getName() << "ì˜ ë³´ìœ  ê³¨ë“œ: " << A.getGold() << endl;
+            break; // ì „íˆ¬ ì¢…ë£Œ
         }
 
-        // Æ©ÅÍ°¡ ¹İ°İ
+        // íŠœí„°ê°€ ë°˜ê²©
         int tutorDamage = B.getAdd();
         A.takeDamage(tutorDamage);
-        cout << "±×°Ô ³× ÃÖ¼±ÀÌ¾ß?!\n";
-        cout << B.getName() << "ÀÌ(°¡) " << A.getName() << "¿¡°Ô " << tutorDamage << "ÀÇ ÇÇÇØ¸¦ ÀÔÇû½À´Ï´Ù!\n";
+        cout << "ê·¸ê²Œ ë„¤ ìµœì„ ì´ì•¼?!\n";
+        cout << B.getName() << "ì´(ê°€) " << A.getName() << "ì—ê²Œ " << tutorDamage << "ì˜ í”¼í•´ë¥¼ ì…í˜”ìŠµë‹ˆë‹¤!\n";
 
-        // ÀüÅõ Á¾·á Á¶°Ç È®ÀÎ
+        // ì „íˆ¬ ì¢…ë£Œ ì¡°ê±´ í™•ì¸
         if (A.getHp() <= 0) {
-            cout << A.getName() << "ÀÌ(°¡) Á¦Àû ´çÇß½À´Ï´Ù...\n";
-            break; // ÀüÅõ Á¾·á
+            cout << A.getName() << "ì´(ê°€) ì œì  ë‹¹í–ˆìŠµë‹ˆë‹¤...\n";
+            break; // ì „íˆ¬ ì¢…ë£Œ
         }
 
-        // ÇöÀç »óÅÂ Ãâ·Â
-        cout << "\n" << A.getName() << "ÀÇ Ã¼·Â: " << A.getHp() << endl;
-        cout << B.getName() << "ÀÇ Ã¼·Â: " << B.getHp() << endl;
+        // í˜„ì¬ ìƒíƒœ ì¶œë ¥
+        cout << "\n" << A.getName() << "ì˜ ì²´ë ¥: " << A.getHp() << endl;
+        cout << B.getName() << "ì˜ ì²´ë ¥: " << B.getHp() << endl;
 
-        // ÅÏ Á¾·á ÈÄ ¸Ş´º·Î º¹±Í
-        cout << "\nÇöÀç ¼±ÅÃ ¸Ş´º·Î µ¹¾Æ°©´Ï´Ù.\n";
-        return; // ¸Ş´º·Î º¹±Í
+        // í„´ ì¢…ë£Œ í›„ ë©”ë‰´ë¡œ ë³µê·€
+        cout << "\ní˜„ì¬ ì„ íƒ ë©”ë‰´ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤.\n";
+        return; // ë©”ë‰´ë¡œ ë³µê·€
     }
 }
 
 
-/* Tutor ÇÔ¼ö Á¤ÀÇ (Ãß°¡ ÇÔ¼ö·Î ¿¹½Ã)
+/* Tutor í•¨ìˆ˜ ì •ì˜ (ì¶”ê°€ í•¨ìˆ˜ë¡œ ì˜ˆì‹œ)
 void Tutor()
 {
     if (currentTutor != nullptr)
     {
-        cout << currentTutor->getName() << "ÀÌ(°¡) ´ç½Å¿¡°Ô µµÀüÇÕ´Ï´Ù!\n";
+        cout << currentTutor->getName() << "ì´(ê°€) ë‹¹ì‹ ì—ê²Œ ë„ì „í•©ë‹ˆë‹¤!\n";
     }
     else
     {
-        cout << "Æ©ÅÍ°¡ ¾ø½À´Ï´Ù.\n";
+        cout << "íŠœí„°ê°€ ì—†ìŠµë‹ˆë‹¤.\n";
     }
 }*/
 
-// ÀüÅõ ÈÄ º¸À¯ °ñµå, ·¹º§, °æÇèÄ¡ È®ÀÎ
+// ì „íˆ¬ í›„ ë³´ìœ  ê³¨ë“œ, ë ˆë²¨, ê²½í—˜ì¹˜ í™•ì¸
 
       /*  int main()
         {
             int start = 0;
 
-            cout << "ÄÚµùÀ» ½ÃÀÛÇÏ½Ã°Ú½À´Ï±î?\n";
-            cout << "1. ½ÃÀÛÇÑ´Ù \n2. Á¾·áÇÑ´Ù\n";
+            cout << "ì½”ë”©ì„ ì‹œì‘í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n";
+            cout << "1. ì‹œì‘í•œë‹¤ \n2. ì¢…ë£Œí•œë‹¤\n";
             cin >> start;
 
             StartGame(start);
 
-            cout << "À¸ÇÏÇÏÇÏ ³ª´Â ±èÀÌÁø ¸Å´ÏÀú´Ù ³Ê°°ÀÌ GPT¸¸ ¾²´Â °³¹ßÀÚ´Â ¿ë¼­ÇÒ ¼ö ¾øÁö!\n";
-            cout << "¸Å´ÏÀú¿Í Á¶¿ìÇÏ¼Ì½À´Ï´Ù. ¹«¾ùÀ» ÇÏ½Ã°Ú½À´Ï±î?\n";
+            cout << "ìœ¼í•˜í•˜í•˜ ë‚˜ëŠ” ê¹€ì´ì§„ ë§¤ë‹ˆì €ë‹¤ ë„ˆê°™ì´ GPTë§Œ ì“°ëŠ” ê°œë°œìëŠ” ìš©ì„œí•  ìˆ˜ ì—†ì§€!\n";
+            cout << "ë§¤ë‹ˆì €ì™€ ì¡°ìš°í•˜ì…¨ìŠµë‹ˆë‹¤. ë¬´ì—‡ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n";
 
             StartBoss();
 
