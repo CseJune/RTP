@@ -47,10 +47,6 @@ void Shop::buyItem(Character* player, const string& itemName)
     cout << "아이템을 찾을 수 없습니다!" << endl;
 }
 
-
-// TODO :: findItem, removeItem 함수 구현하고 주석 해제
-
-/*
 // 아이템 판매
 void Shop::sellItem(Character* player, const string& itemName)
 {
@@ -67,4 +63,3 @@ void Shop::sellItem(Character* player, const string& itemName)
         cout << "인벤토리에 해당 아이템이 없습니다!" << endl;
     }
 }
-*/
