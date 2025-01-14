@@ -22,6 +22,7 @@ string Tutor::getName() const { return name; }
 int Tutor::getHp() const { return hp; }
 int Tutor::getAdd() const { return add; }
 int Tutor::getGold() const { return gold; }
+Item* Tutor::getItem() const { return item; }
 TutorType Tutor::getType() const { return type; }
 
 // Setter
