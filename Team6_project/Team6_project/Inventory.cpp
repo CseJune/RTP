@@ -70,14 +70,20 @@ Item* Inventory::findItem(const string& itemName)
 	auto it = find_if(items.begin(), items.end(), [&itemName](Item* item)
 		{
 			return item->GetName() == itemName;
+
 		});
+	if (it != items.end())
+	{
+		return *it;
+	}
+	return nullptr;
 }
 
 void Inventory::removeItem(const string& itemName)
 {
 	auto it = find_if(items.begin(), items.end(), [&itemName](Item* item)
 		{
-			return item->GetName() = itemName;
+			return item->GetName() == itemName;
 		});
 	if (it != items.end())
 	{
