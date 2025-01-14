@@ -135,27 +135,35 @@ void GameManager::StartGame(int start) {
         }
         else if (choice == 2) {
             cout << "\n아이템 목록:\n";
-            cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";
+            /*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
             cout << "아이템을 선택하세요 (1-5): ";
             int itemChoice;
             cin >> itemChoice;
 
-            Item* selectedItem = nullptr;
-            switch (itemChoice) {
-            case 1: selectedItem = ItemFactory::CreateItem("HealthPotion"); break;
-            case 2: selectedItem = ItemFactory::CreateItem("CodingBooster"); break;
-            case 3: selectedItem = ItemFactory::CreateItem("MaxHealthPotion"); break;
-            case 4: selectedItem = ItemFactory::CreateItem("TutorAttackReduction"); break;
-            case 5: selectedItem = ItemFactory::CreateItem("ChatGPT"); break;
-            default:
-                cout << "잘못된 선택입니다. 다시 선택해주세요.\n";
-                continue;
-            }
+            Character* player = Character::getinstance();
+            Inventory* inventory = player->getInventory();
 
-            if (selectedItem) {
-                selectedItem->Use(player);
-                delete selectedItem;
-            }
+            inventory->displayInventory();
+
+
+
+            //Item* selectedItem = nullptr;
+            //switch (itemChoice) {
+            //case 1: selectedItem = ItemFactory::CreateItem("HealthPotion"); break;
+            //case 2: selectedItem = ItemFactory::CreateItem("CodingBooster"); break;
+            //case 3: selectedItem = ItemFactory::CreateItem("MaxHealthPotion"); break;
+            //case 4: selectedItem = ItemFactory::CreateItem("TutorAttackReduction"); break;
+            //case 5: selectedItem = ItemFactory::CreateItem("ChatGPT"); break;
+
+         /*   default:
+                cout << "잘못된 선택입니다. 다시 선택해주세요.\n";
+                continue;*/
+            //}
+
+            //if (selectedItem) {
+            //    selectedItem->Use(player);
+            //    delete selectedItem;
+            //}
         }
         else if (choice == 3) {
             cout << "게임 종료!\n";
@@ -244,6 +252,9 @@ void GameManager::battle(Character& A, Tutor& B) {
         // 전투 종료 조건 확인
         if (B.getHp() <= 0) {
             cout << B.getName() << "를 물리쳤습니다!\n";
+            Character* player = Character::getinstance();
+            Inventory* inventory = player->getInventory();
+            inventory->dropItem(B.getItem());
             // 현재 상태 출력
             cout << "\n" << A.getName() << "의 체력: " << A.getHp() << endl;
             A.setGold(A.getGold() + B.getGold()); // 보상
