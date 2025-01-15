@@ -11,7 +11,7 @@ class HealthPotion : public Item
 {
 private:
     string name;    // 아이템 이름
-    string description = "체력 회복 아이템";    // 아이템 설명
+    string description = "캐릭터 체력 회복 아이템";    // 아이템 설명
     int healthIncrease; // 체력 증가량
     int price = 3000;   // 아이템 가격 (3000 Gold)
 
