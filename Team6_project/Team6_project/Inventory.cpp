@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "Logger.h"
+#include "Shop.h"
 
 // 인벤토리 아이템 추가 로직
 void Inventory::addItem(Item* item)
@@ -27,7 +28,7 @@ const {
 	cout << " 인벤토리 " << endl;
 	for (size_t i = 0; i < items.size(); ++i)
 	{
-		cout << "[" << (i + 1) << "] " << items[i]->GetName() << endl;
+		cout << "[" << (i + 1) << "] " << items[i]->GetName() << " : " << items[i]->GetDescription() << endl;
 	}
 }
 
