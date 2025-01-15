@@ -31,7 +31,7 @@ const {
 
 
 // 인벤토리에 아이템 사용 로직
-bool Inventory::useItem(const string& itemName, Character* character)
+bool Inventory::useItem(const string& itemName, Character* character, Tutor* tutor)
 {
 	auto it = find_if(items.begin(), items.end(), [&itemName](Item* item)
 		{
@@ -41,6 +41,7 @@ bool Inventory::useItem(const string& itemName, Character* character)
 	if (it != items.end()) // 아이템을 찾으면( 반복자가 find를 사용했는데, 끝까지 갔을때가 아니라면 )
 	{
 		(*it)->Use(character);
+		(*it)->Use(tutor);
 		// 능력치 출력 (예시: HP, Attack, Defense)
 		cout << "아이템 사용 후 능력치:\n";
 		character->displayStatus();
