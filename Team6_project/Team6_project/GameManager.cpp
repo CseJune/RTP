@@ -54,7 +54,7 @@ void GameManager::StartGame(int parameter) {
 		}
 		
 		if (player->getLevel() == 0 && choice == 1) {
-			slowPrint ( "주인공은 건강히 군대를 제대하고 프로그래머로써 대기업에 취업하기 위해 스파르타 코딩 캠프에 지원했었다. \n" );
+			/*slowPrint ( "주인공은 건강히 군대를 제대하고 프로그래머로써 대기업에 취업하기 위해 스파르타 코딩 캠프에 지원했었다. \n" );
 			slowPrint ( "GPT를 사용해서 과제들을 해결하고, 스파르타 코딩 캠프를 진행했었는데 진행 중에 김이진 매니저에게 GPT사용을 들켰고 GPT를 압수당했다. \n" );
 			slowPrint ( "GPT를 잃은 주인공은 코딩실력이 매우 하락하였고 마지막 과제를 수행하지 못한 나머지 모든 튜터들은 주인공에게 실망했다. \n" );
 			slowPrint ( "그 자괴감과 수치심에 주인공은 캠프를 탈주하게 되었다. \n" );
@@ -77,7 +77,7 @@ void GameManager::StartGame(int parameter) {
 			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 대기업 추천서를 얻쟈 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
 
-			slowPrint ("환생했더니 군필여고생이 튜터님을 죽일 수 밖에 없었던 이유♥ ");
+			slowPrint ("환생했더니 군필여고생이 튜터님을 죽일 수 밖에 없었던 이유♥ ");*/
 			player->setLevel(1);
 			cout << "\n곤듀! 스파르타 세상에 등쟝!\n";
 			cout << "곤듀가 레벨 1로 환생하였습니다." << endl;
@@ -165,7 +165,7 @@ void GameManager::StartGame(int parameter) {
 						string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 						shop->sellItem(player, itemName);  // 아이템 판매 처리
 						cout << "아이템을 팔았어요! 이제 공쥬님은 돈도 많이 벌어요~!\n";
-						wcerr << "아이템을 팔았어요! 이제 공쥬님은 돈도 많이 벌어요~!\n";
+						writeLog( "아이템을 팔았어요! 이제 공쥬님은 돈도 많이 벌어요~!\n");
 						break;  // 상점에서 나가기
 					}
 					else {
