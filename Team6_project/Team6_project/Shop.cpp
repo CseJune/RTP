@@ -1,4 +1,15 @@
 ﻿#include "Shop.h"
+#include <windows.h> // 콘솔 색상 변경을 위해 필요
+#include <iostream>
+
+using namespace std;
+
+// 텍스트 색상을 설정하는 함수
+void SetColor(int color)
+{
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, color);
+}
 
 // 생성자
 Shop::Shop()
@@ -24,7 +35,8 @@ void Shop::initializeShopItems()
     // 이전 아이템들을 삭제하고, 새로 초기화
     if (!availableItems.empty())
     {
-        for (auto item : availableItems) {
+        for (auto item : availableItems)
+        {
             delete item;  // 이전에 동적으로 할당된 Item 객체들을 삭제
         }
         availableItems.clear();  // 벡터 초기화
@@ -47,20 +59,34 @@ void Shop::displayItems(Character* player) const
     for (size_t i = 0; i < availableItems.size(); ++i)
     {
         cout << i + 1 << ". " << availableItems[i]->GetName() << " (" << availableItems[i]->GetDescription()
-             << ")" << " - " << availableItems[i]->GetPrice() << " Gold" << endl;
+             << ")" << " - " << availableItems[i]->GetPrice() << " ";
+        
+        // Gold를 노란색으로 출력
+        SetColor(6);
+        cout << "Gold";
+        SetColor(7); // 기본 색상으로 복원
+        cout << endl;
     }
-    cout << "보유 골드: " << player->getGold() << endl;
+    cout << "보유 ";
+    SetColor(6);
+    cout << "Gold";
+    SetColor(7);
+    cout << ": " << player->getGold() << endl;
 }
 
 // 상점 객체 파괴 시, 할당된 메모리 해제
-Shop::~Shop() {
+Shop::~Shop()
+{
     if (availableItems.empty()) return;  // 아이템이 비었으면 리턴
-    for (auto item : availableItems) {
-        if (item != nullptr) {  // nullptr 체크
+    for (auto item : availableItems)
+    {
+        if (item != nullptr)
+        {  // nullptr 체크
             cout << "Deleting item: " << item->GetName() << endl;
             delete item;  // 아이템 객체들을 메모리에서 해제
         } 
-        else {
+        else
+        {
             cout << "Encountered nullptr, skipping delete." << endl;
         }
     }
@@ -79,7 +105,19 @@ void Shop::buyItem(Character* player, const string& itemName)
                 player->setGold(player->getGold() - item->GetPrice());
                 player->addItemToInventory(item);
                 int gold = player->getGold();
-                cout << itemName << "을(를) 구매했습니다!\n" << item->GetPrice() << " Gold를 사용했습니다. 현재 Gold: " << gold << endl;
+                cout << itemName << "을(를) 구매했습니다!\n" << item->GetPrice() << " ";
+                
+                // Gold를 노란색으로 출력
+                SetColor(6);
+                cout << "Gold";
+                SetColor(7);
+                cout << "를 사용했습니다. 현재 ";
+
+                // 다시 Gold를 노란색으로 출력
+                SetColor(6);
+                cout << "Gold";
+                SetColor(7);
+                cout << ": " << gold << endl;
                 return;
             }
             cout << "골드가 부족합니다!" << endl;
@@ -98,8 +136,12 @@ void Shop::sellItem(Character* player, const string& itemName)
         int sellPrice = static_cast<int>(item->GetPrice() * 0.6);
         player->setGold(player->getGold() + sellPrice);
         player->getInventory()->removeItem(itemName);
-        cout << itemName << "을(를) 판매했습니다! " << sellPrice << " Gold를 획득했습니다." << endl;
 
+        cout << itemName << "을(를) 판매했습니다! " << sellPrice << " ";
+        SetColor(6);
+        cout << "Gold";
+        SetColor(7);
+        cout << "를 획득했습니다." << endl;
     }
     else
     {
