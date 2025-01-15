@@ -281,6 +281,7 @@
     </ClCompile>
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MaxHealthPotion.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -296,6 +297,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="MaxHealthPotion.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Shop.h" />
