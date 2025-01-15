@@ -53,6 +53,8 @@ private:
 	TutorType type; // 튜터의 등급
 	int gold;
 	Item* item;
+	void reduceAdd(int a, int b);
+	void reduceHp(int a, int b);
 };
 
 class ManagerTutor : public Tutor
