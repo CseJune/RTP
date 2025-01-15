@@ -7,6 +7,7 @@
 #include "Monster.h"
 #include <set>
 #include "Shop.h"
+#include "Logger.h"
 
 using namespace std;
 
@@ -17,10 +18,12 @@ Shop* shop;  // 상점 객체 포인터
 void GameManager::StartGame(int parameter) {
     string characterName;
     cout << "캐릭터 이름 입력: ";
+	writeLog("캐릭터 생성 ");
     cin >> characterName;
 
     Character* player = Character::getinstance(characterName);
     player->displayStatus();
+	writeLog("캐릭터 이름 입력: " + characterName);
 
     Tutor* currentTutor = nullptr;  // 현재 튜터 포인터
 
@@ -42,6 +45,7 @@ void GameManager::StartGame(int parameter) {
             cout << "실력이 부족하군요.\n";
             cout << "무엇이 부족한지 생각해 보셨나요?\n";
             cout << "당신 혼자선 불가능합니다.\n";
+			writeLog("실력이 부족하군요. 무엇이 부족한지 생각해 보셨나요? 당신 혼자선 불가능합니다.");
         }
 
         if (player->getLevel() == 0 && choice == 1) {
@@ -49,14 +53,18 @@ void GameManager::StartGame(int parameter) {
             cout << "선빵을 당하셨습니다...\n당신은 사망하였습니다...\n군필 여고생으로 환생 합니다.\n";
             player->setLevel(1);
             cout << "레벨 1로 환생 합니다.\n";
+			writeLog("레벨 1로 환생 ");
 		}
 		else if (player->getLevel() == 0 && choice == 2) {
 			cout << "\n아이템 목록:\n";
+			writeLog("아이템 목록 ");
 			/*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
+			writeLog("1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. TutorHealthReduction\n");
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
 			inventory->displayInventory();
 			cout << "아이템을 선택하세요 (1-5): ";
+			writeLog("아이템 선택 ");
 			int itemChoice;
 			cin >> itemChoice;
 			// 인덱스를 확인하고 아이템 선택 후 사용
@@ -64,9 +72,11 @@ void GameManager::StartGame(int parameter) {
 				string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 				if (inventory->useItem(itemName, player, currentTutor)) {  // 선택한 아이템 사용
 					cout << "아이템 사용 성공!\n";
+					writeLog("아이템 사용 성공 ");
 				}
 				else {
 					cout << "아이템 사용 실패.\n";
+					writeLog("아이템 사용 실패 ");
 				}
 			}
 			else {
@@ -96,6 +106,7 @@ void GameManager::StartGame(int parameter) {
             while (true) {
                /* cout << "\n===== 상점 =====\n";*/
                 shop->displayItems(player);  // 상점 아이템 목록 표시
+				writeLog("상점 입장 ");
                 cout << "\n1. 아이템 구매\n2. 아이템 판매\n3. 상점 나가기\n선택: ";
                 cin >> shopChoice;
 
@@ -126,6 +137,7 @@ void GameManager::StartGame(int parameter) {
                         string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
                         shop->sellItem(player, itemName);  // 아이템 판매 처리
                         cout << "아이템을 판매한 후 상점에서 나갑니다.\n";
+						wcerr << "아이템을 판매한 후 상점에서 나갑니다.\n";
                         break;  // 상점에서 나가기
                     }
                     else {
@@ -133,6 +145,7 @@ void GameManager::StartGame(int parameter) {
                     }
                 }
                 else if (shopChoice == 3) {  // 상점 나가기
+					writeLog("상점 나가기 ");
                     break;  // 상점에서 나가기
                 }
                 else {
@@ -150,32 +163,40 @@ void GameManager::StartGame(int parameter) {
 
                     if (player->getLevel() >= 8 && generatedTutors.find("강창밍") == generatedTutors.end()) {
                         tutorName = "강창밍";
+						writeLog("강창밍 튜터 생성 ");
                     }
                     else if (player->getLevel() >= 6) {
                         if (generatedTutors.find("문승헌") == generatedTutors.end()) {
                             tutorName = "문승헌";
+							writeLog("문승헌 튜터 생성 ");
                         }
                         else if (generatedTutors.find("최만성") == generatedTutors.end()) {
                             tutorName = "최만성";
+							writeLog("최만성 튜터 생성 ");
                         }
                     }
                     else if (player->getLevel() >= 3) {
                         if (generatedTutors.find("한우정") == generatedTutors.end()) {
                             tutorName = "한우정";
+							writeLog("한우정 튜터 생성 ");
                         }
                         else if (generatedTutors.find("박정신") == generatedTutors.end()) {
                             tutorName = "박정신";
+							writeLog("박정신 튜터 생성 ");
                         }
                         else if (generatedTutors.find("박경후") == generatedTutors.end()) {
                             tutorName = "박경후";
+							writeLog("박경후 튜터 생성 ");
                         }
                     }
                     else {
                         if (generatedTutors.find("배재희") == generatedTutors.end()) {
                             tutorName = "배재희";
+							writeLog("배재희 매니저 생성 ");
                         }
                         else if (generatedTutors.find("박지민") == generatedTutors.end()) {
                             tutorName = "박지민";
+							writeLog("박지민 매니저 생성 ");
                         }
                     }
 
@@ -211,11 +232,14 @@ void GameManager::StartGame(int parameter) {
             }
             if (player->getLevel() >= 9) {
                 cout << "뭔가 사용해야지 보스전을 할 수 있을 것 같은데?\n";
+				writeLog("뭔가 사용해야지 보스전을 할 수 있을 것 같은데? ");
             }
 
             if (player->getLevel() >= 10) {
                 cout << "레벨 10에 도달했습니다! 보스 튜터가 등장합니다!\n";
+				writeLog("레벨 10에 도달했습니다! 보스 튜터가 등장합니다! ");
                 Tutor* boss = new BossTutor(*player, "김이진 매니저");
+				writeLog("김이진 매니저 생성 ");
                 battle(*player, *boss);
                 delete boss;
                 break;
@@ -332,11 +356,14 @@ void GameManager::battle(Character& A, Tutor& B) {
         int playerDamage = A.getAdd();
         B.takeDamage(playerDamage);
         cout << A.getName() << "이(가) 과제를 제출하였다!\n";
+		writeLog(A.getName() + "이(가) 과제를 제출하였다! ");
         cout << A.getName() << "이(가) " << B.getName() << "에게 " << playerDamage << "의 피해를 입혔습니다!\n";
+		writeLog(A.getName() + "이(가) " + B.getName() + "에게 " + to_string(playerDamage) + "의 피해를 입혔습니다! ");
 
         // 전투 종료 조건 확인
         if (B.getHp() <= 0) {
             cout << B.getName() << "를 물리쳤습니다!\n";
+            writeLog(B.getName() + "를 물리쳤습니다! ");
             Character* player = Character::getinstance();
             Inventory* inventory = player->getInventory();
             inventory->dropItem(B.getItem());
@@ -358,12 +385,15 @@ void GameManager::battle(Character& A, Tutor& B) {
         int tutorDamage = B.getAdd();
         A.takeDamage(tutorDamage);
         cout << "그게 네 최선이야?!\n";
+		writeLog("그게 네 최선이야?! ");
         cout << B.getName() << "이(가) " << A.getName() << "에게 " << tutorDamage << "의 피해를 입혔습니다!\n";
+		writeLog(B.getName() + "이(가) " + A.getName() + "에게 " + to_string(tutorDamage) + "의 피해를 입혔습니다! ");
 
         // 전투 종료 조건 확인
         if (A.getHp() <= 0) {
             cout << A.getName() << "이(가) 제적 당했습니다...\n";
             cout << "당신은 패배자입니다.\n긁?\n";
+			writeLog(A.getName() + "이(가) 제적 당했습니다... 당신은 패배자입니다. 긁? ");
             exit(0); // 게임 종료
         }
 
@@ -373,6 +403,7 @@ void GameManager::battle(Character& A, Tutor& B) {
 
         // 턴 종료 후 메뉴로 복귀
         cout << "\n현재 선택 메뉴로 돌아갑니다.\n";
+		writeLog("현재 선택 메뉴로 돌아갑니다. ");
         return; // 메뉴로 복귀
     }
 }

@@ -1,7 +1,7 @@
 ﻿#include "MaxHealthPotion.h"
 #include "Character.h"
 #include <iostream>
-
+#include "Logger.h"
 using namespace std;
 
 // 기본 생성자: 이름과 최대 체력 증가량 초기화
@@ -28,6 +28,7 @@ void MaxHealthPotion::Use(Character* character)
         character->IncreaseMaxHealth(maxHealthIncrease);
 
        cout << name << "사용 : 최대체력이 " << maxHealthIncrease << " 만큼 증가했습니다!" << endl;
+	   writeLog(name + "사용 : 최대체력이 " + to_string(maxHealthIncrease) + " 만큼 증가했습니다!");   
     }
 }
 

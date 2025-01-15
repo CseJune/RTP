@@ -1,6 +1,7 @@
 ﻿#include "Shop.h"
 #include <windows.h> // 콘솔 색상 변경을 위해 필요
 #include <iostream>
+#include "Logger.h"
 
 using namespace std;
 
@@ -106,6 +107,7 @@ void Shop::buyItem(Character* player, const string& itemName)
                 player->addItemToInventory(item);
                 int gold = player->getGold();
                 cout << itemName << "을(를) 구매했습니다!\n" << item->GetPrice() << " ";
+				writeLog(itemName + "을(를) 구매했습니다! " + to_string(item->GetPrice()) + " Gold를 사용했습니다. 현재 Gold: " + to_string(gold));
                 
                 // Gold를 노란색으로 출력
                 SetColor(6);
@@ -138,6 +140,7 @@ void Shop::sellItem(Character* player, const string& itemName)
         player->getInventory()->removeItem(itemName);
 
         cout << itemName << "을(를) 판매했습니다! " << sellPrice << " ";
+		writeLog(itemName + "을(를) 판매했습니다! " + to_string(sellPrice) + " Gold를 획득했습니다.");
         SetColor(6);
         cout << "Gold";
         SetColor(7);

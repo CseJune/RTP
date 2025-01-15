@@ -2,7 +2,7 @@
 #include "Character.h"
 #include "Monster.h"
 #include <iostream>
-
+#include "Logger.h"
 using namespace std;
 
 //  기본 생성자: 이름과 코딩력 증가량 초기화
@@ -28,6 +28,7 @@ void CodingBooster::Use(Character* character)
 
     // 코딩력 증가 메시지 출력
    cout << name << "사용 : 코딩력이 " << codingIncrease << " 만큼 증가했습니다!" << endl;
+   writeLog(name + "사용 : 코딩력이 " + to_string(codingIncrease) + " 만큼 증가했습니다!");
 }
 
 // 튜터에게 효과 없음

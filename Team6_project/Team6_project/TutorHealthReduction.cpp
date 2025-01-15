@@ -1,7 +1,7 @@
 ﻿#include "TutorHealthReduction.h"
 #include "Monster.h" 
 #include <iostream>
-
+#include "Logger.h"
 using namespace std;
 
 // 기본 생성자: 이름과 체력 감소량 초기화
@@ -25,10 +25,16 @@ void TutorHealthReduction::Use(Tutor* tutor)
 {
     // 튜터의 체력을 감소시킴
     // healthReduction을 튜터에서 구현하고 내용은 인자값만큼 체력 감소시키면 됨
-   //tutor->ReduceHealth(healthReduction); // 튜터 체력 감소
+    if (tutor != nullptr) {
+        tutor->ReduceHealth(healthReduction); // 튜터 체력 감소
+    }
+	else {
+		cout << "튜터가 없습니다." << endl;
+	}
 
     // 튜터 체력 감소 메시지 출력
-    //cout << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
+    cout << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
+	writeLog(name + " 사용: 튜터의 체력이 " + to_string(healthReduction) + "만큼 감소했습니다!");
 }
 void TutorHealthReduction::Use(Character* character)
 {

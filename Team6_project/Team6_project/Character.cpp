@@ -2,7 +2,7 @@
 #include <vector>
 #include "Character.h"
 #include "Inventory.h"
-
+#include "Logger.h"
 using namespace std;
 
 //캐릭터를 생성하기 위한 정적 멤버변수 초기화
@@ -28,10 +28,15 @@ Character::Character()
 void Character::displayStatus()
 {
 	cout << "이름 : " << name << endl;
+	writeLog("캐릭터 이름 : " + name);
 	cout << "레벨 : " << level << endl;
+	writeLog("캐릭터 레벨 : " + to_string(level));
 	cout << "코딩력 : " << add << endl;
+	writeLog("캐릭터 코딩력 : " + to_string(add));
 	cout << "골드 : " << gold << endl;
+	writeLog("캐릭터 골드 : " + to_string(gold));
 	cout << "체력 : " << hp << " / " << "최대 체력 : " << maxhp << endl;
+	writeLog("캐릭터 체력 : " + to_string(hp) + " / " + to_string(maxhp));
 }
 
 void Character::addItemToInventory(Item* item) 

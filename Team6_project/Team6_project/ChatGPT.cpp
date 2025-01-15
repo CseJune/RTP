@@ -2,7 +2,7 @@
 #include "Character.h"
 #include "Monster.h"
 #include <iostream>
-
+#include "Logger.h"
 using namespace std;
 
 // 생성자 : 이름 초기화
@@ -23,6 +23,7 @@ string ChatGPT::GetDescription() const
 void ChatGPT::Use(Character* character) // 캐릭터에게 효과 적용
 {
     cout << name << " 사용: 레벨 업! 이제부터 보스와의 전투가 가능합니다." << endl;
+	writeLog(name + " 사용: 레벨 업! 이제부터 보스와의 전투가 가능합니다.");
 
     int level = character->getLevel();
     character->setLevel(level + 1);

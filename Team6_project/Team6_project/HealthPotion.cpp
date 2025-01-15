@@ -1,7 +1,7 @@
 ﻿#include "HealthPotion.h"
 #include "Character.h"
 #include <iostream>
-
+#include "Logger.h"
 using namespace std;
 
 // 기본 생성자: 이름과 체력 증가량 초기화
@@ -25,6 +25,7 @@ void HealthPotion::Use(Character* character)
     if (character->getHp() >= character->getMaxHp())
     {
         cout << name << " 사용 실패: 캐릭터가 이미 최대 체력입니다!" << endl;
+		writeLog(name + " 사용 실패: 캐릭터가 이미 최대 체력입니다!");
         return;
     }
 
@@ -32,6 +33,7 @@ void HealthPotion::Use(Character* character)
     character->IncreaseHealth(healthIncrease);
 
    cout << name << " 사용: 체력이 " << healthIncrease << "만큼 회복되었습니다!" << endl;
+   writeLog(name + " 사용: 체력이 " + to_string(healthIncrease) + "만큼 회복되었습니다!");
 }
 
 // 튜터에게 효과 없음

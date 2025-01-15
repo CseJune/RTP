@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Logger.h"
 
 // 인벤토리 아이템 추가 로직
 void Inventory::addItem(Item* item)
@@ -44,6 +45,8 @@ bool Inventory::useItem(const string& itemName, Character* character, Tutor* tut
 		(*it)->Use(tutor);
 		// 능력치 출력 (예시: HP, Attack, Defense)
 		cout << "아이템 사용 후 능력치:\n";
+		writeLog("아이템 사용 후 능력치: ");
+	
 		character->displayStatus();
 		/*cout << "레벨: " << character->getLevel() << endl;
 		cout << "체력 : " << character->getHp() << " / " << "최대 체력 : " << character->getMaxHp() << endl;
