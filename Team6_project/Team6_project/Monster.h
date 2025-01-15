@@ -26,7 +26,6 @@ class Tutor
 public:
 	Tutor();
 	Tutor(Character a, const string& name, TutorType type);
-	virtual ~Tutor(); // 소멸자 (가상 소멸자)
 
 	// Getter
 	string getName() const;
@@ -44,7 +43,8 @@ public:
 
 	// 기능 메서드
 	void takeDamage(int add); // 피해 처리
-	//virtual void reduceAttackDamage(int addreduction);
+	virtual void reduceAttackDamage(int add);
+	virtual void ReduceHealth(int hp);
 
 private:
 	string name;
@@ -52,48 +52,37 @@ private:
 	int add;
 	TutorType type; // 튜터의 등급
 	int gold;
-	/*CodingBooster item;
-	HealthPotion item;
-	MaxHealthPotion item;
-	TutorAttackReduction item;
-	TutorHealthReduction item;*/
 	Item* item;
 };
 
 class ManagerTutor : public Tutor
 {
 public:
-	ManagerTutor();
 	ManagerTutor(Character a, string name);  // public으로 선언
-	~ManagerTutor();
 };
 
 class BasicTutor : public Tutor
 {
 public:
 	BasicTutor(Character a, string name);  // public으로 선언
-	~BasicTutor();
 };
 
 class StandardTutor : public Tutor
 {
 public:
 	StandardTutor(Character a, string name);  // public으로 선언
-	~StandardTutor();
 };
 
 class ChallengeTutor : public Tutor
 {
 public:
 	ChallengeTutor(Character a, string name);  // public으로 선언
-	~ChallengeTutor();
 };
 
 class BossTutor : public Tutor
 {
 public:
 	BossTutor(Character a, string name);  // public으로 선언
-	~BossTutor();
 };
 
 
