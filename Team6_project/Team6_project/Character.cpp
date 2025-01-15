@@ -31,8 +31,7 @@ void Character::displayStatus()
 	cout << "레벨 : " << level << endl;
 	cout << "코딩력 : " << add << endl;
 	cout << "골드 : " << gold << endl;
-	cout << "경험치 : " << exp << endl;
-	cout << "체력 : " << hp << ", " << "최대 체력 : " << maxhp << endl;
+	cout << "체력 : " << hp << " / " << "최대 체력 : " << maxhp << endl;
 }
 
 void Character::addItemToInventory(Item* item) 

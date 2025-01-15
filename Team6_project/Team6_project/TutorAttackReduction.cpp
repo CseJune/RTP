@@ -13,6 +13,12 @@ string TutorAttackReduction::GetName() const
     return name;
 }
 
+// 아이템 설명 반환
+string TutorAttackReduction::GetDescription() const
+{
+    return description;
+}
+
 // 튜터의 공격력을 감소시키는 효과 적용
 void TutorAttackReduction::Use(Tutor* tutor)
 {

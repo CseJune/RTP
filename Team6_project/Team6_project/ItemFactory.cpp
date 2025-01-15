@@ -14,7 +14,8 @@
 using namespace std;
 
 // 아이템 타입과 생성 함수 매핑 초기화
-unordered_map<string, function<Item*()>> ItemFactory::itemRegistry = {
+unordered_map<string, function<Item*()>> ItemFactory::itemRegistry =
+    {
     {"ChatGPT",[]() { return new ChatGPT(); }},
     {"HealthPotion", []() { return new HealthPotion(); }},
     {"MaxHealthPotion", []() { return new MaxHealthPotion(); }},
