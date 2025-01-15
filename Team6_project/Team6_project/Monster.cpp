@@ -237,3 +237,4 @@ void Tutor::reduceHp(int a, int b)
 		cout << "튜터의 체력이 " << b << " 만큼 감소했습니다." << endl;
 	}
 }
+

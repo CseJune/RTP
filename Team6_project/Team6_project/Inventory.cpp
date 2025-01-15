@@ -43,17 +43,20 @@ bool Inventory::useItem(const string& itemName, Character* character, Tutor* tut
 	{
 		(*it)->Use(character);
 		(*it)->Use(tutor);
+
+		if (tutor != nullptr)
+		{
+			cout << "아이템 사용 후 능력치:\n";
+			writeLog("아이템 사용 후 능력치: ");
+			character->displayStatus();
+		}
+		items.erase(it);
+		return true;
 		// 능력치 출력 (예시: HP, Attack, Defense)
-		cout << "아이템 사용 후 능력치:\n";
-		writeLog("아이템 사용 후 능력치: ");
-	
-		character->displayStatus();
 		/*cout << "레벨: " << character->getLevel() << endl;
 		cout << "체력 : " << character->getHp() << " / " << "최대 체력 : " << character->getMaxHp() << endl;
 		cout << "코딩력: " << character->getAdd() << endl;*/
 		/*delete* it;*/
-		items.erase(it);
-		return true;
 	}
 
 	cout << "아이템을 찾을 수 없습니다." << itemName << endl;

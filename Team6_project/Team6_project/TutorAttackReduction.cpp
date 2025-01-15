@@ -28,11 +28,12 @@ void TutorAttackReduction::Use(Tutor* tutor)
         tutor->reduceAttackDamage(attackReduction);   // 공격력 감소
     }
     else {
-        cout << "튜터가 없습니다." << endl;
+        cout << "튜터가 없습니다. 아이템이 증발했습니다." << endl;
+        cout << " 전투 시작 후 사용해 주십시오. " << endl;
     }
      //튜터 공격력 감소 메시지 출력
-   cout << name << "사용 : 튜터의 공격력이 " << attackReduction << " 만큼 감소했습니다!" << endl;
-   writeLog(name + "사용 : 튜터의 공격력이 " + to_string(attackReduction) + " 만큼 감소했습니다!");
+   /*cout << name << "사용 : 튜터의 공격력이 " << attackReduction << " 만큼 감소했습니다!" << endl;
+   writeLog(name + "사용 : 튜터의 공격력이 " + to_string(attackReduction) + " 만큼 감소했습니다!");*/
 }
 
 // Character에 대한 Use 구현 - 아무 효과 없음

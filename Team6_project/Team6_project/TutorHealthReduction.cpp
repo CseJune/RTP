@@ -29,12 +29,13 @@ void TutorHealthReduction::Use(Tutor* tutor)
         tutor->ReduceHealth(healthReduction); // 튜터 체력 감소
     }
 	else {
-		cout << "튜터가 없습니다." << endl;
+        cout << "튜터가 없습니다. 아이템이 증발했습니다." << endl;
+        cout << " 전투 시작 후 사용해 주십시오. " << endl;
 	}
 
     // 튜터 체력 감소 메시지 출력
-    cout << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
-	writeLog(name + " 사용: 튜터의 체력이 " + to_string(healthReduction) + "만큼 감소했습니다!");
+    /*cout << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
+	writeLog(name + " 사용: 튜터의 체력이 " + to_string(healthReduction) + "만큼 감소했습니다!");*/
 }
 void TutorHealthReduction::Use(Character* character)
 {
