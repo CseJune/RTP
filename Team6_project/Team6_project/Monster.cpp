@@ -12,10 +12,7 @@ using namespace std;
 Tutor::Tutor() : name(""), hp(0), add(0), type(TutorType::Manager) {} // 기본 타입은 Manager로 설정
 
 // 초기화 생성자
-Tutor::Tutor(Character a, const string& name, TutorType type) : name(name), hp(100), add(10), type(type) {}
-
-// 소멸자
-Tutor::~Tutor() {}
+Tutor::Tutor(Character a, const string& name, TutorType type) : name(name), hp(100), type(type) {}
 
 // Getter
 string Tutor::getName() const { return name; }
@@ -69,20 +66,6 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name, TutorType:
     setItem(newItem);
 }
 
-//ManagerTutor 소멸자
-ManagerTutor::~ManagerTutor() 
-{
-    //Item* item = this->getItem(); // this 포인터를 사용하여 현재 객체 참조 
-    //if (item != nullptr) 
-    //{ 
-    //    Character* player = Character::getinstance(); 
-    //    player->getInventory()->addItem(item); 
-    //    this->setItem(nullptr); // item을 null로 설정하여 소멸자가 끝난 후 메모리 누수 방지
-    //} 
-
-  
-}
-
 // BasicTutor 생성자
 BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Basic)
 {
@@ -104,11 +87,6 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Bas
     string selectedItem = possibleItems[disItem(gen)];
     Item* newItem = ItemFactory::CreateItem(selectedItem);
     setItem(newItem);
-}
-
-//BasicTutor 소멸자
-BasicTutor::~BasicTutor()
-{
 }
 
 // StandardTutor 생성자
@@ -134,11 +112,6 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorTyp
     setItem(newItem);
 }
 
-//StandardTutor 소멸자
-StandardTutor::~StandardTutor()
-{
-}
-
 // ChallengeTutor 생성자
 ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorType::Challenge)
 {
@@ -159,11 +132,6 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
     setItem(newItem);
 }
 
-//ChallengeTutor 소멸자
-ChallengeTutor::~ChallengeTutor()
-{
-}
-
 // BossTutor 생성자
 BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
 {
@@ -180,14 +148,60 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
     setGold(disGold(gen));
 }
 
-//BossTutor 소멸자
-BossTutor::~BossTutor()
-{
-}
-
-
 //튜터 공격력 감소 아이템
 void Tutor::reduceAttackDamage(int addReduction)
 {
+    int currentAdd = this->getAdd();
+    TutorType currentTutorType = this->getType();
+    switch (currentTutorType)
+    {
+    case TutorType::Manager:
+        if(currentAdd < 50) // 매니저 튜터 공격력 최소치
+        this->setAdd(currentAdd - 5); // 매니저 튜터 공격력 감소치 
+
+    case TutorType::Basic:
+        if (currentAdd < 0) // 베이직 튜터 공격력 최소치
+            this->setAdd(currentAdd - 10); // 베이직 튜터 공격력 감소치
+
+    case TutorType::Standard:
+        if (currentAdd < 0) //  스탠다드 튜터 공격력 최소치
+            this->setAdd(currentAdd - 20); // 스탠다드 튜터 공격력 감소치
+
+    case TutorType::Challenge:
+        if (currentAdd < 0) // 챌린지 튜터 공격력 최소치
+            this->setAdd(currentAdd - 30); // 챌린지 튜터 공격력 감소치
+
+    case TutorType::Boss:
+        if (currentAdd < 0) // 보스 튜터 공격력 최소치
+            this->setAdd(currentAdd - 50); // 보스 튜터 공격력 감소치
+    }
     
+}
+
+void Tutor::ReduceHealth(int hpReduction)
+{
+    int currentHp = this->getHp();
+    TutorType currentTutorType = this->getType();
+    switch (currentTutorType)
+    {
+    case TutorType::Manager:
+        if (currentHp < 50) // 매니저 튜터 체력 최소치
+            this->setHp(currentHp - 10); // 매니저 튜터 체력 감소치 
+
+    case TutorType::Basic:
+        if (currentHp < 0) // 베이직 튜터 체력 최소치
+            this->setHp(currentHp - 20); // 베이직 튜터 체력 감소치
+
+    case TutorType::Standard:
+        if (currentHp < 0) //  스탠다드 튜터 체력 최소치
+            this->setHp(currentHp - 50); // 스탠다드 튜터 체력 감소치
+
+    case TutorType::Challenge:
+        if (currentHp < 0) // 챌린지 튜터 체력 최소치
+            this->setHp(currentHp - 70); // 챌린지 튜터 체력 감소치
+
+    case TutorType::Boss:
+        if (currentHp < 0) // 보스 튜터 체력 최소치
+            this->setHp(currentHp - 100); // 보스 튜터 체력 감소치
+    }
 }
