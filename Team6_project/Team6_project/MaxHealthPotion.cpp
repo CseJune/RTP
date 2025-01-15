@@ -13,6 +13,12 @@ string MaxHealthPotion::GetName() const
     return name;
 }
 
+// 아이템 설명 반환
+string MaxHealthPotion::GetDescription() const
+{
+    return description;
+}
+
 // 캐릭터에게 최대 체력 증가 효과 적용
 void MaxHealthPotion::Use(Character* character)
 {

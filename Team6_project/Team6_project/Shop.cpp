@@ -46,8 +46,8 @@ void Shop::displayItems(Character* player) const
     cout << "===== 상점 =====" << endl;
     for (size_t i = 0; i < availableItems.size(); ++i)
     {
-        cout << i + 1 << ". " << availableItems[i]->GetName() 
-             << " - " << availableItems[i]->GetPrice() << " Gold" << endl;
+        cout << i + 1 << ". " << availableItems[i]->GetName() << " (" << availableItems[i]->GetDescription()
+             << ")" << " - " << availableItems[i]->GetPrice() << " Gold" << endl;
     }
     cout << "보유 골드: " << player->getGold() << endl;
 }
@@ -78,6 +78,8 @@ void Shop::buyItem(Character* player, const string& itemName)
             {
                 player->setGold(player->getGold() - item->GetPrice());
                 player->addItemToInventory(item);
+                int gold = player->getGold();
+                cout << itemName << "을(를) 구매했습니다!\n" << item->GetPrice() << " Gold를 사용했습니다. 현재 Gold: " << gold << endl;
                 return;
             }
             cout << "골드가 부족합니다!" << endl;

@@ -13,6 +13,12 @@ string HealthPotion::GetName() const
     return name;
 }
 
+// 아이템 설명 반환
+string HealthPotion::GetDescription() const
+{
+    return description;
+}
+
 // 캐릭터에게 체력 증가 효과 적용
 void HealthPotion::Use(Character* character)
 {

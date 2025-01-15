@@ -14,6 +14,12 @@ string CodingBooster::GetName() const
     return name;
 }
 
+// 아이템 설명 반환
+string CodingBooster::GetDescription() const
+{
+    return description;
+}
+
 // 캐릭터의 코딩력을 증가시키는 효과 적용
 void CodingBooster::Use(Character* character)
 {

@@ -14,6 +14,12 @@ string ChatGPT::GetName() const
     return name;
 }
 
+// 아이템 설명 반환
+string ChatGPT::GetDescription() const
+{
+    return "레벨을 1 증가시켜주는 아이템";
+}
+
 void ChatGPT::Use(Character* character) // 캐릭터에게 효과 적용
 {
     cout << name << " 사용: 레벨 업! 이제부터 보스와의 전투가 가능합니다." << endl;
