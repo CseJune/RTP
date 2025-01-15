@@ -64,7 +64,7 @@ void GameManager::StartGame(int parameter) {
 			Inventory* inventory = player->getInventory();
 			inventory->displayInventory();
 			cout << "아이템을 선택하세요 (1-5): ";
-			writeLog("아이템 선택 ");
+			writeLog("아이템 선택! ");
 			int itemChoice;
 			cin >> itemChoice;
 			// 인덱스를 확인하고 아이템 선택 후 사용
