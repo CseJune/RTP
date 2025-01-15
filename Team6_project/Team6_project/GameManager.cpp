@@ -71,7 +71,7 @@ void GameManager::StartGame(int parameter) {
 			if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
 				string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 				if (inventory->useItem(itemName, player, currentTutor)) {  // 선택한 아이템 사용
-					cout << "아이템 사용 성공!\n";
+					cout << "아이템 사용 성공\n";
 					writeLog("아이템 사용 성공 ");
 				}
 				else {
