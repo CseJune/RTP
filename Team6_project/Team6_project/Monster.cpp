@@ -155,10 +155,7 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
     setGold(disGold(gen));
 
     //아이템 랜덤 생성
-    vector<string> possibleItems = { "HealthPotion", "CodingBooster", "MaxHealthPotion", "TutorAttackReduction", "TutorHealthReduction" };
-    uniform_int_distribution<int> disItem(0, possibleItems.size() - 1);
-    string selectedItem = possibleItems[disItem(gen)];
-    Item* newItem = ItemFactory::CreateItem(selectedItem);
+    Item* newItem = ItemFactory::CreateItem("ChatGPT");
     setItem(newItem);
 }
 
@@ -190,7 +187,7 @@ BossTutor::~BossTutor()
 
 
 //튜터 공격력 감소 아이템
-//void Tutor::reduceAttackDamage(int addReduction)
-//{
-//
-//}
+void Tutor::reduceAttackDamage(int addReduction)
+{
+    
+}

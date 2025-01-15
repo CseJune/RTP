@@ -44,7 +44,7 @@ public:
 
 	// 기능 메서드
 	void takeDamage(int add); // 피해 처리
-	//virtual void reduceAttackDamage(int addreduction);
+	virtual void reduceAttackDamage(int addreduction);
 
 private:
 	string name;
@@ -52,11 +52,6 @@ private:
 	int add;
 	TutorType type; // 튜터의 등급
 	int gold;
-	/*CodingBooster item;
-	HealthPotion item;
-	MaxHealthPotion item;
-	TutorAttackReduction item;
-	TutorHealthReduction item;*/
 	Item* item;
 };
 
