@@ -8,11 +8,16 @@
 #include <set>
 #include "Shop.h"
 #include "Logger.h"
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
 set<string> generatedTutors;// 생성된 튜터 이름을 저장하는 set (사용하기 위해서는 #include <set> 사용 필요)
 Shop* shop;  // 상점 객체 포인터
+
+void clearScreen();
+void slowPrint(const string& text, int delayMs = 1);
 
 // StartGame 함수 정의
 void GameManager::StartGame(int parameter) {
@@ -33,7 +38,7 @@ void GameManager::StartGame(int parameter) {
 
 		if (player->getLevel() == 0)
 		{
-			cout << "\n1. 캠프 입장\n2. 인벤토리 열기\n3. 상점 입장\n4. 캠프 탈주\n선택: ";
+			cout << "\n☞ ☞ ☞ ☞ 1. 캠프 입장 ☜ ☜ ☜ ☜ \n♥ ♥ ♥ 2. 인벤토리 열기 ♥ ♥ ♥ \n♡ ♡ ♡ ♡ 3. 상점 입장 ♡ ♡ ♡ ♡ \n☞ ☞ ☞ ☞ 4. 캠프 탈주 ☜ ☜ ☜ ☜ \n선택: ";
 			cin >> choice;
 		}
 		else {
@@ -47,10 +52,24 @@ void GameManager::StartGame(int parameter) {
 			cout << "당신 혼자선 불가능합니다.\n";
 			writeLog("실력이 부족하군요. 무엇이 부족한지 생각해 보셨나요? 당신 혼자선 불가능합니다.");
 		}
-
+		
 		if (player->getLevel() == 0 && choice == 1) {
-			cout << "으하하하 나는 김이진 매니저다 사전 캠프부터 참여하고 와라!\n";
-			cout << "선빵을 당하셨습니다...\n당신은 사망하였습니다...\n군필 여고생으로 환생 합니다.\n";
+			slowPrint ( "주인공은 건강히 군대를 제대하고 프로그래머로써 대기업에 취업하기 위해 스파르타 코딩 캠프에 지원했었다. \n" );
+			slowPrint ( "GPT를 사용해서 과제들을 해결하고, 스파르타 코딩 캠프를 진행했었는데 진행 중에 김이진 매니저에게 GPT사용을 들켰고 GPT를 압수당했다. \n" );
+			slowPrint ( "GPT를 잃은 주인공은 코딩실력이 매우 하락하였고 마지막 과제를 수행하지 못한 나머지 튜터들은 주인공에게 실망했다. \n" );
+			slowPrint ( "그 자괴감과 수치심에 주인공은 캠프를 탈주하게 되었다. \n" );
+			slowPrint ( "이때 갑자기 돌진하는 트럭에 치여서 죽은줄 알았으나 눈을 떠보니 GPT를 잃은 상태로 처음 스파르타 코딩 캠프에 돌아오게 되었다. \n" );
+			slowPrint("심지어...");
+			this_thread::sleep_for(chrono::seconds(4));
+			
+			cout << " ♥ ♥ ♥ ♥ ♥ ♥ ♥ 여고생인 채로 ♥ ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+			this_thread::sleep_for(chrono::seconds(2));
+			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 이제 복수의 시간이얏 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+			this_thread::sleep_for(chrono::seconds(2));
+			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 공쥬의 GPT를 되찾뀨 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+			this_thread::sleep_for(chrono::seconds(2));
+			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 대기업 추천서를 얻쟈 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+			this_thread::sleep_for(chrono::seconds(2));
 			player->setLevel(1);
 			cout << "레벨 1로 환생 합니다.\n";
 			writeLog("레벨 1로 환생 ");
