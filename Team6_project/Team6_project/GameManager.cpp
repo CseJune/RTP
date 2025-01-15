@@ -42,7 +42,7 @@ void GameManager::StartGame(int parameter) {
 			cin >> choice;
 		}
 		else {
-			cout << "\n1. 전투 시작\n2. 인벤토리 열기\n3. 상점 입장\n4. 캠프 탈주\n선택: ";
+			cout << "\n1. 전투를 시작해서 적들을 혼내줄래요! \n2. 공쥬님의 귀여운 인벤토리를 열어볼까요? \n3. 상점에 가서 공쥬님 취향저격 아이템 쇼핑! \n4. 공쥬님, 캠프에서 탈출하실 거예요? \n선택: ";
 			cin >> choice;
 		}
 
@@ -56,13 +56,19 @@ void GameManager::StartGame(int parameter) {
 		if (player->getLevel() == 0 && choice == 1) {
 			slowPrint ( "주인공은 건강히 군대를 제대하고 프로그래머로써 대기업에 취업하기 위해 스파르타 코딩 캠프에 지원했었다. \n" );
 			slowPrint ( "GPT를 사용해서 과제들을 해결하고, 스파르타 코딩 캠프를 진행했었는데 진행 중에 김이진 매니저에게 GPT사용을 들켰고 GPT를 압수당했다. \n" );
-			slowPrint ( "GPT를 잃은 주인공은 코딩실력이 매우 하락하였고 마지막 과제를 수행하지 못한 나머지 튜터들은 주인공에게 실망했다. \n" );
+			slowPrint ( "GPT를 잃은 주인공은 코딩실력이 매우 하락하였고 마지막 과제를 수행하지 못한 나머지 모든 튜터들은 주인공에게 실망했다. \n" );
 			slowPrint ( "그 자괴감과 수치심에 주인공은 캠프를 탈주하게 되었다. \n" );
 			slowPrint ( "이때 갑자기 돌진하는 트럭에 치여서 죽은줄 알았으나 눈을 떠보니 GPT를 잃은 상태로 처음 스파르타 코딩 캠프에 돌아오게 되었다. \n" );
-			slowPrint("심지어...");
-			this_thread::sleep_for(chrono::seconds(4));
+			slowPrint ("그런데");
+			this_thread::sleep_for(chrono::seconds(1));
+			cout << ".";
+			this_thread::sleep_for(chrono::seconds(1));
+			cout << ".";
+			this_thread::sleep_for(chrono::seconds(1));
+			cout << "." << endl;
 			
-			cout << " ♥ ♥ ♥ ♥ ♥ ♥ ♥ 여고생인 채로 ♥ ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+			this_thread::sleep_for(chrono::seconds(2));
+			cout << "\n ♥ ♥ ♥ ♥ ♥ ♥ 여고생이 되어버렸지 모야 ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
 			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 이제 복수의 시간이얏 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
@@ -70,19 +76,22 @@ void GameManager::StartGame(int parameter) {
 			this_thread::sleep_for(chrono::seconds(2));
 			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 대기업 추천서를 얻쟈 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
+
+			slowPrint ("환생했더니 군필여고생이 튜터님을 죽일 수 밖에 없었던 이유♥ ");
 			player->setLevel(1);
-			cout << "레벨 1로 환생 합니다.\n";
-			writeLog("레벨 1로 환생 ");
+			cout << "\n곤듀! 스파르타 세상에 등쟝!\n";
+			cout << "곤듀가 레벨 1로 환생하였습니다." << endl;
+			writeLog("곤듀! 스파르타 세상에 등쟝! ");
 		}
 		else if (player->getLevel() == 0 && choice == 2) {
-			cout << "\n아이템 목록:\n";
-			writeLog("아이템 목록 ");
+			cout << "\n곤쥬님~ 이 중에서 찰떡템 골라볼까요? : \n";
+			writeLog("곤듀만의 비밀 상점 목록 ");
 			/*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
 			writeLog("1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. TutorHealthReduction\n");
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
 			inventory->displayInventory();
-			cout << "아이템을 선택하세요 (1-5): ";
+			cout << " 곤듀의 선택! : ";
 			writeLog("아이템 선택! ");
 			int itemChoice;
 			cin >> itemChoice;
@@ -90,16 +99,16 @@ void GameManager::StartGame(int parameter) {
 			if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
 				string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 				if (inventory->useItem(itemName, player, currentTutor)) {  // 선택한 아이템 사용
-					cout << "아이템 사용 성공\n";
-					writeLog("아이템 사용 성공 ");
+					cout << "곤듀 강화 성공♥\n";
+					writeLog("곤듀 강화 성공♥ ");
 				}
 				else {
-					cout << "아이템 사용 실패.\n";
-					writeLog("아이템 사용 실패 ");
+					cout << "곤듀 강화 실패ㅠ_ㅠ.\n";
+					writeLog("곤듀 강화 실패ㅠ_ㅠ ");
 				}
 			}
 			else {
-				cout << "잘못된 선택입니다.\n";
+				cout << "이런! 공쥬님, 잘못된 선택이에요!\n";
 			}
 		}
 		else if (player->getLevel() == 0 && choice == 4) {
@@ -126,11 +135,11 @@ void GameManager::StartGame(int parameter) {
 				/* cout << "\n===== 상점 =====\n";*/
 				shop->displayItems(player);  // 상점 아이템 목록 표시
 				writeLog("상점 입장 ");
-				cout << "\n1. 아이템 구매\n2. 아이템 판매\n3. 상점 나가기\n선택: ";
+				cout << "\n1. 공쥬님의 쇼핑타임! 아이템을 사서 힘을 키워요!\n2. 아이템 팔아서 귀여운 공쥬님만의 재산을 쌓아요!\n3. 아쉽지만, 상점은 잠시 안녕! 새로운 모험을 떠나요!\n 곤듀의 선택: ";
 				cin >> shopChoice;
 
 				if (shopChoice == 1) {  // 아이템 구매
-					cout << "구매하고 싶은 아이템의 번호를 입력하세요: ";
+					cout << "공쥬님~ 어떤 아이템이 마음에 드세요? 번호를 골라주세요~! : ";
 					int itemChoice;
 					cin >> itemChoice;
 
@@ -139,28 +148,28 @@ void GameManager::StartGame(int parameter) {
 						shop->buyItem(player, itemName);  // 아이템 구매 처리
 					}
 					else {
-						cout << "잘못된 선택입니다.\n";
+						cout << "이런! 공쥬님, 잘못된 선택이에요!\n";
 					}
 				}
 				else if (shopChoice == 2) {  // 아이템 판매
 					// 인벤토리에서 판매 가능한 아이템 목록 출력
 					Inventory* inventory = player->getInventory();
-					cout << "판매 가능한 아이템 목록:\n";
+					cout << "공쥬님! 판매 가능한 아이템 목록이에요~!\n";
 					inventory->displayInventory();  // 인벤토리에서 아이템 목록 출력
 
-					cout << "판매하고 싶은 아이템의 번호를 입력하세요: ";
+					cout << "아이템을 팔고 싶으면 번호를 골라주세요! ";
 					int itemChoice;
 					cin >> itemChoice;
 
 					if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
 						string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 						shop->sellItem(player, itemName);  // 아이템 판매 처리
-						cout << "아이템을 판매한 후 상점에서 나갑니다.\n";
-						wcerr << "아이템을 판매한 후 상점에서 나갑니다.\n";
+						cout << "아이템을 팔았어요! 이제 공쥬님은 돈도 많이 벌어요~!\n";
+						wcerr << "아이템을 팔았어요! 이제 공쥬님은 돈도 많이 벌어요~!\n";
 						break;  // 상점에서 나가기
 					}
 					else {
-						cout << "잘못된 선택입니다.\n";
+						cout << "이런! 공쥬님, 잘못된 선택이에요!\n";
 					}
 				}
 				else if (shopChoice == 3) {  // 상점 나가기
@@ -168,7 +177,7 @@ void GameManager::StartGame(int parameter) {
 					break;  // 상점에서 나가기
 				}
 				else {
-					cout << "잘못된 선택입니다.\n";
+					cout << "이런! 공쥬님, 잘못된 선택이에요!\n";
 				}
 			}
 		}
@@ -183,7 +192,8 @@ void GameManager::StartGame(int parameter) {
 					if (player->getLevel() >= 10 && generatedTutors.find("김이진") == generatedTutors.end()) {
 						tutorName = "김이진";
 						writeLog("김이진 매니저 생성 ");
-						cout << "레벨 10에 도달했습니다! 보스 튜터가 등장합니다!\n";
+						cout << "공쥬님! 레벨 10에 도달했어요! 드디어... 보스 튜터가 나타났어요! \n";
+						cout << "이제 공쥬님의 진짜 힘을 보여줄 때에요! " << endl;
 				writeLog("레벨 10에 도달했습니다! 보스 튜터가 등장합니다! ");
 					}
 					else if (player->getLevel() == 9) {
@@ -275,8 +285,9 @@ void GameManager::StartGame(int parameter) {
 				currentTutor = nullptr;
 			}
 			if (player->getLevel() == 9) {
-				cout << "뭔가 사용해야지 보스전을 할 수 있을 것 같은데?\n";
-				writeLog("뭔가 사용해야지 보스전을 할 수 있을 것 같은데? ");
+				cout << "어머나! 보스 튜터와 전투 전에 뭔가 필요한 것 같아요!\n";
+				cout << "전투에 승리하려면 준비물이 필수에요!" << endl;
+				writeLog("어머나! 보스 튜터와 전투 전에 뭔가 필요한 것 같아요! ");
 			}
 
 			if (player->getLevel() >= 10) 
@@ -295,11 +306,11 @@ void GameManager::StartGame(int parameter) {
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
 			inventory->displayInventory();
-			cout << "인벤토리 닫기 (0)" << endl;
+			cout << "공쥬님의 귀여운 인벤토리를 닫아볼까요? ♥(0)♥" << endl;
 
 			if (inventory->getItemCount() != 0)
 			{
-				cout << "아이템을 선택하세요 : ";
+				cout << "곤듀님만의 비밀 무기를 선택하세요! ♥번호입력♥ : ";
 			}
 			int itemChoice;
 			cin >> itemChoice;
@@ -316,11 +327,11 @@ void GameManager::StartGame(int parameter) {
 			}
 			else if (itemChoice == 0)
 			{
-				cout << "인벤토리를 닫았습니다.\n";
+				cout << "공쥬님의 귀여운 인벤토리를 닫았어요!.\n";
 			}
 			else
 			{
-				cout << "잘못된 선택입니다. \n";
+				cout << "이런! 공쥬님, 잘못된 선택이에요! \n";
 			}
 
 
@@ -333,7 +344,7 @@ void GameManager::StartGame(int parameter) {
 			break;
 		}
 		else {
-			cout << "잘못된 입력입니다. 다시 선택해주세요.\n";
+			cout << "이런! 공쥬님, 잘못된 선택이에요! 다시 선택해볼까요?\n";
 		}
 	}
 }
@@ -446,18 +457,18 @@ void GameManager::battle(Character& A, Tutor& B) {
 				cin >> choice;
 				if (choice == 1)
 				{
-					cout << "대기업 입사 추천서를 받았습니다.\n";
-					cout << "곤듀는 대기업 입사 추천서를 가지고 C기업에 지원했으나 면접에서 외모로 인해 탈락했다. " << endl;
-					cout << "결국 곤듀는 프로그래머가 아닌 군인이 길을 걷기로 결정했다." << endl;
-					cout << "♥ ♥ ♥ ♥ ♥ ♥ ♥ 곤 듀 충 뗭 ♥ ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+					slowPrint ( "대기업 입사 추천서를 받았습니다.\n");
+					slowPrint ( "곤듀는 대기업 입사 추천서를 가지고 C기업에 지원했으나 면접에서 외모로 인해 탈락했다. \n");
+					slowPrint ( "결국 곤듀는 프로그래머가 아닌 군인의 길을 걷기로 결정했다. \n");
+					slowPrint ( "♥ ♥ ♥ ♥ ♥ ♥ ♥ 곤 듀 충 뗭 ♥ ♥ ♥ ♥ ♥ ♥ ♥ \n");
 				}
 				//분기 2 대기업 추천서 받지 않기
 				else if(choice == 2)
 				{
-					cout << "대기업 입사 추천서를 거절했습니다." << endl;
-					cout << "곤듀는 매니저님에 말에 따라 스파르타 회사에 들어가기로 결정했다." << endl;
-					cout << "곤듀의 특출난 외모덕분에 강의가 너무 재밌어 수강생들의 실력이 대폭 향상되었다." << endl;
-					cout << "♥ ♥ ♥ ♥ ♥ ♥ ♥ 스 빠 루 따! ♥ ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+					slowPrint ( "대기업 입사 추천서를 거절했습니다.\n");
+					slowPrint ("곤듀는 매니저님에 말에 따라 스파르타 회사에 들어가기로 결정했다.\n");
+					slowPrint ( "곤듀의 특출난 외모덕분에 강의가 너무 재밌어 수강생들의 실력이 대폭 향상되었다.\n");
+					slowPrint ( "♥ ♥ ♥ ♥ ♥ ♥ ♥ 스 빠 루 따! ♥ ♥ ♥ ♥ ♥ ♥ ♥ \n");
 				}
 				
 				writeLog("보스 튜터 처치: 게임 종료 ");
@@ -480,7 +491,7 @@ void GameManager::battle(Character& A, Tutor& B) {
 		if (A.getHp() <= 0)
 			{
 			cout << A.getName() << "곤듀님이 패배했습니다... 너무 귀여운 곤듀님도 때로는 힘이 부족해요... \n";
-			cout << "어머나~ 곤듀님이 이길 수 있을 줄 알았는데...\n곤듀 바보!\n";
+			cout << "어머나~ 곤듀님이 이길 줄 알았는데...\n곤듀 바보!\n";
 			writeLog(A.getName() + "곤듀님이 패배했습니다... 너무 귀여운 곤듀님도 때로는 힘이 부족해요... ");
 			exit(0); // 게임 종료
 		}
@@ -490,8 +501,8 @@ void GameManager::battle(Character& A, Tutor& B) {
 		cout << B.getName() << "의 체력: " << B.getHp() << endl;
 
 		// 턴 종료 후 메뉴로 복귀
-		cout << "\n현재 선택 메뉴로 돌아갑니다.\n";
-		writeLog("현재 선택 메뉴로 돌아갑니다. ");
+		cout << "\n공쥬의 선택! \n";
+		writeLog("공쥬의 선택! ");
 		return; // 메뉴로 복귀
 	}
 
