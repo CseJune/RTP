@@ -43,9 +43,10 @@ bool Inventory::useItem(const string& itemName, Character* character)
 		(*it)->Use(character);
 		// 능력치 출력 (예시: HP, Attack, Defense)
 		cout << "아이템 사용 후 능력치:\n";
-		cout << "레벨: " << character->getLevel() << endl;
-		cout << "체력: " << character->getMaxHp() << endl;
-		cout << "코딩력: " << character->getAdd() << endl;
+		character->displayStatus();
+		/*cout << "레벨: " << character->getLevel() << endl;
+		cout << "체력 : " << character->getHp() << " / " << "최대 체력 : " << character->getMaxHp() << endl;
+		cout << "코딩력: " << character->getAdd() << endl;*/
 		/*delete* it;*/
 		items.erase(it);
 		return true;
@@ -60,7 +61,7 @@ void Inventory::dropItem(Item* item)
 {
 	if (item != nullptr)
 	{
-		cout << " 튜터가 " << item->GetName() << "을(를) 드롭했습니다." << endl;
+		cout << " \n튜터가 " << item->GetName() << "을(를) 드롭했습니다." << endl;
 
 		// 플레이어 인벤토리에 아이템 추가 로직
 		Character* player = Character::getinstance();
