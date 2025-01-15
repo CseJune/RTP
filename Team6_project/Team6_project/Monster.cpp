@@ -59,7 +59,7 @@ ManagerTutor::ManagerTutor(Character a, string name) : Tutor(a, name, TutorType:
 	mt19937 gen(rd());
 
 	//HP 랜덤 설정
-	uniform_int_distribution<int> disHp(a.getLevel() * 50, a.getLevel() * 55);  // HP를 위한 dis
+	uniform_int_distribution<int> disHp(a.getLevel() * 70, a.getLevel() * 75);  // HP를 위한 dis
 	setHp(disHp(gen));
 
 	//Add 랜덤 설정
@@ -83,10 +83,10 @@ BasicTutor::BasicTutor(Character a, string name) : Tutor(a, name, TutorType::Bas
 {
 	random_device rd;
 	mt19937 gen(rd());
-	uniform_int_distribution<int> disHp(a.getLevel() * 70, a.getLevel() * 75);  // HP를 위한 dis
+	uniform_int_distribution<int> disHp(a.getLevel() * 80, a.getLevel() * 85);  // HP를 위한 dis
 	setHp(disHp(gen));
 
-	uniform_int_distribution<int> disAdd(a.getLevel() * 10, a.getLevel() * 15);  // Add를 위한 dis
+	uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
 	setAdd(disAdd(gen));
 
 	//Gold 랜덤 설정
@@ -109,7 +109,7 @@ StandardTutor::StandardTutor(Character a, string name) : Tutor(a, name, TutorTyp
 	uniform_int_distribution<int> disHp(a.getLevel() * 100, a.getLevel() * 110);  // HP를 위한 dis
 	setHp(disHp(gen));
 
-	uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
+	uniform_int_distribution<int> disAdd(a.getLevel() * 27, a.getLevel() * 32);  // Add를 위한 dis
 	setAdd(disAdd(gen));
 
 	//Gold 랜덤 설정
@@ -129,10 +129,10 @@ ChallengeTutor::ChallengeTutor(Character a, string name) : Tutor(a, name, TutorT
 {
 	random_device rd;
 	mt19937 gen(rd());
-	uniform_int_distribution<int> disHp(a.getLevel() * 120, a.getLevel() * 130);  // HP를 위한 dis
+	uniform_int_distribution<int> disHp(a.getLevel() * 130, a.getLevel() * 140);  // HP를 위한 dis
 	setHp(disHp(gen));
 
-	uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
+	uniform_int_distribution<int> disAdd(a.getLevel() * 33, a.getLevel() * 38);  // Add를 위한 dis
 	setAdd(disAdd(gen));
 
 	//Gold 랜덤 설정
@@ -152,7 +152,7 @@ BossTutor::BossTutor(Character a, string name) : Tutor(a, name, TutorType::Boss)
 	uniform_int_distribution<int> disHp(a.getLevel() * 150, a.getLevel() * 160);  // HP를 위한 dis
 	setHp(disHp(gen));
 
-	uniform_int_distribution<int> disAdd(a.getLevel() * 20, a.getLevel() * 25);  // Add를 위한 dis
+	uniform_int_distribution<int> disAdd(a.getLevel() * 40, a.getLevel() * 43);  // Add를 위한 dis
 	setAdd(disAdd(gen));
 
 	//Gold 랜덤 설정
@@ -170,23 +170,23 @@ void Tutor::reduceAttackDamage(int addReduction)
 	switch (currentTutorType)
 	{
 	case TutorType::Manager:
-		reduceAdd(10, 5);  //최소치, 감소치
+		reduceAdd(3, 5);  //최소치, 감소치
 		break;
 
 	case TutorType::Basic:
-		reduceAdd(20, 10);
+		reduceAdd(55, 15);
 		break;
 
 	case TutorType::Standard:
-		reduceAdd(30, 15);
+		reduceAdd(140, 20);
 		break;
 
 	case TutorType::Challenge:
-		reduceAdd(40, 20);
+		reduceAdd(240, 25);
 		break;
 
 	case TutorType::Boss:
-		reduceAdd(50, 25);
+		reduceAdd(300, 30);
 		break;
 	}
 
@@ -200,23 +200,23 @@ void Tutor::ReduceHealth(int hpReduction)
 	switch (currentTutorType)
 	{
 	case TutorType::Manager:
-		reduceHp(10, 5);  //최소치, 감소치
+		reduceHp(40, 10);  //최소치, 감소치
 		break;
 
 	case TutorType::Basic:
-		reduceHp(20, 10);
+		reduceHp(180, 15);
 		break;
 
 	case TutorType::Standard:
-		reduceHp(30, 15);
+		reduceHp(500, 40);
 		break;
 
 	case TutorType::Challenge:
-		reduceHp(40, 20);
+		reduceHp(900, 60);
 		break;
 
 	case TutorType::Boss:
-		reduceHp(50, 25);
+		reduceHp(1400, 80);
 		break;
 	}
 }
