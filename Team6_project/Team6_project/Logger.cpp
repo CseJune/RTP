@@ -1,3 +1,7 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <ctime>
 #include "Logger.h"
 
 void initializeLog() {
