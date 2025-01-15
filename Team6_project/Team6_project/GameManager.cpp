@@ -37,6 +37,13 @@ void GameManager::StartGame(int parameter) {
             cout << "\n1. 전투 시작\n2. 인벤토리 열기\n3. 상점 입장\n4. 캠프 탈주\n선택: ";   
             cin >> choice;
         }
+
+        if (player->getLevel() == 9 && choice == 1){
+            cout << "실력이 부족하군요.\n";
+            cout << "무엇이 부족한지 생각해 보셨나요?\n";
+            cout << "당신 혼자선 불가능합니다.\n";
+        }
+
         if (player->getLevel() == 0 && choice == 1) {
             cout << "으하하하 나는 김이진 매니저다 사전 캠프부터 참여하고 와라!\n";
             cout << "선빵을 당하셨습니다...\n당신은 사망하였습니다...\n군필 여고생으로 환생 합니다.\n";
@@ -191,8 +198,6 @@ void GameManager::StartGame(int parameter) {
                         break; // 새로운 튜터를 성공적으로 생성했으므로 루프 종료
                     }
                     else if (generatedTutors.size() == 1 + 2 + 3 + 2) {
-                        // 모든 튜터가 생성되었으면 더 이상 생성하지 않음
-                        cout << "모든 튜터를 물리쳤습니다. 축하합니다!\n";
                         break;
                     }
                 }
@@ -203,6 +208,9 @@ void GameManager::StartGame(int parameter) {
             if (currentTutor->getHp() <= 0) {
                 delete currentTutor;
                 currentTutor = nullptr;
+            }
+            if (player->getLevel() >= 9) {
+                cout << "뭔가 사용해야지 보스전을 할 수 있을 것 같은데?\n";
             }
 
             if (player->getLevel() >= 10) {
@@ -219,7 +227,8 @@ void GameManager::StartGame(int parameter) {
             Character* player = Character::getinstance();
             Inventory* inventory = player->getInventory();
             inventory->displayInventory();
-            cout << "아이템을 선택하세요 (1-5): ";
+            cout << "인벤토리 닫기 (0)" << endl;
+            cout << "아이템을 선택하세요 (0-5): " << endl;
             int itemChoice;
             cin >> itemChoice;
 
@@ -240,7 +249,7 @@ void GameManager::StartGame(int parameter) {
 
 
         }
-        else if (choice == 3) {
+        else if (choice == 4) {
             cout << "게임 종료!\n";
             if (currentTutor != nullptr) {
                 delete currentTutor;
@@ -314,9 +323,10 @@ void GameManager::StartBoss()
 
 // battle 함수 정의
 void GameManager::battle(Character& A, Tutor& B) {
-    cout << "전투를 시작합니다!\n";
 
-    while (A.getHp() > 0 && B.getHp() > 0) {
+    while (A.getHp() > 0 && B.getHp() > 0) 
+{
+        cout << "전투를 시작합니다!\n";
 
         // 플레이어가 공격
         int playerDamage = A.getAdd();
@@ -334,10 +344,13 @@ void GameManager::battle(Character& A, Tutor& B) {
             A.setGold(A.getGold() + B.getGold()); // 보상
             A.setExp(A.getExp() + 100); // 경험치 획득
             // 현재 상태 출력
-            cout << "\n" << A.getName() << "의 레벨: " << A.getLevel() << endl;
-            cout << A.getName() << "의 체력: " << A.getHp() << endl;
-            cout << A.getName() << "의 코딩력: " << A.getAdd() << endl;
-            cout << A.getName() << "의 보유 골드: " << A.getGold() << endl;
+            A.displayStatus();
+
+            //cout << "\n" << A.getName() << "의 레벨: " << A.getLevel() << endl;
+            //cout << A.getName() << "의 체력: " << A.getHp() << endl;
+            //cout << A.getName() << "의 코딩력: " << A.getAdd() << endl;
+            //cout << A.getName() << "의 보유 골드: " << A.getGold() << endl;
+
             break; // 전투 종료
         }
 
@@ -350,7 +363,8 @@ void GameManager::battle(Character& A, Tutor& B) {
         // 전투 종료 조건 확인
         if (A.getHp() <= 0) {
             cout << A.getName() << "이(가) 제적 당했습니다...\n";
-            break; // 전투 종료
+            cout << "당신은 패배자입니다.\n긁?\n";
+            exit(0); // 게임 종료
         }
 
         // 현재 상태 출력
