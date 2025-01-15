@@ -49,7 +49,6 @@ void Shop::initializeShopItems()
     availableItems.push_back(ItemFactory::CreateItem("MaxHealthPotion"));
     availableItems.push_back(ItemFactory::CreateItem("TutorAttackReduction"));
     availableItems.push_back(ItemFactory::CreateItem("TutorHealthReduction"));
-
     isInitializing = false;
 }
 

@@ -35,7 +35,7 @@ void CodingBooster::Use(Character* character)
 void CodingBooster::Use(Tutor* tutor)
 {
     // 튜터에게는 효과가 없음을 알리는 메시지
-   //cout << name << "은(는) 튜터에게 효과가 없습니다." << endl;
+   // cout << name << "은(는) 튜터에게 효과가 없습니다." << endl;
 }
 
 // 아이템 가격 반환

@@ -24,22 +24,23 @@ string TutorHealthReduction::GetDescription() const
 void TutorHealthReduction::Use(Tutor* tutor)
 {
     // 튜터의 체력을 감소시킴
-    // healthReduction을 튜터에서 구현하고 내용은 인자값만큼 체력 감소시키면 됨
-    if (tutor != nullptr) {
+    if (tutor != nullptr)
+    {
         tutor->ReduceHealth(healthReduction); // 튜터 체력 감소
     }
-	else {
+	else
+	{
         cout << "튜터가 없습니다. 아이템이 증발했습니다." << endl;
         cout << " 전투 시작 후 사용해 주십시오. " << endl;
 	}
 
-    // 튜터 체력 감소 메시지 출력
-    /*cout << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
+    /* 튜터 체력 감소 메시지 출력
+    cout << name << " 사용: 튜터의 체력이 " << healthReduction << "만큼 감소했습니다!" << endl;
 	writeLog(name + " 사용: 튜터의 체력이 " + to_string(healthReduction) + "만큼 감소했습니다!");*/
 }
 void TutorHealthReduction::Use(Character* character)
 {
-	//cout << name << "은(는) 캐릭터에게 효과가 없습니다." << endl;
+	// cout << name << "은(는) 캐릭터에게 효과가 없습니다." << endl;
 }
 
 // 아이템 가격 반환
