@@ -12,7 +12,7 @@ class Inventory
 public:
     void addItem(Item* item); // 아이템 추가
     void displayInventory() const;
-    bool useItem(const string& itemName, Character* character);
+    bool useItem(const string& itemName, Character* character, Tutor* tutor);
     void dropItem(Item* item);
     Item* findItem(const string& itemName);
     void removeItem(const string& itemName);

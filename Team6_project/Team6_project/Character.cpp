@@ -43,17 +43,17 @@ void Character::addItemToInventory(Item* item)
 	inventory->addItem(item);
 }
 
-void Character::useItemFromInventory(string& itemName) 
-{
-	if (inventory) 
-	{
-		inventory->useItem(itemName, this);
-	}
-	else 
-	{
-		std::cout << "인벤토리가 없습니다.\n";
-	}
-}
+//void Character::useItemFromInventory(string& itemName) 
+//{
+//	if (inventory) 
+//	{
+//		inventory->useItem(itemName, this, nullptr);
+//	}
+//	else 
+//	{
+//		std::cout << "인벤토리가 없습니다.\n";
+//	}
+//}
 
 // level 함수 구현
 void Character::levelUp()
