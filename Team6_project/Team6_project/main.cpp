@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <vector>
 #include <string>
 #include <cstdlib>
@@ -13,39 +13,39 @@ using namespace std;
 
 void clearScreen() {
 #ifdef _WIN32
-    system("cls"); // Windows ½Ã½ºÅÛ¿¡¼­ È­¸é ÃÊ±âÈ­
+    system("cls"); // Windows ì‹œìŠ¤í…œì—ì„œ í™”ë©´ ì´ˆê¸°í™”
 #else
-    system("clear"); // Unix ±â¹İ ½Ã½ºÅÛ¿¡¼­ È­¸é ÃÊ±âÈ­
+    system("clear"); // Unix ê¸°ë°˜ ì‹œìŠ¤í…œì—ì„œ í™”ë©´ ì´ˆê¸°í™”
 #endif
 }
 
 void slowPrint(const string& text, int delayMs = 15) {
     for (char c : text) {
-        cout << c << flush; // ÇÑ ±ÛÀÚ Ãâ·Â ÈÄ Ãâ·Â ¹öÆÛ¸¦ °­Á¦·Î ÇÃ·¯½Ã
-        this_thread::sleep_for(chrono::milliseconds(delayMs)); // µô·¹ÀÌ
+        cout << c << flush; // í•œ ê¸€ì ì¶œë ¥ í›„ ì¶œë ¥ ë²„í¼ë¥¼ ê°•ì œë¡œ í”ŒëŸ¬ì‹œ
+        this_thread::sleep_for(chrono::milliseconds(delayMs)); // ë”œë ˆì´
     }
-    cout << endl; // ÃÖÁ¾ÀûÀ¸·Î ÁÙ ¹Ù²Ş
+    cout << endl; // ìµœì¢…ì ìœ¼ë¡œ ì¤„ ë°”ê¿ˆ
 }
 
 int main()
 {
     int start = 0;
-    GameManager manager;  // GameManager °´Ã¼ »ı¼º
+    GameManager manager;  // GameManager ê°ì²´ ìƒì„±
 
-    slowPrint ("ÄÚµùÀ» ½ÃÀÛÇÏ½Ã°Ú½À´Ï±î?\n");
-    slowPrint  ("1. ½ÃÀÛÇÑ´Ù \n2. Á¾·áÇÑ´Ù\n");
+    slowPrint ("ì½”ë”©ì„ ì‹œì‘í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n");
+    slowPrint  ("1. ì‹œì‘í•œë‹¤ \n2. ì¢…ë£Œí•œë‹¤\n");
     cin >> start;
     clearScreen();
 
     if (start == 1) {
         manager.StartGame(start); 
-        //manager.StartBoss();// GameManager °´Ã¼ÀÇ StartGame È£Ãâ
+        //manager.StartBoss();// GameManager ê°ì²´ì˜ StartGame í˜¸ì¶œ
     }
     else {
-        cout << "°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << endl;
+        cout << "ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
     }
 
-    cout << "´ç½ÅÀº ÆĞ¹èÀÚÀÔ´Ï´Ù.\n±Ü?\n";
-    //cout << "¸Å´ÏÀú¿Í Á¶¿ìÇÏ¼Ì½À´Ï´Ù. ¹«¾ùÀ» ÇÏ½Ã°Ú½À´Ï±î?\n";
+    cout << "ë‹¹ì‹ ì€ íŒ¨ë°°ìì…ë‹ˆë‹¤.\nê¸?\n";
+    //cout << "ë§¤ë‹ˆì €ì™€ ì¡°ìš°í•˜ì…¨ìŠµë‹ˆë‹¤. ë¬´ì—‡ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n";
     return 0;
 }
