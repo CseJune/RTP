@@ -26,6 +26,7 @@ class Tutor
 public:
 	Tutor();
 	Tutor(Character a, const string& name, TutorType type);
+	void displayStatus();
 
 	// Getter
 	string getName() const;

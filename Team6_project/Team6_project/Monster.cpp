@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <random>
+#include "Logger.h"
 
 using namespace std;
 // 기본 생성자
@@ -13,6 +14,17 @@ Tutor::Tutor() : name(""), hp(0), add(0), type(TutorType::Manager) {} // 기본 
 
 // 초기화 생성자
 Tutor::Tutor(Character a, const string& name, TutorType type) : name(name), hp(100), type(type) {}
+
+// 튜터 스테이서스
+void Tutor::displayStatus()
+{
+	cout << "이름 : " << name << endl;
+	writeLog("튜터 이름 : " + name);
+	cout << "코딩력 : " << add << endl;
+	writeLog("튜터 코딩력 : " + name);
+	cout << "체력 : " << hp << endl;
+	writeLog("튜터 체력 : " + to_string(hp));
+}
 
 // Getter
 string Tutor::getName() const { return name; }

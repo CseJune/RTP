@@ -66,7 +66,7 @@ void GameManager::StartGame(int parameter) {
 			this_thread::sleep_for(chrono::seconds(2));
 			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 이제 복수의 시간이얏 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
-			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 공쥬의 GPT를 되찾뀨 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 곤듀의 GPT를 되찾뀨 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
 			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 대기업 추천서를 얻쟈 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
@@ -402,20 +402,20 @@ void GameManager::battle(Character& A, Tutor& B) {
 
 	while (A.getHp() > 0 && B.getHp() > 0)
 	{
-		cout << "전투를 시작합니다!\n";
+		cout << "곤듀님 출동♥ 상대를 함락시킬 시간이에요♥ (♥)`ω´(♥) \n";
 
 		// 플레이어가 공격
 		int playerDamage = A.getAdd();
 		B.takeDamage(playerDamage);
-		cout << A.getName() << "이(가) 과제를 제출하였다!\n";
-		writeLog(A.getName() + "이(가) 과제를 제출하였다! ");
-		cout << A.getName() << "이(가) " << B.getName() << "에게 " << playerDamage << "의 피해를 입혔습니다!\n";
-		writeLog(A.getName() + "이(가) " + B.getName() + "에게 " + to_string(playerDamage) + "의 피해를 입혔습니다! ");
+		cout << A.getName() << "곤듀의 화려한 코딩 테크닉을 받아랏~♥ \n";
+		writeLog(A.getName() + "곤듀의 화려한 코딩 테크닉을 받아랏~♥ ");
+		cout << A.getName() << "곤듀가 " << B.getName() << "에게 " << playerDamage << "의 피해를 주었어요~♥ 곤듀님, 너무 귀엽지만 강해요! \n";
+		writeLog(A.getName() + "곤듀가 " + B.getName() + "에게 " + to_string(playerDamage) + "의 피해를 주었어요~♥ 곤듀님, 너무 귀엽지만 강해요! ");
 
 		// 전투 종료 조건 확인
 		if (B.getHp() <= 0) {
-			cout << B.getName() << "를 물리쳤습니다!\n";
-			writeLog(B.getName() + "를 물리쳤습니다! ");
+			cout << B.getName() << "을(를) 핑크빛 코딩력으로 함락시켰습니다♥ \n";
+			writeLog(B.getName() + "을(를) 핑크빛 코딩력으로 함락시켰습니다♥ ");
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
 			inventory->dropItem(B.getItem());
@@ -432,9 +432,35 @@ void GameManager::battle(Character& A, Tutor& B) {
 
 			// 보스 튜터 처치 확인
 			if (B.getType() == TutorType::Boss) { // isBoss()는 Tutor 클래스의 함수로, 보스 여부 확인
-				cout << "축하합니다! 보스 튜터 " << B.getName() << "를 처치했습니다!\n";
-				cout << "스토리 부분: 당신은 전설적인 프로그래머로 기록됩니다...\n";
-				writeLog("보스 튜터 " + B.getName() + " 처치: 게임 종료 ");
+				cout << "축하합니다! 김이진 매니저님에게 ♥인정♥받았습니다. \n";
+				cout << "김이진 매니저님이 제출한 과제를 보고 기쁨의 눈물을 흘립니다. \n";
+				cout << "김이진 매니저 : 이제 스파르타 캠프를 졸업하셔도 되겠군요... \n";
+				cout << "주인공 : 드디어 대기업 입사 추천서를 주시는 건가요? \n";
+				cout << "김이진 매니저 : 네♥ 지금 드리겠습니다. 하지만 마음이 바뀌신다면.. 스파르타는 항상 열려있습니다. \n";
+
+
+				//분기 1 대기업 추천서 받기
+				cout << " 1. 곤듀님, 대기업에 입사할 준비가 됐어~ ♥ " << endl;
+				cout << " 2. 스파르타의 전설, 곤듀님과 함께 시작합니다~ ♥ " << endl;
+				int choice = 0;
+				cin >> choice;
+				if (choice == 1)
+				{
+					cout << "대기업 입사 추천서를 받았습니다.\n";
+					cout << "곤듀는 대기업 입사 추천서를 가지고 C기업에 지원했으나 면접에서 외모로 인해 탈락했다. " << endl;
+					cout << "결국 곤듀는 프로그래머가 아닌 군인이 길을 걷기로 결정했다." << endl;
+					cout << "♥ ♥ ♥ ♥ ♥ ♥ ♥ 곤 듀 충 뗭 ♥ ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+				}
+				//분기 2 대기업 추천서 받지 않기
+				else if(choice == 2)
+				{
+					cout << "대기업 입사 추천서를 거절했습니다." << endl;
+					cout << "곤듀는 매니저님에 말에 따라 스파르타 회사에 들어가기로 결정했다." << endl;
+					cout << "곤듀의 특출난 외모덕분에 강의가 너무 재밌어 수강생들의 실력이 대폭 향상되었다." << endl;
+					cout << "♥ ♥ ♥ ♥ ♥ ♥ ♥ 스 빠 루 따! ♥ ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
+				}
+				
+				writeLog("보스 튜터 처치: 게임 종료 ");
 				exit(0); // 게임 종료
 			}
 			break; // 전투 종료
@@ -445,16 +471,17 @@ void GameManager::battle(Character& A, Tutor& B) {
 		// 튜터가 반격
 		int tutorDamage = B.getAdd();
 		A.takeDamage(tutorDamage);
-		cout << "그게 네 최선이야?!\n";
-		writeLog("그게 네 최선이야?! ");
-		cout << B.getName() << "이(가) " << A.getName() << "에게 " << tutorDamage << "의 피해를 입혔습니다!\n";
-		writeLog(B.getName() + "이(가) " + A.getName() + "에게 " + to_string(tutorDamage) + "의 피해를 입혔습니다! ");
+		cout << " ♥ 이 귀여운 실수들은 일부러 한 거지? 혹시 내가 고쳐주길 바랐던 건가? ♥ \n";
+		writeLog(" ♥ 이 귀여운 실수들은 일부러 한 거지? 혹시 내가 고쳐주길 바랐던 건가? ♥ ");
+		cout << B.getName() << "이(가) " << A.getName() << "곤듀에게 " << tutorDamage << "의 피해를 입혔어요! 으앙, 너무 아프잖아요! \n";
+		writeLog(B.getName() + "이(가) " + A.getName() + "곤듀에게 " + to_string(tutorDamage) + "의 피해를 입혔어요! 으앙, 너무 아프잖아요! ");
 
 		// 전투 종료 조건 확인
-		if (A.getHp() <= 0) {
-			cout << A.getName() << "이(가) 제적 당했습니다...\n";
-			cout << "당신은 패배자입니다.\n긁?\n";
-			writeLog(A.getName() + "이(가) 제적 당했습니다... 당신은 패배자입니다. 긁? ");
+		if (A.getHp() <= 0)
+			{
+			cout << A.getName() << "곤듀님이 패배했습니다... 너무 귀여운 곤듀님도 때로는 힘이 부족해요... \n";
+			cout << "어머나~ 곤듀님이 이길 수 있을 줄 알았는데...\n곤듀 바보!\n";
+			writeLog(A.getName() + "곤듀님이 패배했습니다... 너무 귀여운 곤듀님도 때로는 힘이 부족해요... ");
 			exit(0); // 게임 종료
 		}
 

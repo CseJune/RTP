@@ -24,8 +24,8 @@ void HealthPotion::Use(Character* character)
 {
     if (character->getHp() >= character->getMaxHp())
     {
-        cout << name << " 사용 실패: 캐릭터가 이미 최대 체력입니다!" << endl;
-		writeLog(name + " 사용 실패: 캐릭터가 이미 최대 체력입니다!");
+        cout << name << " 사용 실패: 곤듀가 이미 최대 체력입니다!" << endl;
+		writeLog(name + " 사용 실패: 곤듀가 이미 최대 체력입니다!");
         return;
     }
 

@@ -1,5 +1,6 @@
 ﻿#include "Inventory.h"
 #include "Character.h"
+#include "Monster.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -48,6 +49,10 @@ bool Inventory::useItem(const string& itemName, Character* character, Tutor* tut
 		{
 			cout << "아이템 사용 후 능력치:\n";
 			writeLog("아이템 사용 후 능력치: ");
+			tutor->displayStatus();
+		}
+		else if ( tutor == nullptr )
+		{
 			character->displayStatus();
 		}
 		items.erase(it);
