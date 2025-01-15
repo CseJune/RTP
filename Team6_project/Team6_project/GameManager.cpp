@@ -30,11 +30,11 @@ void GameManager::StartGame(int parameter) {
         
         if (player->getLevel() == 0)
         {
-            cout << "\n1. 캠프 입장\n2. 인벤토리 열기\n3. 캠프 탈주\n4. 상점 입장\n선택: ";            
+            cout << "\n1. 캠프 입장\n2. 인벤토리 열기\n3. 상점 입장\n4. 캠프 탈주\n선택: ";            
             cin >> choice;
         }
         else {
-            cout << "\n1. 전투 시작\n2. 인벤토리 열기\n3. 캠프 탈주\n4. 상점 입장\n선택: ";   
+            cout << "\n1. 전투 시작\n2. 인벤토리 열기\n3. 상점 입장\n4. 캠프 탈주\n선택: ";   
             cin >> choice;
         }
         if (player->getLevel() == 0 && choice == 1) {
@@ -66,7 +66,7 @@ void GameManager::StartGame(int parameter) {
 				cout << "잘못된 선택입니다.\n";
 			}
 		}
-        else if (player->getLevel() == 0 && choice == 3) {
+        else if (player->getLevel() == 0 && choice == 4) {
             cout << "정말 캠프를 떠나시겠습니까?\n";
             cout << "\n1. 네\n2. 아니요\n선택:";
                 cin >> LeaveCamp;
@@ -78,7 +78,7 @@ void GameManager::StartGame(int parameter) {
                     return;
                 }
         }
-        else if (choice == 4) {
+        else if (choice == 3) {
             int shopChoice;
             
             if (shop == nullptr)
