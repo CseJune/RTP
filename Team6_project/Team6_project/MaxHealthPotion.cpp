@@ -26,8 +26,8 @@ void MaxHealthPotion::Use(Character* character)
     {
         character->IncreaseMaxHealth(maxHealthIncrease);
 
-        cout << name << "사용 : 곤듀의 최대체력이 " << maxHealthIncrease << " 만큼 증가했습니다!" << endl;
-	    writeLog(name + "사용 : 곤듀의 최대체력이 " + to_string(maxHealthIncrease) + " 만큼 증가했습니다!");   
+        cout << name << "사용 : 곤듀의 최대체력이 " << maxHealthIncrease << " 만큼 증가했습니다! \n이젠 적들이 덤비기 무섭겠는걸요? ♥ " << endl;
+	    writeLog(name + "사용 : 곤듀의 최대체력이 " + to_string(maxHealthIncrease) + " 만큼 증가했습니다! \n이젠 적들이 덤비기 무섭겠는걸요? ♥ ");   
     }
 }
 

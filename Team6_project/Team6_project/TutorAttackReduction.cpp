@@ -29,8 +29,8 @@ void TutorAttackReduction::Use(Tutor* tutor)
         }
     else
     {
-        cout << "튜터가 없습니다. 아이템이 증발했습니다." << endl;
-        cout << " 전투 시작 후 사용해 주십시오. " << endl;
+        cout << "곤듀님, 여긴 튜터가 없어요! 아이템이 사라져버렸어요~ >ㅅ< ♥ " << endl;
+        cout << "전투가 시작된 후에 사용해보세요! ♥ " << endl;
     }
     /*튜터 공격력 감소 메시지 출력
     cout << name << "사용 : 튜터의 공격력이 " << attackReduction << " 만큼 감소했습니다!" << endl;

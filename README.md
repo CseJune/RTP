@@ -45,19 +45,6 @@ F5를 눌러 게임 시작
 특별한 외부 라이브러리는 사용하지 않았습니다. 모든 구현은 표준 C++ 라이브러리(STL)를 활용하였습니다.
 
 
-프로젝트 구조
-
-Team6_project/
-┣ src/
-┃ ┣ main.cpp               // 메인 함수 진입점 
-┃ ┗ game/                  // 게임 관련 파일 위치 
-┃ ┃ ┣ character.h          // 캐릭터 시스템 헤더 
-┃ ┃ ┣ character.cpp        // 캐릭터 시스템 구현 
-┃ ┃ ┣ inventory.h          // 인벤토리 관리 헤더 
-┃ ┃ ┗ inventory.cpp        // 인벤토리 관리 구현 
-┣ tests/                   // 테스트 코드 위치 (예: 유닛 테스트)
-┗ README.md                // 이 문서 자체 (README)
-
 핵심 로직/클래스 설명
 
 Character 클래스

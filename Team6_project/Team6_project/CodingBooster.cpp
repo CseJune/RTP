@@ -27,8 +27,8 @@ void CodingBooster::Use(Character* character)
     character->IncreaseCodingPower(codingIncrease);
 
     // 코딩력 증가 메시지 출력
-   cout << name << "사용 : 코딩력이 " << codingIncrease << " 만큼 증가했습니다!" << endl;
-   writeLog(name + "사용 : 코딩력이 " + to_string(codingIncrease) + " 만큼 증가했습니다!");
+   cout << name << "뭐야 뭐야~ 곤듀님, 코딩력이" << codingIncrease << "만큼이나 늘어났어요!?\n이젠 적들도 두려워하겠는걸요? ♥ " << endl;
+   writeLog(name + "뭐야 뭐야~ 곤듀님, 코딩력이" + to_string(codingIncrease) + "만큼이나 늘어났어요!?\n이젠 적들도 두려워하겠는걸요? ♥ ");
 }
 
 // 튜터에게 효과 없음
