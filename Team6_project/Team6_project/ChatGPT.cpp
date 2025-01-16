@@ -22,8 +22,8 @@ string ChatGPT::GetDescription() const
 
 void ChatGPT::Use(Character* character) // 캐릭터에게 효과 적용
 {
-    cout << name << " 사용: 레벨 업! 이제부터 보스와의 전투가 가능합니다." << endl;
-	writeLog(name + " 사용: 레벨 업! 이제부터 보스와의 전투가 가능합니다.");
+    cout << name << "곤듀님, 레벨 업 완료!\n이제 보스와의 전투가 시작됩니다! 곤듀의 핑크빛 코딩 기술로 보슬르 쓰러뜨릴 시간이에요! (♥)`ω´(♥) " << endl;
+	writeLog(name + "곤듀님, 레벨 업 완료!\n이제 보스와의 전투가 시작됩니다! 곤듀의 핑크빛 코딩 기술로 보슬르 쓰러뜨릴 시간이에요! (♥)`ω´(♥) ");
 
     int level = character->getLevel();
     character->setLevel(level + 1);

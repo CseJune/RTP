@@ -32,8 +32,8 @@ void HealthPotion::Use(Character* character)
     // 체력 증가 로직
     character->IncreaseHealth(healthIncrease);
 
-    cout << name << " 사용: 체력이 " << healthIncrease << "만큼 회복되었습니다!" << endl;
-    writeLog(name + " 사용: 체력이 " + to_string(healthIncrease) + "만큼 회복되었습니다!");
+    cout << name << "곤듀님! 체력이 " << healthIncrease << "만큼 회복되었어요! ♥ \n이제 다시 적들을 혼내줄 준비 완료! ♥ " << endl;
+    writeLog(name + "곤듀님! 체력이 " + to_string(healthIncrease) + "만큼 회복되었어요! ♥ \n이제 다시 적들을 혼내줄 준비 완료! ");
 }
 
 // 튜터에게 효과 없음
