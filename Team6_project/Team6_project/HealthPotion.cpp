@@ -5,7 +5,7 @@
 using namespace std;
 
 // 기본 생성자: 이름과 체력 증가량 초기화
-HealthPotion::HealthPotion() : name("카페인의 힘"), healthIncrease(50) {}
+HealthPotion::HealthPotion() : name("곤듀님의 핑크맛 충전캔디"), healthIncrease(50) {}
 
 // 아이템 이름 반환
 string HealthPotion::GetName() const

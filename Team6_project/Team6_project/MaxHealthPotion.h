@@ -9,7 +9,7 @@ class MaxHealthPotion : public Item
 {
 private:
     string name;    // 아이템 이름
-    string description = "캐릭터 최대 체력 증가 아이템";    // 아이템 설명
+    string description = "곤듀 최대 체력 증가 아이템";    // 아이템 설명
     int maxHealthIncrease;    // 최대 체력 증가량
     int price = 8000;   // 아이템 가격 (8000 Gold)
 

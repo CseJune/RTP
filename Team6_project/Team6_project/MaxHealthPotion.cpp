@@ -5,7 +5,7 @@
 using namespace std;
 
 // 기본 생성자: 이름과 최대 체력 증가량 초기화
-MaxHealthPotion::MaxHealthPotion() : name("헬스 트레이닝 프로그램"), maxHealthIncrease(20){}
+MaxHealthPotion::MaxHealthPotion() : name("곤듀님의 강철팬티"), maxHealthIncrease(20){}
 
 // 아이템 이름 반환
 string MaxHealthPotion::GetName() const

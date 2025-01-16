@@ -6,7 +6,7 @@
 using namespace std;
 
 //  기본 생성자: 이름과 코딩력 증가량 초기화
-CodingBooster::CodingBooster() : name("듀얼 모니터"), codingIncrease(10){}
+CodingBooster::CodingBooster() : name("곤듀님의 핑크맛 에너지 드링크"), codingIncrease(10){}
 
 // 아이템 이름 반환
 string CodingBooster::GetName() const

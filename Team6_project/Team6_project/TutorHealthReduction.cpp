@@ -5,7 +5,7 @@
 using namespace std;
 
 // 기본 생성자: 이름과 체력 감소량 초기화
-TutorHealthReduction::TutorHealthReduction() : name("코드 정리의 달인"), healthReduction(30){}
+TutorHealthReduction::TutorHealthReduction() : name("곤듀님의 귀여운 멘탈 붕괴 스티커"), healthReduction(30){}
 
 
 // 아이템 이름 반환

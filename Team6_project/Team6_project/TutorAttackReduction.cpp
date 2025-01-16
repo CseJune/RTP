@@ -5,7 +5,7 @@
 using namespace std;
 
 // 기본 생성자: 이름과 공격력 감소량 초기화
-TutorAttackReduction::TutorAttackReduction() : name("노이즈 캔슬링 헤드셋"),attackReduction(15){}
+TutorAttackReduction::TutorAttackReduction() : name("곤듀님의 버그 덩어리 코딩 주스"),attackReduction(15){}
 
 // 아이템 이름 반환
 string TutorAttackReduction::GetName() const
