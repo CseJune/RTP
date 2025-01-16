@@ -1,4 +1,4 @@
-#include "SaveManager.h"
+﻿#include "SaveManager.h"
 #include <fstream>
 #include <iostream>
 #include "ItemFactory.h"
@@ -113,3 +113,4 @@ void SaveManager::LoadInventory(ifstream& file, Inventory* inventory)
         }
     }
 } 
+

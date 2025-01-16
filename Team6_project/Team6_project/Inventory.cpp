@@ -21,7 +21,7 @@ void Inventory::displayInventory()
 const {
 	if (items.empty())
 	{
-		cout << " 인벤토리가 비어있습니다 " << endl;
+		cout << " 힝구.. 아무것도 없져용... " << endl;
 		return;
 	}
 

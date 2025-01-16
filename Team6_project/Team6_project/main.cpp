@@ -19,6 +19,14 @@ void clearScreen() {
     system("clear"); // Unix 기반 시스템에서 화면 초기화
 #endif
 }
+void nextScene() {
+    // 다음 장면으로 넘어가기 전 입력을 받음
+    cout << "\n곤듀님~ ♥ 다음 화면으로 넘어가려면 엔터를 꾹꾹 눌러주세욧! ♥" << endl;
+    cin.ignore();  // 남아있는 입력을 처리(이전 입력이 있다면)
+    cin.get();  // 사용자 입력을 받음
+
+    clearScreen();  // 화면을 지운 후 다음 장면으로 넘어감
+}
 
 void slowPrint(const string& text, int delayMs = 15) {
     for (char c : text) {

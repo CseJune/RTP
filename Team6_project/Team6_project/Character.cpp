@@ -21,7 +21,7 @@ Character* Character::getinstance(string name)
 
 // 캐릭터 초기 생성자
 Character::Character()
-	: hp(200), maxhp(200), add(30), exp(0), name(name), level(0), gold(0), inventory(new Inventory())
+	: hp(200), maxhp(200), add(10000), exp(0), name(name), level(0), gold(0), inventory(new Inventory())
 {}
 
 // display 출력 함수 구현 (인벤토리는 좀있다가)

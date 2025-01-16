@@ -10,6 +10,9 @@
 #include "Logger.h"
 #include <chrono>
 #include <thread>
+#include "SaveManager.h"
+#include <fstream>
+#include <limits>  // numeric_limits 사용
 
 using namespace std;
 
@@ -17,11 +20,137 @@ set<string> generatedTutors;// 생성된 튜터 이름을 저장하는 set (사�
 Shop* shop;  // 상점 객체 포인터
 
 void clearScreen();
+void nextScene();
 void slowPrint(const string& text, int delayMs = 1);
 
+void gameMenu(Character& character, SaveManager& saveManager) {
+	string filename = "savegame.dat";
+}
+
+//bool GameManager::SaveGameWithTutor(const string& filename) {
+//	// 세이브 매니저를 통해 캐릭터 및 인벤토리 정보 저장
+//	SaveManager saveManager;
+//	Character* character =  get character instance ;
+//	if (!saveManager.SaveGame(character, filename)) {
+//		return false; // 게임 저장 실패
+//	}
+//
+//	// 게임 매니저에서 튜터 정보 저장
+//	ofstream file(filename, ios::binary | ios::app);  // 'app' 모드로 열어 이어서 쓰기
+//	if (!file.is_open()) {
+//		cout << "파일 열기 실패!" << endl;
+//		return false;
+//	}
+//
+//	// 튜터 정보 저장
+//	string tutorName = currentTutor->getName();
+//	file.write(tutorName.c_str(), tutorName.size() + 1);
+//
+//	file.close();
+//	cout << "게임과 튜터 정보가 성공적으로 저장되었습니다!" << endl;
+//	return true;
+//}
+//
+//bool GameManager::LoadGameWithTutor(const string& filename) {
+//	// 세이브 매니저를 통해 캐릭터 및 인벤토리 정보 불러오기
+//	SaveManager saveManager;
+//	Character* character = /* get character instance */;
+//	if (!saveManager.LoadGame(character, filename)) {
+//		return false; // 게임 불러오기 실패
+//	}
+//
+//	// 게임 매니저에서 튜터 정보 불러오기
+//	ifstream file(filename, ios::binary);
+//	if (!file.is_open()) {
+//		cout << "파일 열기 실패!" << endl;
+//		return false;
+//	}
+//
+//	string tutorName;
+//	getline(file, tutorName, '\0');  // '\0'으로 끝나는 문자열 읽기
+//
+//	// 튜터 정보 생성
+//	if (player->getLevel() >= 10 && generatedTutors.find("김이진") == generatedTutors.end()) {
+//		tutorName = "김이진";
+//		writeLog("김이진 매니저 생성 ");
+//		cout << "곤듀님! 레벨 10에 도달했어요! 드디어... 보스 튜터가 나타났어요! \n";
+//		cout << "이제 곤듀님의 진짜 힘을 보여줄 때에요! " << endl;
+//		writeLog("레벨 10에 도달했습니다! 보스 튜터가 등장합니다! ");
+//	}
+//	else if (player->getLevel() == 9) {
+//		return;
+//		writeLog("강창밍 튜터 생성 ");
+//	}
+//	else if (player->getLevel() >= 8 && generatedTutors.find("강창밍") == generatedTutors.end()) {
+//		tutorName = "강창밍";
+//		writeLog("강창밍 튜터 생성 ");
+//	}
+//	else if (player->getLevel() >= 6) {
+//		if (generatedTutors.find("문승헌") == generatedTutors.end()) {
+//			tutorName = "문승헌";
+//			writeLog("문승헌 튜터 생성 ");
+//		}
+//		else if (generatedTutors.find("최만성") == generatedTutors.end()) {
+//			tutorName = "최만성";
+//			writeLog("최만성 튜터 생성 ");
+//		}
+//	}
+//	else if (player->getLevel() >= 3) {
+//		if (generatedTutors.find("한우정") == generatedTutors.end()) {
+//			tutorName = "한우정";
+//			writeLog("한우정 튜터 생성 ");
+//		}
+//		else if (generatedTutors.find("박정신") == generatedTutors.end()) {
+//			tutorName = "박정신";
+//			writeLog("박정신 튜터 생성 ");
+//		}
+//		else if (generatedTutors.find("박경후") == generatedTutors.end()) {
+//			tutorName = "박경후";
+//			writeLog("박경후 튜터 생성 ");
+//		}
+//	}
+//	else {
+//		if (generatedTutors.find("배재희") == generatedTutors.end()) {
+//			tutorName = "배재희";
+//			writeLog("배재희 매니저 생성 ");
+//		}
+//		else if (generatedTutors.find("박지민") == generatedTutors.end()) {
+//			tutorName = "박지민";
+//			writeLog("박지민 매니저 생성 ");
+//		}
+//	}
+//
+//	// 새로운 튜터를 생성
+//	if (!tutorName.empty() && generatedTutors.find(tutorName) == generatedTutors.end()) {
+//		generatedTutors.insert(tutorName);
+//
+//		if (tutorName == "김이진") {
+//			currentTutor = new BossTutor(*player, tutorName);
+//		}
+//		else if (tutorName == "강창밍") {
+//			currentTutor = new ChallengeTutor(*player, tutorName);
+//		}
+//		else if (tutorName == "문승헌" || tutorName == "최만성") {
+//			currentTutor = new StandardTutor(*player, tutorName);
+//		}
+//		else if (tutorName == "한우정" || tutorName == "박정신" || tutorName == "박경후") {
+//			currentTutor = new BasicTutor(*player, tutorName);
+//		}
+//		else if (tutorName == "배재희" || tutorName == "박지민") {
+//			currentTutor = new ManagerTutor(*player, tutorName);
+//		}
+//
+//		writeLog(tutorName + " 튜터 생성 ");
+//	}
+//
+//	file.close();
+//	cout << "게임과 튜터 정보가 성공적으로 불러와졌습니다!" << endl;
+//	return true;
+//}
 // StartGame 함수 정의
 void GameManager::StartGame(int parameter) {
 	initializeLog();
+	clearScreen(); // 화면 초기화
 	string characterName;
 	cout << "캐릭터 이름 입력: ";
 	writeLog("캐릭터 생성 ");
@@ -29,8 +158,14 @@ void GameManager::StartGame(int parameter) {
 
 	Character* player = Character::getinstance(characterName);
 	player->displayStatus();
+	nextScene();
+
+	SaveManager saveManager;  // SaveManager 인스턴스 생성
+	gameMenu(*player, saveManager); // gameMenu 호출
 
 	Tutor* currentTutor = nullptr;  // 현재 튜터 포인터
+
+
 
 	while (true) {
 		int choice;
@@ -38,15 +173,17 @@ void GameManager::StartGame(int parameter) {
 
 		if (player->getLevel() == 0)
 		{
-			cout << "\n☞ ☞ ☞ ☞ 1. 캠프 입장 ☜ ☜ ☜ ☜ \n♥ ♥ ♥ 2. 인벤토리 열기 ♥ ♥ ♥ \n♡ ♡ ♡ ♡ 3. 상점 입장 ♡ ♡ ♡ ♡ \n☞ ☞ ☞ ☞ 4. 캠프 탈주 ☜ ☜ ☜ ☜ \n선택: ";
+			cout << "☞ ☞ ☞ ☞ 1. 캠프 입장 ☜ ☜ ☜ ☜ \n♥ ♥ ♥ 2. 인벤토리 열기 ♥ ♥ ♥ \n♡ ♡ ♡ ♡ 3. 상점 입장 ♡ ♡ ♡ ♡ \n☞ ☞ ☞ ☞ 4. 캠프 탈주 ☜ ☜ ☜ ☜  ";
 			cin >> choice;
+			nextScene();
 		}
 		else {
-			cout << "\n1. 전투를 시작해서 적들을 혼내줄래요! \n2. 곤듀님의 귀여운 인벤토리를 열어볼까요? \n3. 상점에 가서 곤듀님 취향저격 아이템 쇼핑! \n4. 곤듀님, 캠프에서 탈출하실 거예요? \n선택: ";
+			cout << "1. 전투를 시작해서 적들을 혼내줄래요! \n2. 곤듀님의 귀여운 인벤토리를 열어볼까요? \n3. 상점에 가서 곤듀님 취향저격 아이템 쇼핑! \n4. 곤듀님, 캠프에서 탈출하실 거예요?  \n곤듀의 선택: ";
 			cin >> choice;
 		}
 
 		if (player->getLevel() == 9 && choice == 1) {
+			clearScreen();
 			cout << "실력이 부족하군요.\n";
 			cout << "무엇이 부족한지 생각해 보셨나요?\n";
 			cout << "당신 혼자선 불가능합니다.\n";
@@ -76,22 +213,24 @@ void GameManager::StartGame(int parameter) {
 			this_thread::sleep_for(chrono::seconds(2));
 			cout << " ♥ ♥ ♥ ♥ ♥ ♥ 대기업 추천서를 얻쟈 ♥ ♥ ♥ ♥ ♥ ♥ " << endl;
 			this_thread::sleep_for(chrono::seconds(2));
+			nextScene();*/
 
-			slowPrint ("환생했더니 군필여고생이 튜터님을 죽일 수 밖에 없었던 이유♥ ");*/
+			slowPrint ("환생했더니 군필여고생이 튜터님을 죽일 수 밖에 없었던 이유♥ ");
 			player->setLevel(1);
 			cout << "\n곤듀! 스파르타 세상에 등쟝!\n";
 			cout << "곤듀가 레벨 1로 환생하였습니다." << endl;
 			writeLog("곤듀! 스파르타 세상에 등쟝! ");
+			nextScene();
 		}
 		else if (player->getLevel() == 0 && choice == 2) {
-			cout << "\n곤쥬님~ 이 중에서 찰떡템 골라볼까요? : \n";
+			cout << "곤쥬님~ 이 중에서 찰떡템 골라볼까요? : \n";
 			writeLog("곤듀만의 비밀 상점 목록 ");
 			/*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
 			writeLog("1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. TutorHealthReduction\n");
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
 			inventory->displayInventory();
-			cout << " 곤듀의 선택! : ";
+			cout << "곤듀님의 귀여운 인벤토리를 닫아볼까요 ? ♥(0)♥ \n";
 			writeLog("아이템 선택! ");
 			int itemChoice;
 			cin >> itemChoice;
@@ -108,7 +247,7 @@ void GameManager::StartGame(int parameter) {
 				}
 			}
 			else {
-				clearScreen();
+				nextScene();
 				cout << "이런! 곤듀님, 잘못된 선택이에요!\n";
 			}
 		}
@@ -117,11 +256,11 @@ void GameManager::StartGame(int parameter) {
 			cout << "\n1. 네\n2. 아니요\n선택:";
 			cin >> LeaveCamp;
 			if (LeaveCamp == 2) {
-				clearScreen();
+				nextScene();
 				slowPrint("좋은 선택이야♥ 곤듀는 빨간불에도 멈추지 않는다고 Boy~♥\n");
 			}
 			else if (LeaveCamp == 1) {
-				clearScreen();
+				nextScene();
 				slowPrint ("어.딜.도.망.가? 곤듀는 빨간불에도 멈추지 않는다고 Boy~♥\n");
 			}
 		}
@@ -132,9 +271,11 @@ void GameManager::StartGame(int parameter) {
 			{
 				shop = new Shop();
 			}
+	
 
 			while (true) {
-				/* cout << "\n===== 상점 =====\n";*/
+				clearScreen();
+				cout << "===== 상점 =====" << endl;
 				shop->displayItems(player);  // 상점 아이템 목록 표시
 				writeLog("상점 입장 ");
 				cout << "\n1. 곤듀님의 쇼핑타임! 아이템을 사서 힘을 키워요!\n2. 아이템 팔아서 귀여운 곤듀님만의 재산을 쌓아요!\n3. 아쉽지만, 상점은 잠시 안녕! 새로운 모험을 떠나요!\n 곤듀의 선택: ";
@@ -155,6 +296,7 @@ void GameManager::StartGame(int parameter) {
 				}
 				else if (shopChoice == 2) {  // 아이템 판매
 					// 인벤토리에서 판매 가능한 아이템 목록 출력
+					clearScreen();
 					Inventory* inventory = player->getInventory();
 					cout << "곤듀님! 판매 가능한 아이템 목록이에요~!\n";
 					inventory->displayInventory();  // 인벤토리에서 아이템 목록 출력
@@ -166,6 +308,7 @@ void GameManager::StartGame(int parameter) {
 					if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
 						string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 						shop->sellItem(player, itemName);  // 아이템 판매 처리
+						clearScreen();
 						cout << "아이템을 팔았어요! 이제 곤듀님은 돈도 많이 벌어요~!\n";
 						writeLog( "아이템을 팔았어요! 이제 곤듀님은 돈도 많이 벌어요~!\n");
 						break;  // 상점에서 나가기
@@ -176,6 +319,7 @@ void GameManager::StartGame(int parameter) {
 				}
 				else if (shopChoice == 3) {  // 상점 나가기
 					writeLog("상점 나가기 ");
+					clearScreen();
 					break;  // 상점에서 나가기
 				}
 				else {
@@ -303,7 +447,9 @@ void GameManager::StartGame(int parameter) {
 			}
 		}
 		else if (choice == 2) {
-			cout << "\n아이템 목록:\n";
+			clearScreen();
+			cout << "곤쥬님~ 이 중에서 찰떡템 골라볼까요? : \n";
+			cout << "아이템 목록:\n";
 			/*cout << "1. HealthPotion\n2. CodingBooster\n3. MaxHealthPotion\n4. TutorAttackReduction\n5. ChatGPT\n";*/
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
@@ -316,11 +462,13 @@ void GameManager::StartGame(int parameter) {
 			}
 			int itemChoice;
 			cin >> itemChoice;
+			nextScene();
 
 			// 인덱스를 확인하고 아이템 선택 후 사용
 			if (itemChoice >= 1 && itemChoice <= inventory->getItemCount()) {
 				string itemName = inventory->getItemNameByIndex(itemChoice - 1);  // 아이템 이름을 인덱스로부터 얻음
 				if (inventory->useItem(itemName, player, currentTutor)) {  // 선택한 아이템 사용
+					nextScene();
 					/*cout << "아이템 사용 성공!\n";*/
 				}
 				else {
@@ -330,20 +478,33 @@ void GameManager::StartGame(int parameter) {
 			else if (itemChoice == 0)
 			{
 				cout << "곤듀님의 귀여운 인벤토리를 닫았어요!.\n";
+				nextScene();
 			}
 			else
 			{
 				cout << "이런! 곤듀님, 잘못된 선택이에요! \n";
+				nextScene();
 			}
 
 
 		}
 		else if (choice == 4) {
-			cout << "게임 종료!\n";
 			if (currentTutor != nullptr) {
 				delete currentTutor;
 			}
 			break;
+		}
+		else if (choice == 5) {
+			string filename = "savegame.dat";
+			saveManager.SaveGame(player,filename);  // 게임 저장
+			cout << "게임이 저장되었습니다!\n";
+			writeLog("게임 저장 완료 ");
+		}
+		else if (choice == 6) {
+			string filename = "savegame.dat";
+			saveManager.LoadGame(player, filename);  // 게임 불러오기
+			cout << "게임이 불러와졌습니다!\n";
+			writeLog("게임 불러오기 완료 ");
 		}
 		else {
 			cout << "이런! 곤듀님, 잘못된 선택이에요! 다시 선택해볼까요?\n";
@@ -415,28 +576,34 @@ void GameManager::battle(Character& A, Tutor& B) {
 
 	while (A.getHp() > 0 && B.getHp() > 0)
 	{
+		clearScreen();
 		cout << "곤듀님 출동♥ 상대를 함락시킬 시간이에요♥ (♥)`ω´(♥) \n";
+		this_thread::sleep_for(chrono::seconds(1));
 
 		// 플레이어가 공격
 		int playerDamage = A.getAdd();
 		B.takeDamage(playerDamage);
 		cout << A.getName() << "곤듀의 화려한 코딩 테크닉을 받아랏~♥ \n";
+		this_thread::sleep_for(chrono::seconds(1));
 		writeLog(A.getName() + "곤듀의 화려한 코딩 테크닉을 받아랏~♥ ");
 		cout << A.getName() << "곤듀가 " << B.getName() << "에게 " << playerDamage << "의 피해를 주었어요~♥ 곤듀님, 너무 귀엽지만 강해요! \n";
+		this_thread::sleep_for(chrono::seconds(1));
 		writeLog(A.getName() + "곤듀가 " + B.getName() + "에게 " + to_string(playerDamage) + "의 피해를 주었어요~♥ 곤듀님, 너무 귀엽지만 강해요! ");
 
 		// 전투 종료 조건 확인
 		if (B.getHp() <= 0) {
 			cout << B.getName() << "을(를) 핑크빛 코딩력으로 함락시켰습니다♥ \n";
+			this_thread::sleep_for(chrono::seconds(1));
 			writeLog(B.getName() + "을(를) 핑크빛 코딩력으로 함락시켰습니다♥ ");
 			Character* player = Character::getinstance();
 			Inventory* inventory = player->getInventory();
 			inventory->dropItem(B.getItem());
-
+			nextScene();
 			A.setGold(A.getGold() + B.getGold()); // 보상
 			A.setExp(A.getExp() + 100); // 경험치 획득
 			// 현재 상태 출력
 			A.displayStatus();
+			nextScene();
 
 			//cout << "\n" << A.getName() << "의 레벨: " << A.getLevel() << endl;
 			//cout << A.getName() << "의 체력: " << A.getHp() << endl;
@@ -446,19 +613,25 @@ void GameManager::battle(Character& A, Tutor& B) {
 			// 보스 튜터 처치 확인
 			if (B.getType() == TutorType::Boss) { // isBoss()는 Tutor 클래스의 함수로, 보스 여부 확인
 				cout << "축하합니다! 김이진 매니저님에게 ♥인정♥받았습니다. \n";
+				this_thread::sleep_for(chrono::seconds(1));
 				cout << "김이진 매니저님이 제출한 과제를 보고 기쁨의 눈물을 흘립니다. \n";
+				this_thread::sleep_for(chrono::seconds(1));
 				cout << "김이진 매니저 : 이제 스파르타 캠프를 졸업하셔도 되겠군요... \n";
+				this_thread::sleep_for(chrono::seconds(1));
 				cout << "주인공 : 드디어 대기업 입사 추천서를 주시는 건가요? \n";
+				this_thread::sleep_for(chrono::seconds(1));
 				cout << "김이진 매니저 : 네♥ 지금 드리겠습니다. 하지만 마음이 바뀌신다면.. 스파르타는 항상 열려있습니다. \n";
-
+				this_thread::sleep_for(chrono::seconds(1));
+				
 
 				//분기 1 대기업 추천서 받기
-				cout << " 1. 곤듀님, 대기업에 입사할 준비가 됐어~ ♥ " << endl;
+				cout << "\n 1. 곤듀님, 대기업에 입사할 준비가 됐어~ ♥ " << endl;
 				cout << " 2. 스파르타의 전설, 곤듀님과 함께 시작합니다~ ♥ " << endl;
 				int choice = 0;
 				cin >> choice;
 				if (choice == 1)
 				{
+					clearScreen();
 					slowPrint ( "대기업 입사 추천서를 받았습니다.\n");
 					slowPrint ( "곤듀는 대기업 입사 추천서를 가지고 C기업에 지원했으나 면접에서 외모로 인해 탈락했다. \n");
 					slowPrint ( "결국 곤듀는 프로그래머가 아닌 군인의 길을 걷기로 결정했다. \n");
@@ -467,6 +640,7 @@ void GameManager::battle(Character& A, Tutor& B) {
 				//분기 2 대기업 추천서 받지 않기
 				else if(choice == 2)
 				{
+					clearScreen();
 					slowPrint ( "대기업 입사 추천서를 거절했습니다.\n");
 					slowPrint ("곤듀는 매니저님에 말에 따라 스파르타 회사에 들어가기로 결정했다.\n");
 					slowPrint ( "곤듀의 특출난 외모덕분에 강의가 너무 재밌어 수강생들의 실력이 대폭 향상되었다.\n");
@@ -485,8 +659,10 @@ void GameManager::battle(Character& A, Tutor& B) {
 		int tutorDamage = B.getAdd();
 		A.takeDamage(tutorDamage);
 		cout << " ♥ 이 귀여운 실수들은 일부러 한 거지? 혹시 내가 고쳐주길 바랐던 건가? ♥ \n";
+		this_thread::sleep_for(chrono::seconds(1));
 		writeLog(" ♥ 이 귀여운 실수들은 일부러 한 거지? 혹시 내가 고쳐주길 바랐던 건가? ♥ ");
 		cout << B.getName() << "이(가) " << A.getName() << "곤듀에게 " << tutorDamage << "의 피해를 입혔어요! 으앙, 너무 아프잖아요! \n";
+		this_thread::sleep_for(chrono::seconds(1));
 		writeLog(B.getName() + "이(가) " + A.getName() + "곤듀에게 " + to_string(tutorDamage) + "의 피해를 입혔어요! 으앙, 너무 아프잖아요! ");
 
 		// 전투 종료 조건 확인
@@ -501,9 +677,10 @@ void GameManager::battle(Character& A, Tutor& B) {
 		// 현재 상태 출력
 		cout << "\n" << A.getName() << "의 체력: " << A.getHp() << endl;
 		cout << B.getName() << "의 체력: " << B.getHp() << endl;
+		nextScene();
 
 		// 턴 종료 후 메뉴로 복귀
-		cout << "\n곤듀의 선택! \n";
+		cout << "곤듀의 선택! \n";
 		writeLog("곤듀의 선택! ");
 		return; // 메뉴로 복귀
 	}

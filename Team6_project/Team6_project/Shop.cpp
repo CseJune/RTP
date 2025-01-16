@@ -55,7 +55,6 @@ void Shop::initializeShopItems()
 // 상점 아이템 목록 출력
 void Shop::displayItems(Character* player) const
 {
-    cout << "===== 상점 =====" << endl;
     for (size_t i = 0; i < availableItems.size(); ++i)
     {
         cout << i + 1 << ". " << availableItems[i]->GetName() << " (" << availableItems[i]->GetDescription()
