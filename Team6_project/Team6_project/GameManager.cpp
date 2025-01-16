@@ -108,6 +108,7 @@ void GameManager::StartGame(int parameter) {
 				}
 			}
 			else {
+				clearScreen();
 				cout << "이런! 곤듀님, 잘못된 선택이에요!\n";
 			}
 		}
@@ -116,10 +117,12 @@ void GameManager::StartGame(int parameter) {
 			cout << "\n1. 네\n2. 아니요\n선택:";
 			cin >> LeaveCamp;
 			if (LeaveCamp == 2) {
-				cout << "좋은 선택이야♥ 곤듀는 빨간불에도 멈추지 않는다고 Boy~♥";
+				clearScreen();
+				slowPrint("좋은 선택이야♥ 곤듀는 빨간불에도 멈추지 않는다고 Boy~♥\n");
 			}
 			else if (LeaveCamp == 1) {
-				cout << "어.딜.도.망.가? 곤듀는 빨간불에도 멈추지 않는다고 Boy~♥";
+				clearScreen();
+				slowPrint ("어.딜.도.망.가? 곤듀는 빨간불에도 멈추지 않는다고 Boy~♥\n");
 			}
 		}
 		else if (choice == 3) {
