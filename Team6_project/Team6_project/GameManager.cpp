@@ -21,6 +21,7 @@ Shop* shop;  // 상점 객체 포인터
 
 void clearScreen();
 void nextScene();
+void nextScene1();
 void slowPrint(const string& text, int delayMs = 1);
 
 void gameMenu(Character& character, SaveManager& saveManager) {
@@ -158,7 +159,7 @@ void GameManager::StartGame(int parameter) {
 
 	Character* player = Character::getinstance(characterName);
 	player->displayStatus();
-	nextScene();
+	nextScene1();
 
 	SaveManager saveManager;  // SaveManager 인스턴스 생성
 	gameMenu(*player, saveManager); // gameMenu 호출
@@ -175,7 +176,7 @@ void GameManager::StartGame(int parameter) {
 		{
 			cout << "☞ ☞ ☞ ☞ 1. 캠프 입장 ☜ ☜ ☜ ☜ \n♥ ♥ ♥ 2. 인벤토리 열기 ♥ ♥ ♥ \n♡ ♡ ♡ ♡ 3. 상점 입장 ♡ ♡ ♡ ♡ \n☞ ☞ ☞ ☞ 4. 캠프 탈주 ☜ ☜ ☜ ☜  ";
 			cin >> choice;
-			nextScene();
+			nextScene1();
 		}
 		else {
 			cout << "1. 전투를 시작해서 적들을 혼내줄래요! \n2. 곤듀님의 귀여운 인벤토리를 열어볼까요? \n3. 상점에 가서 곤듀님 취향저격 아이템 쇼핑! \n4. 곤듀님, 캠프에서 탈출하실 거예요?  \n곤듀의 선택: ";
@@ -184,9 +185,9 @@ void GameManager::StartGame(int parameter) {
 
 		if (player->getLevel() == 9 && choice == 1) {
 			clearScreen();
-			cout << "실력이 부족하군요.\n";
-			cout << "무엇이 부족한지 생각해 보셨나요?\n";
-			cout << "당신 혼자선 불가능합니다.\n";
+			cout << "히잉~ 공듀는 넘모 약쿠...\n";
+			cout << "모가 부족한지 생각해봐쪄?\n";
+			cout << "혼자는 무리무리!\n";
 			writeLog("실력이 부족하군요. 무엇이 부족한지 생각해 보셨나요? 당신 혼자선 불가능합니다.");
 		}
 		
@@ -218,6 +219,7 @@ void GameManager::StartGame(int parameter) {
 			slowPrint ("환생했더니 군필여고생이 튜터님을 죽일 수 밖에 없었던 이유♥ ");
 			player->setLevel(1);
 			cout << "\n곤듀! 스파르타 세상에 등쟝!\n";
+			this_thread::sleep_for(chrono::seconds(2));
 			std::cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n";
 			std::cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n";
 			std::cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&$XXxx++++++xxXX&&&&&&&&&&&&&&&&&&&&&&&&&&&\n";
@@ -259,6 +261,7 @@ void GameManager::StartGame(int parameter) {
 			std::cout << "&&&&X&&;++++++++++++++++++++x&&&&+:::++++;;+x&&&&++++++;++++++++++++++x&;&&\n";
 			std::cout << "&&&&&+X++++++++++++++;+++++++&&&$x;:++++++;+X$&&X++++++++++++++++++++;;$$&&\n";
 			std::cout << "&&&&&&:;;+++++++++++;+++++++xX&&X&&x;+++;;X&&$$&xx;+++++;+++++++++++;;;+&&&\n";
+			this_thread::sleep_for(chrono::seconds(1));
 			cout << "곤듀가 레벨 1로 환생하였습니다." << endl;
 			writeLog("곤듀! 스파르타 세상에 등쟝! ");
 			nextScene();
@@ -616,6 +619,8 @@ void GameManager::battle(Character& A, Tutor& B) {
 	while (A.getHp() > 0 && B.getHp() > 0)
 	{
 		clearScreen();
+		cout << "잉~ 야생의 " << B.getName() << "이(가) 나왔다구욧! 무섭쟈나~" << endl;
+		this_thread::sleep_for(chrono::seconds(1));
 		cout << "곤듀님 출동♥ 상대를 함락시킬 시간이에요♥ (♥)`ω´(♥) \n";
 		this_thread::sleep_for(chrono::seconds(1));
 
@@ -684,6 +689,7 @@ void GameManager::battle(Character& A, Tutor& B) {
 					slowPrint ("곤듀는 매니저님에 말에 따라 스파르타 회사에 들어가기로 결정했다.\n");
 					slowPrint ( "곤듀의 특출난 외모덕분에 강의가 너무 재밌어 수강생들의 실력이 대폭 향상되었다.\n");
 					slowPrint ( "♥ ♥ ♥ ♥ ♥ ♥ ♥ 스 빠 루 따! ♥ ♥ ♥ ♥ ♥ ♥ ♥ \n");
+					this_thread::sleep_for(chrono::seconds(2));
 								string asciiArt =
         "......................................................................................................\n"
         "......................................................................................-...............\n"
